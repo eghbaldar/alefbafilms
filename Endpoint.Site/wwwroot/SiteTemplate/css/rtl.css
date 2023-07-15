@@ -1,0 +1,139 @@
+@font-face {
+    font-family: Yekan Bakh FaNum;
+    font-style: normal;
+    font-weight: 100;
+    src: url('../fonts/woff/YekanBakhFaNum-thin.woff') format('woff'),
+    url('../fonts/woff2/YekanBakhFaNum-thin.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: Yekan Bakh FaNum;
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/woff/YekanBakhFaNum-Light.woff') format('woff'),
+    url('../fonts/woff2/YekanBakhFaNum-Light.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: Yekan Bakh FaNum;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/woff/YekanBakhFaNum-Regular.woff') format('woff'),
+    url('../fonts/woff2/YekanBakhFaNum-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: Yekan Bakh FaNum;
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/woff/YekanBakhFaNum-SemiBold.woff') format('woff'),
+    url('../fonts/woff2/YekanBakhFaNum-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: Yekan Bakh FaNum;
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/woff/YekanBakhFaNum-Bold.woff') format('woff'),
+    url('../fonts/woff2/YekanBakhFaNum-Bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: Yekan Bakh FaNum;
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/woff/YekanBakhFaNum-ExtraBold.woff') format('woff'),
+    url('../fonts/woff2/YekanBakhFaNum-ExtraBold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: Yekan Bakh FaNum;
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/woff/YekanBakhFaNum-Black.woff') format('woff'),
+    url('../fonts/woff2/YekanBakhFaNum-Black.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: Yekan Bakh FaNum;
+    font-style: normal;
+    font-weight: 950;
+    src: url('../fonts/woff/YekanBakhFaNum-ExtraBlack.woff') format('woff'),
+    url('../fonts/woff2/YekanBakhFaNum-ExtraBlack.woff2') format('woff2');
+}
+
+:root, * {
+    letter-spacing: 0 !important;
+}
+
+.text-heading-1, h1, h2, h3, h4, h5, h6, .font-heading, .display-1, .display-2, .heading-lg, .heading-sm-1 {
+    font-family: "Yekan Bakh FaNum", serif;
+}
+
+body {
+    font-family: "Yekan Bakh FaNum", serif;
+    font-feature-settings: "kern" on, "liga" on, "dlig" on;
+    -moz-font-feature-settings: "kern" on, "liga" on, "dlig" on;
+    -webkit-font-feature-settings: "kern" on, "liga" on, "dlig" on;
+    -ms-font-feature-settings: "kern" on, "liga" on, "dlig" on;
+    -o-font-feature-settings: "kern" on, "liga" on, "dlig" on;
+}
+
+.footer .footer-bottom a {
+    display: inline-block;
+}
+
+.icon-arrow-right {
+    background-image: url(../imgs/template/icons/arrow-small-left.svg);
+    background-position: center left 25px;
+    padding-right: 32px;
+    padding-left: 56px;
+}
+.header-style-2 .btn-default,.icon-arrow-right:hover,
+.btn.btn-green-900:hover,.btn.btn-newsletter,
+.block-pricing-2 .box-pricing-item:hover .btn.btn-black,
+.block-pricing-2 .box-pricing-item.active .btn.btn-black,
+.btn.btn-default:hover {
+    background-image: url(../imgs/template/icons/arrow-small-left-white.svg) !important;
+}
+.header-style-5 .btn-default,
+.icon-arrow-right-white {
+    background-image: url(../imgs/template/icons/arrow-small-left-white.svg);
+}
+.btn.btn-explorer{
+    background-size: 12px;
+}
+.btn.btn-black.icon-arrow-right-white:hover:hover {
+    background-image: url(../imgs/template/icons/arrow-small-left.svg);
+}
+
+.box-newsletter .btn-send {
+    background-position: unset;
+}
+.btn.btn-round-icon{
+    background-position: right 0px top 0px;
+}
+.product-item-1 .product-info .price-regular {
+    font-size: 16px;
+}
+
+.nav-breadcrums .breadcrumb ul li:not(.home) {
+    background-position: right 5px top 5px;
+    background-size: 15px;
+}
+
+.btn-filter {
+    padding: 14px 30px 13px 55px;
+}
+
+#slider-range {
+    direction: ltr;
+}
+
+.noUi-horizontal .noUi-handle {
+    left: -7px;
+}
+
+.noUi-horizontal .noUi-handle {
+    left: -8px;
+}

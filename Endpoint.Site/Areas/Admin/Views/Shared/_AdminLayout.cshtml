@@ -1,0 +1,283 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>مدیریت محتوا - پنل اختصاصی ای‌ایی‌استودیو</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta content="علیمحمد اقبالدار - Alimohammad Eghbaldar" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <!-- Plugin css -->
+    <!-- App css -->
+    <link href="~/admintemplate/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/admintemplate/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/admintemplate/css/app-rtl.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/admintemplate/css/fontiran.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Topbar Start -->
+        <div class="navbar-custom">
+            <ul class="list-unstyled topnav-menu float-right mb-0">
+
+                <li class="dropdown notification-list">
+                    <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <img src="~/admintemplate/images/users/user-1.jpg" alt="تصویر کاربر" class="rounded-circle">
+                        <span class="pro-user-name ml-1">
+                            قائم <i class="mdi mdi-chevron-down"></i>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                        <!-- item-->
+                        <div class="dropdown-header noti-title">
+                            <h6 class="text-overflow m-0">خوش اومدی!</h6>
+                        </div>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="fe-user"></i>
+                            <span>حساب کاربری</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="fe-settings"></i>
+                            <span>تنظیمات</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="fe-lock"></i>
+                            <span>قفل کردن صفحه</span>
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="fe-log-out"></i>
+                            <span>خروج</span>
+                        </a>
+
+                    </div>
+                </li>
+
+            </ul>
+
+            <!-- LOGO -->
+            <div class="logo-box">
+                <a href="index.html" class="logo text-center">
+                    <span class="logo-lg">
+                        <img src="~/admintemplate/images/logo-dark.png" alt="تصویر" height="16">
+                        <!-- <span class="logo-lg-text-light">Xeria</span> -->
+                    </span>
+                    <span class="logo-sm">
+                        <!-- <span class="logo-sm-text-dark">X</span> -->
+                        <img src="~/admintemplate/images/logo-sm.png" alt="تصویر" height="24">
+                    </span>
+                </a>
+            </div>
+
+            <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+                <li>
+                    <button class="button-menu-mobile disable-btn waves-effect">
+                        <i class="fe-menu"></i>
+                    </button>
+                </li>
+
+                <li>
+                    <h4 class="page-title-main">تقویم</h4>
+                </li>
+
+            </ul>
+        </div>
+        <!-- end Topbar -->
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left-side-menu">
+
+            <div class="slimscroll-menu">
+
+                <!-- User box -->
+                @{
+                    await Html.RenderPartialAsync("_MainInfoUserPartial");
+                }
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+
+                    <ul class="metismenu" id="side-menu">
+
+                        <li class="menu-title">منوی دسترسی</li>
+
+
+
+                        <li>
+                            <a href="javascript: void(0);">
+                                <i class="mdi mdi-invert-colors"></i>
+                                <span>مدیریت کاربران</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="~/admin/users/index">لیست کاربران</a></li>
+                                <li><a href="~/admin/users/create">افزودن کاربر جدید</a></li>
+
+                            </ul>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+                <!-- End Sidebar -->
+
+                <div class="clearfix"></div>
+
+            </div>
+            <!-- Sidebar -left -->
+
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    @RenderBody()
+                                </div> <!-- end col -->
+                            </div>  <!-- end row -->
+                            <!-- BEGIN MODAL -->
+                            <div class="modal fade none-border" id="event-modal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title mt-0"><strong>افزودن رویداد جدید</strong></h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        </div>
+                                        <div class="modal-body"></div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">بستن</button>
+                                            <button type="button" class="btn btn-success save-event waves-effect waves-light">ایجاد رویداد</button>
+                                            <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">پاک کردن</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal Add Category -->
+                            <div class="modal fade none-border" id="add-category">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title mt-0"><strong>افزودن دسته بندی </strong></h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form role="form">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="control-label">نام دسته بندی</label>
+                                                        <input class="form-control form-white" placeholder="نام را وارد کنید" type="text" name="category-name" />
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label class="control-label">رنگ دسته بندی</label>
+                                                        <select class="form-control form-white" data-placeholder="یک رنگ را انتخاب کنید..." name="category-color">
+                                                            <option value="success">موفقیت</option>
+                                                            <option value="danger">خطر</option>
+                                                            <option value="info">اطلاعات</option>
+                                                            <option value="pink">صورتی</option>
+                                                            <option value="primary">اصلی</option>
+                                                            <option value="warning">هشدار</option>
+                                                            <option value="inverse">معکوس</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">بستن</button>
+                                            <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">ذخیره</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END MODAL -->
+                        </div>
+                        <!-- end col-12 -->
+                    </div> <!-- end row -->
+
+                </div> <!-- container-fluid -->
+
+            </div> <!-- content -->
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            فارسی شده توسط <a href="mailto:ghaemomidi@yahoo.com">قائم امیدی</a>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                                <a href="javascript:void(0);">درباره ما</a>
+                                <a href="javascript:void(0);">راهنما</a>
+                                <a href="javascript:void(0);">تماس با ما</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay"></div>
+
+    <!-- Vendor js -->
+    <script src="~/admintemplate/js/vendor.min.js"></script>
+
+    <!-- fullcalendar plugins -->
+    <script src="~/admintemplate/libs/moment/moment.js"></script>
+    <script src="~/admintemplate/libs/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/admintemplate/libs/fullcalendar/fullcalendar.min.js"></script>
+
+    <!-- fullcalendar js -->
+    <script src="~/admintemplate/js/pages/fullcalendar.init.js"></script>
+
+    <!-- App js -->
+    <script src="~/admintemplate/js/app.min.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="~/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="~/sweetalert/sweetalert2.min.js"></script>
+    <link href="~/sweetalert/sweetalert2.min.css" rel="stylesheet" />
+
+    <!-- Render Section -->
+    @RenderSection("Scripts",required: false)
+    @RenderSection("Modals",required:false)
+
+</body>
+</html>

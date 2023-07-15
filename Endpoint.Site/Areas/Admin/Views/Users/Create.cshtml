@@ -1,0 +1,134 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content">
+
+    <!-- Start Content-->
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card-box">
+                    <h4 class="m-t-0 header-title">اضافه کردن کاربر جدید</h4>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="p-2">
+
+                                <div class="form-group row">
+                                    <label class="col-sm-2  col-form-label" for="simpleinput">نام کامل کاربر:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="txtFullname" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2  col-form-label" for="example-email">ایمیل:</label>
+                                <div class="col-sm-10">
+                                    <input type="email" id="txtEmail" name="example-email" class="form-control" placeholder="ایمیل">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2  col-form-label" for="example-password">رمز عبور:</label>
+                                <div class="col-sm-10">
+                                    <input type="password" id="txtPassword" class="form-control" value="password">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2  col-form-label" for="example-password">تکرار رمز عبور:</label>
+                                <div class="col-sm-10">
+                                    <input type="password" id="txtrePassword" class="form-control" value="password">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2  col-form-label">نقش کاربر</label>
+                                <div class="col-sm-10">
+                                    <select class="custom-select" id="RoleId" name="Role"
+                                            asp-items="@ViewBag.Roles">
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="Register()" class="btn btn-primary">درج کاربر</button>
+                </div>
+
+            </div>
+            <!-- end row -->
+
+        </div> <!-- end card-box -->
+    </div><!-- end col -->
+</div>
+
+
+@section Scripts
+    {
+    <script>
+        function Register() {
+            Swal.fire({
+                title: 'ثبت نام کاربر!',
+                text: 'مایل به ثبت کاربر جدید هستید؟',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#000222',
+                cancelButtonColor: '#000222',
+                confirmButtonText: 'بله انجام شود',
+                cancelButtonText: 'خیر'
+            }).then((result) => {
+                if (result.value) {
+
+                    var fullname = $("#txtFullname").val();
+                    var email = $("#txtEmail").val();
+                    var password = $("#txtPassword").val();
+                    var role = $("#RoleId").val();
+
+                    var postData = {
+                        'fullname': fullname,
+                        'email': email,
+                        'password': password,
+                        'roleId': role,
+                    };
+
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: 'POST',
+                        url: 'Create', // IActionResult's name in this route! if you would call an action from another route, you had to add new route before the "Create"
+                        data: postData,
+                        success: function (data) { //returned value as json format from backend! [this code:  return Json(result); from UserController.cs]
+                            if (data.isSuccess == true) {
+                                swal.fire(
+                                    'موفق',
+                                    data.message,
+                                    'success'
+                                ).then(function (isConfirm) {
+                                    location.reload();
+                                });
+                            }
+                            else // if success is not happend!
+                            {
+                                swal.fire(
+                                    'هشدار',
+                                    data.message,
+                                    'warning'
+                                );
+                            }
+                        },
+                        error: function (request, status, error){
+                            alert(request.responseText);
+                        }
+                    });
+                }
+                else {
+                    Swal.fire('NO');
+                }
+            });
+        }
+    </script>
+}
