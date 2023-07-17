@@ -1,4 +1,5 @@
-﻿using alefbafilms.application.Services.Users.Commands.ActiveUsers;
+﻿using alefbafilm6.Application.Interfaces.FacadePattern;
+using alefbafilms.application.Services.Users.Commands.ActiveUsers;
 using alefbafilms.application.Services.Users.Commands.DeleteUsers;
 using alefbafilms.application.Services.Users.Commands.PostUsers;
 using alefbafilms.application.Services.Users.Commands.UpdateUsers;
@@ -18,34 +19,18 @@ namespace Endpoint.site.Areas.Admin.Controllers
     [Authorize(RoleConsts.Admin)]
     public class UsersController : Controller
     {
-        // Injection of IGetUserService to this Controller
-        private readonly IGetUsersService _getUsersService;
-        private readonly IGetRolesService _getRolesService;
-        private readonly IPostUserService _postUserService;
-        private readonly IDeleteUsersService _deleteUsersService;
-        private readonly IActiveUserService _activeUserService;
-        private readonly IUpdateUsersService _updateUsersService;
-        public UsersController(
-            IGetUsersService getUsersService,
-            IGetRolesService getRolesService,
-            IPostUserService postUserService,
-            IDeleteUsersService deleteUsersService,
-            IActiveUserService activeUserService,
-            IUpdateUsersService updateUsersService)
+        // Injection of IUserFacade to this Controller
+        private readonly IUserFacade _userFacade;
+        public UsersController(IUserFacade userFacade)
         {
-            _getUsersService = getUsersService;
-            _getRolesService = getRolesService;
-            _postUserService = postUserService;
-            _deleteUsersService = deleteUsersService;
-            _activeUserService = activeUserService;
-            _updateUsersService = updateUsersService;
+            _userFacade = userFacade;
         }
         // End of Injection
 
         [HttpGet]
         public IActionResult Index(String SearchKey, int page=1)
         {
-            return View(_getUsersService.Execute(new RequestGetUsersDto
+            return View(_userFacade.GetUsersService.Execute(new RequestGetUsersDto
             {
                 KeySearch = SearchKey,
                 Page = page,
@@ -55,7 +40,7 @@ namespace Endpoint.site.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Index(long IdUser)
         {
-            return Json(_deleteUsersService.Execute(new RequestDeleteUserDto
+            return Json(_userFacade.DeleteUserService.Execute(new RequestDeleteUserDto
             {
                 IdUser = IdUser
             }));
@@ -67,13 +52,13 @@ namespace Endpoint.site.Areas.Admin.Controllers
         public IActionResult Create()
         {
             //ViewBag.Roles = _getRolesService.Execute(); //Accoring to this code you have to create your own selector-control for example with <a></a> or stuff like that!
-            ViewBag.Roles = new SelectList(_getRolesService.Execute(), "Id", "Name");
+            ViewBag.Roles = new SelectList(_userFacade.GetRolesService.Execute(), "Id", "Name");
             return View();
         }
         [HttpPost]
         public IActionResult Create(string Fullname, string Email, string Password, long roleId)
         {
-            var result = _postUserService.Execute(new RequestPostUserDto
+            var result = _userFacade.PostUserService.Execute(new RequestPostUserDto
             {
                 Fullname = Fullname,
                 Password = Password,
@@ -94,7 +79,7 @@ namespace Endpoint.site.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult ActiveUser(long IdUser)
         {
-            return Json(_activeUserService.Execute(new RequestActiveUserDto
+            return Json(_userFacade.ActiveUserService.Execute(new RequestActiveUserDto
             {
                 IdUser = IdUser
             }));
@@ -103,7 +88,7 @@ namespace Endpoint.site.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult UpdateUser(long IdUser, string Fullname, string Email, string Password)
         {
-            return Json(_updateUsersService.Execute(new RequestUpdateUserDto
+            return Json(_userFacade.UpdateUsersService.Execute(new RequestUpdateUserDto
             {
                 IdUser = IdUser,
                 Fullname = Fullname,

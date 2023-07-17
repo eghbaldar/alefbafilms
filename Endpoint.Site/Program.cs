@@ -1,3 +1,5 @@
+using alefbafilm6.Application.Interfaces.FacadePattern;
+using alefbafilm6.Application.Services.Users.FacadePattern;
 using alefbafilms.application.Interfaces.Contexts;
 using alefbafilms.application.Services.Users.Commands.ActiveUsers;
 using alefbafilms.application.Services.Users.Commands.DeleteUsers;
@@ -18,13 +20,10 @@ builder.Services.AddControllersWithViews();
 
 // ASN // Add DataContext Dependencies & Other Dependecies such as "Users Services"
 builder.Services.AddScoped<IDataBaseContext, DataBaseContext>();
-builder.Services.AddScoped<IGetUsersService, GetUsersService>();
-builder.Services.AddScoped<IGetRolesService, GetRolesService>();
-builder.Services.AddScoped<IPostUserService, PostUserService>();
-builder.Services.AddScoped<IDeleteUsersService, DeleteUserService>();
-builder.Services.AddScoped<IActiveUserService, ActiveUserService>();
-builder.Services.AddScoped<IUpdateUsersService, UpdateUsersService>();
-builder.Services.AddScoped<IAuthSignInUser, AuthSignInUserService>();
+
+// Facade of User
+builder.Services.AddScoped<IUserFacade, UserFacade>();
+
 // ASN // Add SQL SERVICE Provider services
 var connStr = builder.Configuration.GetConnectionString("LocalServer"); // Get connectionstring value directly from "appsetting.json" file
 builder.Services.AddEntityFrameworkSqlServer().AddDbContext<DataBaseContext>(option => option.UseSqlServer(connStr));
