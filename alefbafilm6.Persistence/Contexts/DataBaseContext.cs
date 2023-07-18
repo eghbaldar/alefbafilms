@@ -1,4 +1,5 @@
-﻿using alefbafilms.application.Interfaces.Contexts;
+﻿using alefbafilm6.Domain.Entities.Gallery;
+using alefbafilms.application.Interfaces.Contexts;
 using alefbafilms.Common.Constants;
 using alefbafilms.domian.Entities.Users;
 using Microsoft.EntityFrameworkCore;
@@ -10,16 +11,22 @@ using System.Threading.Tasks;
 
 namespace alefbafilms.Persistence.Contexts
 {
-    public class DataBaseContext: DbContext, IDataBaseContext
+    public class DataBaseContext : DbContext, IDataBaseContext
     {
-        public DataBaseContext(DbContextOptions options): base (options)
+        public DataBaseContext(DbContextOptions options) : base(options)
         {
 
         }
         //===================================== TABLES of Database
+        // USER
         public DbSet<User> Users { get; set; } // Table [Users] in Databse
         public DbSet<Role> Roles { get; set; } // Table [Roles] in Databse
-        public DbSet<UserInRole> UserInRoles{ get; set; } // Table [UserInRoles] in Databse
+        public DbSet<UserInRole> UserInRoles { get; set; } // Table [UserInRoles] in Databse
+
+        // GALLERY
+        public DbSet<Gallery> Gallery { get; set; }
+        public DbSet<GalleryCategory> GalleryCategory { get; set; }
+        public DbSet<GalleryInCategory> GalleryInCategory { get; set; }
         // End of TABELS of Database
 
 
@@ -37,7 +44,7 @@ namespace alefbafilms.Persistence.Contexts
 
             // Make the email field unique!
             // Why? because the end-user will not be allowed to register by two the same email address
-            modelBuilder.Entity<User>().HasIndex(x=> x.email).IsUnique();
+            modelBuilder.Entity<User>().HasIndex(x => x.email).IsUnique();
 
             //Let show only records that their [DeleteTime] field equal with NULL, why?
             // because if this field wasn't NULL, it would mean that this record had been deleted

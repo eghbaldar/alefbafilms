@@ -1,4 +1,5 @@
 using alefbafilm6.Application.Interfaces.FacadePattern;
+using alefbafilm6.Application.Services.Gallery.FacadePattern;
 using alefbafilm6.Application.Services.Users.FacadePattern;
 using alefbafilms.application.Interfaces.Contexts;
 using alefbafilms.application.Services.Users.Commands.ActiveUsers;
@@ -23,6 +24,8 @@ builder.Services.AddScoped<IDataBaseContext, DataBaseContext>();
 
 // Facade of User
 builder.Services.AddScoped<IUserFacade, UserFacade>();
+// Facade of Gallery
+builder.Services.AddScoped<IGalleryFacade,GalleryFacade>();
 
 // ASN // Add SQL SERVICE Provider services
 var connStr = builder.Configuration.GetConnectionString("LocalServer"); // Get connectionstring value directly from "appsetting.json" file

@@ -17,10 +17,90 @@ namespace alefbafilms.Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.8")
+                .HasAnnotation("ProductVersion", "6.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("alefbafilm6.Domain.Entities.Gallery.Gallery", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<DateTime?>("DeleteTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Detail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Filename")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Gallery");
+                });
+
+            modelBuilder.Entity("alefbafilm6.Domain.Entities.Gallery.GalleryCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GalleryCategory");
+                });
+
+            modelBuilder.Entity("alefbafilm6.Domain.Entities.Gallery.GalleryInCategory", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<int>("GalleryCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<long>("GalleryId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("IdCategory")
+                        .HasColumnType("int");
+
+                    b.Property<long>("IdGallery")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GalleryCategoryId");
+
+                    b.HasIndex("GalleryId");
+
+                    b.ToTable("GalleryInCategory");
+                });
 
             modelBuilder.Entity("alefbafilms.domian.Entities.Users.Role", b =>
                 {
@@ -28,7 +108,7 @@ namespace alefbafilms.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("id"), 1L, 1);
 
                     b.Property<DateTime?>("DeleteTime")
                         .HasColumnType("datetime2");
@@ -51,25 +131,25 @@ namespace alefbafilms.Persistence.Migrations
                         new
                         {
                             id = 1L,
-                            InsertTime = new DateTime(2023, 7, 6, 0, 36, 30, 238, DateTimeKind.Local).AddTicks(6026),
+                            InsertTime = new DateTime(2023, 7, 18, 2, 19, 14, 431, DateTimeKind.Local).AddTicks(8430),
                             name = "Admin"
                         },
                         new
                         {
                             id = 2L,
-                            InsertTime = new DateTime(2023, 7, 6, 0, 36, 30, 238, DateTimeKind.Local).AddTicks(6069),
+                            InsertTime = new DateTime(2023, 7, 18, 2, 19, 14, 431, DateTimeKind.Local).AddTicks(8461),
                             name = "Operator"
                         },
                         new
                         {
                             id = 3L,
-                            InsertTime = new DateTime(2023, 7, 6, 0, 36, 30, 238, DateTimeKind.Local).AddTicks(6080),
+                            InsertTime = new DateTime(2023, 7, 18, 2, 19, 14, 431, DateTimeKind.Local).AddTicks(8469),
                             name = "User"
                         },
                         new
                         {
                             id = 4L,
-                            InsertTime = new DateTime(2023, 7, 6, 0, 36, 30, 238, DateTimeKind.Local).AddTicks(6090),
+                            InsertTime = new DateTime(2023, 7, 18, 2, 19, 14, 431, DateTimeKind.Local).AddTicks(8475),
                             name = "Guest"
                         });
                 });
@@ -80,7 +160,7 @@ namespace alefbafilms.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("id"), 1L, 1);
 
                     b.Property<DateTime?>("DeleteTime")
                         .HasColumnType("datetime2");
@@ -120,7 +200,7 @@ namespace alefbafilms.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("id"), 1L, 1);
 
                     b.Property<long>("RoleId")
                         .HasColumnType("bigint");
@@ -135,6 +215,25 @@ namespace alefbafilms.Persistence.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserInRoles");
+                });
+
+            modelBuilder.Entity("alefbafilm6.Domain.Entities.Gallery.GalleryInCategory", b =>
+                {
+                    b.HasOne("alefbafilm6.Domain.Entities.Gallery.GalleryCategory", "GalleryCategory")
+                        .WithMany("GalleryInCategory")
+                        .HasForeignKey("GalleryCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("alefbafilm6.Domain.Entities.Gallery.Gallery", "Gallery")
+                        .WithMany("GalleryCategory")
+                        .HasForeignKey("GalleryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Gallery");
+
+                    b.Navigation("GalleryCategory");
                 });
 
             modelBuilder.Entity("alefbafilms.domian.Entities.Users.UserInRole", b =>
@@ -154,6 +253,16 @@ namespace alefbafilms.Persistence.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("alefbafilm6.Domain.Entities.Gallery.Gallery", b =>
+                {
+                    b.Navigation("GalleryCategory");
+                });
+
+            modelBuilder.Entity("alefbafilm6.Domain.Entities.Gallery.GalleryCategory", b =>
+                {
+                    b.Navigation("GalleryInCategory");
                 });
 
             modelBuilder.Entity("alefbafilms.domian.Entities.Users.Role", b =>

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace alefbafilms.domian.Commons
 {
     /// <summary>
-    /// Whenever any "Entities" will be inherited from this class, this class properties
-    /// [Id,InserTime,UpdateTime,DeleteTime], will be added to that "Entity".
+    /// Whenever any "Entity" will be inherited from this class, this class properties
+    /// [InserTime,UpdateTime,DeleteTime], will be added into that "Entity".
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
     public abstract class BaseEntity<TKey>

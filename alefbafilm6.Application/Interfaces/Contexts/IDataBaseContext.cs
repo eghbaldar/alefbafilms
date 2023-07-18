@@ -1,4 +1,5 @@
-﻿using alefbafilms.domian.Entities.Users;
+﻿using alefbafilm6.Domain.Entities.Gallery;
+using alefbafilms.domian.Entities.Users;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,20 @@ using System.Threading.Tasks;
 
 namespace alefbafilms.application.Interfaces.Contexts
 {
-   public interface IDataBaseContext
+    public interface IDataBaseContext
     {
-         DbSet<User> Users { get; set; } // Table [Users] in Databse
-         DbSet<Role> Roles { get; set; } // Table [Roles] in Databse
-         DbSet<UserInRole> UserInRoles { get; set; } // Table [UserInRoles] in Databse
+        ///////////////////////////////////////////////////////////////////////////////////////// Entities
+        // USER
+        DbSet<User> Users { get; set; } // Table [Users] in Databse
+        DbSet<Role> Roles { get; set; } // Table [Roles] in Databse
+        DbSet<UserInRole> UserInRoles { get; set; } // Table [UserInRoles] in Databse
 
+        // GALLERY
+        DbSet<Gallery> Gallery { get; set; }
+        DbSet<GalleryCategory> GalleryCategory { get; set; }
+        DbSet<GalleryInCategory> GalleryInCategory { get; set; }
+
+        ///////////////////////////////////////////////////////////////////////////////////////// Methods
         //SaveChanges
         int SaveChanges(bool acceptAllChangesOnSuccess);
         int SaveChanges();
