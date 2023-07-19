@@ -35,5 +35,10 @@ namespace Endpoint.Site.Areas.Admin.Controllers
         {
             return Json(_galleryFacade.DeleteGalleryCategoryService.Execute(Id));
         }
+        [HttpPost]
+        public IActionResult Update(int Id,string Name)
+        {
+            return Json(_galleryFacade.UpdateGalleryCategoryService.Exectue(Id, Name));
+        }
     }
 }

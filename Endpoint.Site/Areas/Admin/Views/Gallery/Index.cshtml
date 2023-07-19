@@ -157,13 +157,35 @@
             });
         }
 
-        function PreUpdateGalleryCategory(Id,Name){
+        function PreUpdateGalleryCategory(Id, Name) {
             $('#txtEditIdGalleryCategory').val(Id);
-            $('#txtName').val(Name);
+            $('#txtEditNameGalleryCategory').val(Name);
             $('#myModal').modal('show');
         }
-        function UpdateGalleryCategory(){
+        function UpdateGalleryCategory() {
+            var Id = $('#txtEditIdGalleryCategory').val();
+            var Name = $('#txtEditNameGalleryCategory').val();
+            var dataPost = {
+                'Id': Id,
+                'Name': Name,
+            };
 
+            $.ajax({
+                contentType: 'application/x-www-form-urlencoded',
+                dataType: 'json',
+                type: 'POST',
+                data: dataPost,
+                url: 'Update',
+                success: function (data) {
+                    if (data.isSuccess) {
+                        Swal.fire(data.message);
+                        document.location.reload();
+                    }
+                },
+                error: function (request, status, error) {
+                    alert(request.responseText);
+                }
+            });
         }
 
     </script>
@@ -179,7 +201,7 @@
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="txtEditIdGalleryCategory" />
-                    <input class="form-control" id="txtName" />
+                    <input class="form-control" id="txtEditNameGalleryCategory" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
