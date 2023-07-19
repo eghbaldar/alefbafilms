@@ -1,4 +1,5 @@
 ﻿using alefbafilm6.Application.Services.Gallery.Commands.DeleteGalleryCategory;
+using alefbafilm6.Application.Services.Gallery.Commands.PostGallery;
 using alefbafilm6.Application.Services.Gallery.Commands.PostGalleryCategory;
 using alefbafilm6.Application.Services.Gallery.Commands.UpdateGalleryCategory;
 using alefbafilm6.Application.Services.Gallery.Queries.GetGalleryCategory;
@@ -16,5 +17,6 @@ namespace alefbafilm6.Application.Interfaces.FacadePattern
         GetGalleryCategoryService GetGalleryCategoryService { get; }
         DeleteGalleryCategoryService DeleteGalleryCategoryService { get; }
         UpdateGalleryCategoryService UpdateGalleryCategoryService { get; }
+        PostGalleryService PostGalleryService { get; }
     }
 }

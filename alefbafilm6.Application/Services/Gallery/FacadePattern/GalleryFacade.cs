@@ -1,5 +1,6 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
 using alefbafilm6.Application.Services.Gallery.Commands.DeleteGalleryCategory;
+using alefbafilm6.Application.Services.Gallery.Commands.PostGallery;
 using alefbafilm6.Application.Services.Gallery.Commands.PostGalleryCategory;
 using alefbafilm6.Application.Services.Gallery.Commands.UpdateGalleryCategory;
 using alefbafilm6.Application.Services.Gallery.Queries.GetGalleryCategory;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace alefbafilm6.Application.Services.Gallery.FacadePattern
 {
-    public class GalleryFacade: IGalleryFacade
+    public class GalleryFacade : IGalleryFacade
     {
         ////////////////////////////////////////////////////////// Context
         private readonly IDataBaseContext _context;
@@ -42,7 +43,13 @@ namespace alefbafilm6.Application.Services.Gallery.FacadePattern
         private UpdateGalleryCategoryService _updateGalleryCategoryService;
         public UpdateGalleryCategoryService UpdateGalleryCategoryService
         {
-            get { return _updateGalleryCategoryService=_updateGalleryCategoryService?? new UpdateGalleryCategoryService(_context); }
+            get { return _updateGalleryCategoryService = _updateGalleryCategoryService ?? new UpdateGalleryCategoryService(_context); }
+        }
+        //////////////////////////////////////////////////////////
+        public PostGalleryService _postGalleryService;
+        public PostGalleryService PostGalleryService
+        {
+            get { return PostGalleryService ?? new PostGalleryService(_context); }
         }
         //////////////////////////////////////////////////////////
     }
