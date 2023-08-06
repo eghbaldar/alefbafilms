@@ -7,6 +7,6 @@ namespace alefbafilms.domian.Entities.Users
         //The below property won't be used, because this class will inherit from [BaseEntity] that there is own Id there.
         public long id { get; set; }
         public string name { get; set; }
-        public ICollection<UserInRole> UserInRole { get; set; }
+        public virtual ICollection<UserInRole> UserInRole { get; set; }
     }
 }

@@ -32,14 +32,14 @@
                             <div class="form-group row">
                                 <label class="col-sm-2  col-form-label" for="example-email">توضیحات:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" id="txtEmail" name="example-email" class="form-control"
+                                    <input type="text" id="txtDetail" name="example-email" class="form-control"
                                            placeholder="توضیحات اختیاری تصویر">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2  col-form-label">گالری:</label>
                                 <div class="col-sm-10">
-                                    <select class="custom-select" id="Id" name="Name"
+                                    <select class="custom-select" id="CateId" name="Name"
                                             asp-items="@ViewBag.Item">
                                     </select>
                                 </div>
@@ -49,14 +49,23 @@
                                 <span class="file-icon">
 
                             </div><div class="dropify-loader"></div><div class="dropify-errors-container">
-                                <ul></ul></div><input type="file" class="dropify" data-height="300">
-                               
-                                <div class="dropify-preview"><span class="dropify-render"></span>
-                                    <div class="dropify-infos"><div class="dropify-infos-inner">
-                                        <p class="dropify-filename"><span class="file-icon">
+                                <ul></ul>
+                            </div>
 
-                                        </span> <span class="dropify-filename-inner"></span>
-                                        </p></div></div></div>
+                            <input type="file" id="inputFile" class="dropify" data-height="300">
+
+                            <div class="dropify-preview">
+                                <span class="dropify-render"></span>
+                                <div class="dropify-infos">
+                                    <div class="dropify-infos-inner">
+                                        <p class="dropify-filename">
+                                            <span class="file-icon">
+
+                                            </span> <span class="dropify-filename-inner"></span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <button onclick="Add()" class="btn btn-primary">درج تصویر</button>
@@ -73,9 +82,32 @@
     <script src="~/AdminTemplate/js/pages/form-fileupload.init.js"></script>
     <script>
         function Add() {
-            var Name = $("").val();
-            var Detail = $("").val();
-            var Filename = $("").val();
+
+            var postData = new FormData();
+            postData.append("Name", $("#txtFullname").val());
+            postData.append("Detail", $("#txtDetail").val());
+            postData.append("IdGalleryCategory", $("#CateId").val());
+
+            var Images = document.getElementById("inputFile");
+            postData.append("Filename", Images.files[0]);
+
+            $.ajax({
+                contentType: false,
+                processData: false,
+                type: 'POST',
+                data: postData,
+                url: '/admin/gallery/create',
+                success: function (data) {
+                    if (data.isSuccess == true) {
+                        alert('OK');
+
+                    }
+                },
+                error: function (request, status, error) {
+                    alert('Err:' + request.responseText);
+                }
+            });
+
         }
     </script>
 }

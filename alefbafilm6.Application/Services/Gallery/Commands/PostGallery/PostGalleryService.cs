@@ -1,6 +1,8 @@
 ﻿using alefbafilm6.Domain.Entities.Gallery;
 using alefbafilms.application.Interfaces.Contexts;
 using alefbafilms.Common.Dtos;
+using Microsoft.AspNetCore.Http;
+using System;
 
 namespace alefbafilm6.Application.Services.Gallery.Commands.PostGallery
 {
@@ -17,10 +19,13 @@ namespace alefbafilm6.Application.Services.Gallery.Commands.PostGallery
                 new alefbafilm6.Domain.Entities.Gallery.Gallery()
                 {
                     Name = req.Name,
-                    Filename = Guid.NewGuid() + req.Filename,
                     Detail = req.Detail,
                     InsertTime = DateTime.Now,
                 };
+
+            var uploadedResult = UploadFile(req.Filename);
+            _gallery.Filename = uploadedResult.FileName;
+
             var cat = _context.GalleryCategory.Find(req.IdGalleryCategory);
             List<GalleryInCategory> _galleryCategory = new List<GalleryInCategory>();
             _galleryCategory.Add(new GalleryInCategory
@@ -40,6 +45,43 @@ namespace alefbafilm6.Application.Services.Gallery.Commands.PostGallery
                 IsSuccess = true,
                 Message = "عکس جدید اضافه شد - New Photo Added To Gallery",
             };
+        }
+        private UploadDto UploadFile(IFormFile file)
+        {
+            //Necessary Package: Microsoft.AspNetCore.Http.Features
+            if (file != null)
+            {
+                string folder = $@"images\ProductImages\";
+                var uploadsRootFolder = Path.Combine(Environment.CurrentDirectory, folder);
+                if (!Directory.Exists(uploadsRootFolder))
+                {
+                    Directory.CreateDirectory(uploadsRootFolder);
+                }
+
+
+                if (file == null || file.Length == 0)
+                {
+                    return new UploadDto()
+                    {
+                        Status = false,
+                        FileName = "",
+                    };
+                }
+
+                string fileName = DateTime.Now.Ticks.ToString() + file.FileName;
+                var filePath = Path.Combine(uploadsRootFolder, fileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    file.CopyTo(fileStream);
+                }
+
+                return new UploadDto()
+                {
+                    FileName = fileName,
+                    Status = true,
+                };
+            }
+            return null;
         }
     }
 }

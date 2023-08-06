@@ -8,7 +8,7 @@ using alefbafilms.Persistence.Contexts;
 
 #nullable disable
 
-namespace alefbafilms.Persistence.Migrations
+namespace alefbafilm6.Persistence.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
     partial class DataBaseContextModelSnapshot : ModelSnapshot
@@ -131,25 +131,25 @@ namespace alefbafilms.Persistence.Migrations
                         new
                         {
                             id = 1L,
-                            InsertTime = new DateTime(2023, 7, 18, 2, 19, 14, 431, DateTimeKind.Local).AddTicks(8430),
+                            InsertTime = new DateTime(2023, 8, 5, 1, 56, 24, 975, DateTimeKind.Local).AddTicks(2213),
                             name = "Admin"
                         },
                         new
                         {
                             id = 2L,
-                            InsertTime = new DateTime(2023, 7, 18, 2, 19, 14, 431, DateTimeKind.Local).AddTicks(8461),
+                            InsertTime = new DateTime(2023, 8, 5, 1, 56, 24, 975, DateTimeKind.Local).AddTicks(2307),
                             name = "Operator"
                         },
                         new
                         {
                             id = 3L,
-                            InsertTime = new DateTime(2023, 7, 18, 2, 19, 14, 431, DateTimeKind.Local).AddTicks(8469),
+                            InsertTime = new DateTime(2023, 8, 5, 1, 56, 24, 975, DateTimeKind.Local).AddTicks(2320),
                             name = "User"
                         },
                         new
                         {
                             id = 4L,
-                            InsertTime = new DateTime(2023, 7, 18, 2, 19, 14, 431, DateTimeKind.Local).AddTicks(8475),
+                            InsertTime = new DateTime(2023, 8, 5, 1, 56, 24, 975, DateTimeKind.Local).AddTicks(2333),
                             name = "Guest"
                         });
                 });

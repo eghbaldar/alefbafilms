@@ -49,7 +49,7 @@ namespace alefbafilm6.Application.Services.Gallery.FacadePattern
         public PostGalleryService _postGalleryService;
         public PostGalleryService PostGalleryService
         {
-            get { return PostGalleryService ?? new PostGalleryService(_context); }
+            get { return _postGalleryService = _postGalleryService ?? new PostGalleryService(_context); }
         }
         //////////////////////////////////////////////////////////
     }

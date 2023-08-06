@@ -35,8 +35,10 @@ namespace alefbafilms.application.Services.Users.Commands.PostUsers
                     UserId=user.id, // This ID has ***already*** reserved!
                 });
             }
-            user.UserInRole = UserInRole;
+            // [****] user.UserInRole = UserInRole;
             _context.Users.Add(user); // Exective Line!
+            _context.UserInRoles.AddRange(UserInRole); // Instead of using this code you could use [****] line
+
             _context.SaveChanges();
 
             return new ResultDto<ResultPostUserDto>()

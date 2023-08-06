@@ -16,6 +16,6 @@ namespace alefbafilms.domian.Entities.Users
         public string email { get; set; }
         public string password { get; set; }
         public bool IsActive { get; set; } = true;
-        public ICollection<UserInRole> UserInRole { get; set; }
+        public virtual ICollection<UserInRole> UserInRole { get; set; }
     }
 }

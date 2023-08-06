@@ -2,6 +2,7 @@
 using alefbafilm6.Application.Services.Gallery.Commands.PostGallery;
 using alefbafilm6.Application.Services.Gallery.Commands.PostGalleryCategory;
 using alefbafilm6.Application.Services.Gallery.Queries.GetGalleryCategory;
+using alefbafilm6.Domain.Entities.Gallery;
 using alefbafilms.Common.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +25,6 @@ namespace Endpoint.Site.Areas.Admin.Controllers
         {
             return View(_galleryFacade.GetGalleryCategoryService.Execute());
         }
-
         [HttpPost]
         public IActionResult PostCategory(string Name)
         {
@@ -39,7 +39,7 @@ namespace Endpoint.Site.Areas.Admin.Controllers
             return Json(_galleryFacade.DeleteGalleryCategoryService.Execute(Id));
         }
         [HttpPost]
-        public IActionResult Update(int Id,string Name)
+        public IActionResult Update(int Id, string Name)
         {
             return Json(_galleryFacade.UpdateGalleryCategoryService.Exectue(Id, Name));
         }
@@ -52,15 +52,22 @@ namespace Endpoint.Site.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult create(string Name, string Detail, string Filename)
+        public IActionResult create(string Name, string Detail, int IdGalleryCategory)
         {
+            IFormFile file = Request.Form.Files[0];
             RequestPostGalleryServiceDto req = new RequestPostGalleryServiceDto
             {
                 Name = Name,
                 Detail = Detail,
-                Filename = Filename,
+                Filename = file,
+                IdGalleryCategory = IdGalleryCategory,
             };
             return Json(_galleryFacade.PostGalleryService.Execute(req));
+        }
+        [HttpGet]
+        public IActionResult Gallery()
+        {
+            return View();
         }
     }
 }

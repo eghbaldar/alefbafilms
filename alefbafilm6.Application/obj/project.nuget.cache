@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "tl4qRcwSoxBmBqsDHtA8AwMtPw7wkLVqc9w1NFNnFyuzcRs/TH4x6kP034BksMPO4SqqhHgI5U3UDA01tLos/w==",
+  "dgSpecHash": "OqZym2Cp4IFTzdIa3TIodRb2OO/WU3IFGtw+z9Ym8ZQqsM7sjIBMw94fpsv0hWF9yoP/XAFneT4o3Fqvm9fbHQ==",
   "success": true,
   "projectFilePath": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\alefbafilm6.Application\\alefbafilm6.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.0\\microsoft.aspnetcore.cryptography.internal.6.0.0.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.0\\microsoft.aspnetcore.cryptography.keyderivation.6.0.0.nupkg.sha512",
+    "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\microsoft.aspnetcore.http.features\\6.0.0-preview.4.21253.5\\microsoft.aspnetcore.http.features.6.0.0-preview.4.21253.5.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.0\\microsoft.entityframeworkcore.6.0.0.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.0\\microsoft.entityframeworkcore.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.0\\microsoft.entityframeworkcore.analyzers.6.0.0.nupkg.sha512",
@@ -19,6 +20,7 @@
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\system.io.pipelines\\6.0.0-preview.4.21253.7\\system.io.pipelines.6.0.0-preview.4.21253.7.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
