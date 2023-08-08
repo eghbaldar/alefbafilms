@@ -15,6 +15,7 @@
     <link href="~/sitetemplate/css/style.css" rel="stylesheet">
     <title>شرکت فیلمسازی الفبا</title>
     <link href="~/sitetemplate/css/rtl.css" rel="stylesheet">
+    @RenderSection("Styles",required:false)
 </head>
 <body>
     <!-- Preloader Start-->
@@ -88,6 +89,11 @@
                                     <a href="#">درباره ما</a>
                                     <ul class="sub-menu">
                                         <li>
+                                            <a class="closer" href="~/home/gallery">
+                                                <i class="fi fi-rr-edit"></i>گالری تصاویر الفبا
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a class="closer" href="~/home/aboutus">
                                                 <i class="fi fi-rr-edit"></i>درباره‌ی الفبا
                                             </a>
@@ -111,7 +117,7 @@
                     {
                         <div class="block-signin">
                             <a class="btn btn-default hover-up icon-arrow-right" href="~/admin/users/index">
-                                <span>مدیریت سایت</span>                                
+                                <span>مدیریت سایت</span>
                             </a>
                         </div>
                     }
@@ -183,6 +189,11 @@
                                 <li class="has-children">
                                     <a href="~/home/aboutus">درباره ما</a>
                                     <ul class="sub-menu">
+                                        <li>
+                                            <a class="closer" href="~/home/gallery">
+                                                <i class="fi fi-rr-edit"></i>گالری تصاویر الفبا
+                                            </a>
+                                        </li>
                                         <li>
                                             <a class="closer" href="~/home/aboutus">
                                                 <i class="fi fi-rr-edit"></i>درباره‌ی الفبا
@@ -1038,5 +1049,6 @@
     <script src="~/sitetemplate/js/vendors/noUISlider.js"></script>
     <script src="~/sitetemplate/js/vendors/slider.js"></script>
     <script src="~/sitetemplate/js/main.js"></script>
+    @RenderSection("Scripts",required:false)
 </body>
 </html>

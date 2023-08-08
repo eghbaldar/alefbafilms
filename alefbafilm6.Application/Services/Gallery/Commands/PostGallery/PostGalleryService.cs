@@ -52,7 +52,7 @@ namespace alefbafilm6.Application.Services.Gallery.Commands.PostGallery
             //https://procodeguide.com/programming/file-upload-in-aspnet-core/
             if (file != null)
             {
-                string folder = $@"images\ProductImages\";
+                string folder = $@"wwwroot\images\gallery\";
                 var uploadsRootFolder = Path.Combine(Environment.CurrentDirectory, folder);
                 if (!Directory.Exists(uploadsRootFolder))
                 {

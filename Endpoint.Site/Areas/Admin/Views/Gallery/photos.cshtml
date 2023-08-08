@@ -29,8 +29,8 @@
                 {
                     <div class="col-md-6 col-xl-3 col-lg-4 @photo.IdCategory" style="position: absolute; left: 0px; top: 0px;">
                         <div class="gal-detail thumb">
-                            <a href="~/images/ProductImages/@photo.Filename" class="image-popup" title="@photo.Name">
-                                <img src="~/images/ProductImages/@photo.Filename" class="thumb-img img-fluid" alt="@photo.Name">
+                            <a href="~/images/gallery/@photo.Filename" class="image-popup" title="@photo.Name">
+                                <img src="~/images/gallery/@photo.Filename" class="thumb-img img-fluid" alt="@photo.Name">
                             </a>
 
                             <div class="text-center">
@@ -46,6 +46,10 @@
     </div> <!-- container-fluid -->
 
 </div>
+@section Styles{
+    <!--venobox lightbox-->
+    <link rel="stylesheet" href="~/admintemplate/libs/magnific-popup/magnific-popup.css" />
+}
 @section Scripts{
     <!-- isotope filter plugin -->
     <script src="~/admintemplate/libs/isotope/isotope.pkgd.min.js"></script>

@@ -1,0 +1,86 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using alefbafilm6.Application.Services.Gallery.Queries.Common
+@model GetGalleryPhotosForAdminPhotos
+
+@{
+    ViewData["Title"] = "گالری تصاویر الفبا";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<main class="main">
+
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="portfolioFilter">
+                    <a href="#" data-filter="*" class="waves-effect waves-primary current">همه تصاویر</a>
+                    @foreach (var cat in Model._resultGetGalleryCategoryDto.GalleryCategory)
+                    {
+                        <a href="#" data-filter=".@cat.Id" class="waves-effect waves-primary ">@cat.Name</a>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-lg-12  text-center">
+                <h1 class="text-display-2 color-gray-900">گالری تصاویر الفبا</h1>
+
+
+                <div class="portfolioContainer">
+                    @foreach (var photo in Model._resultGetGalleryPhotosServiceDto.GetGalleryPhotosServiceDto)
+                    {
+                        <div class="col-lg-3 @photo.IdCategory" style="
+
+position: absolute; left: 0px; top: 0px;">
+                            <div class="gal-detail thumb" style="padding:15px;
+
+">
+                                <a href="~/images/gallery/@photo.Filename" class="image-popup" title="@photo.Name">
+                                    <img src="~/images/gallery/@photo.Filename"
+                                     style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius:5px;"
+                                     class="thumb-img img-fluid" alt="@photo.Name">
+                                </a>
+
+                                <div class="text-center">
+                                    <h4>@photo.Name</h4>
+                                    <p class="font-13 text-muted mb-2">@photo.NameCategory</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+
+
+@section Styles{
+    <!--venobox lightbox-->
+    <link rel="stylesheet" href="~/admintemplate/libs/magnific-popup/magnific-popup.css" />
+    <style>
+        @@media (max-width: 900px) {
+            .col-lg-3 {
+                width: 100%;
+                text-align: center;
+                align-items: center;
+            }
+        }
+    </style>
+}
+@section Scripts{
+    <!-- isotope filter plugin -->
+    <script src="~/admintemplate/libs/isotope/isotope.pkgd.min.js"></script>
+    <!--venobox lightbox-->
+    <script src="~/admintemplate/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- Gallery Init-->
+    <script src="~/admintemplate/js/pages/gallery.init.js"></script>
+}

@@ -83,28 +83,42 @@
     <script>
         function Add() {
 
-            var postData = new FormData();
-            postData.append("Name", $("#txtFullname").val());
-            postData.append("Detail", $("#txtDetail").val());
-            postData.append("IdGalleryCategory", $("#CateId").val());
+            Swal.fire({
+                title: 'درج تصویر!',
+                text: 'از درج این تصویر مطمئن هستید؟',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#000222',
+                cancelButtonColor: '#000222',
+                confirmButtonText: 'بلی',
+                cancelButtonText: 'خیر'
+            }).then((result) => {
+                if (result.value) {
 
-            var Images = document.getElementById("inputFile");
-            postData.append("Filename", Images.files[0]);
+                    var postData = new FormData();
+                    postData.append("Name", $("#txtFullname").val());
+                    postData.append("Detail", $("#txtDetail").val());
+                    postData.append("IdGalleryCategory", $("#CateId").val());
 
-            $.ajax({
-                contentType: false,
-                processData: false,
-                type: 'POST',
-                data: postData,
-                url: '/admin/gallery/create',
-                success: function (data) {
-                    if (data.isSuccess == true) {
-                        alert('OK');
+                    var Images = document.getElementById("inputFile");
+                    postData.append("Filename", Images.files[0]);
 
-                    }
-                },
-                error: function (request, status, error) {
-                    alert('Err:' + request.responseText);
+                    $.ajax({
+                        contentType: false,
+                        processData: false,
+                        type: 'POST',
+                        data: postData,
+                        url: '/admin/gallery/create',
+                        success: function (data) {
+                            if (data.isSuccess == true) {
+                               Swal.fire('تصویر با موفقیت درج شد');
+                               location.reload();
+                            }
+                        },
+                        error: function (request, status, error) {
+                            alert('Err:' + request.responseText);
+                        }
+                    });
                 }
             });
 
