@@ -30,8 +30,8 @@ namespace alefbafilm6.Application.Services.Gallery.Commands.PostGallery
             List<GalleryInCategory> _galleryCategory = new List<GalleryInCategory>();
             _galleryCategory.Add(new GalleryInCategory
             {
-                IdCategory = req.IdGalleryCategory,
-                IdGallery = _gallery.Id,
+                GalleryCategoryId = req.IdGalleryCategory,
+                GalleryId = _gallery.Id,
                 GalleryCategory = cat,
                 Gallery = _gallery,
             });
@@ -49,6 +49,7 @@ namespace alefbafilm6.Application.Services.Gallery.Commands.PostGallery
         private UploadDto UploadFile(IFormFile file)
         {
             //Necessary Package: Microsoft.AspNetCore.Http.Features
+            //https://procodeguide.com/programming/file-upload-in-aspnet-core/
             if (file != null)
             {
                 string folder = $@"images\ProductImages\";

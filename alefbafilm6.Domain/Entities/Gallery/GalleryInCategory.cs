@@ -4,8 +4,8 @@
     {
         public long Id { get; set; }
         public virtual Gallery Gallery { get; set; }
-        public long IdGallery { get; set; }
+        public long GalleryId { get; set; }
         public virtual GalleryCategory GalleryCategory { get; set; }
-        public int IdCategory { get; set; }
+        public int GalleryCategoryId { get; set; }
     }
 }

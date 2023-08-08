@@ -4,6 +4,7 @@ using alefbafilm6.Application.Services.Gallery.Commands.PostGallery;
 using alefbafilm6.Application.Services.Gallery.Commands.PostGalleryCategory;
 using alefbafilm6.Application.Services.Gallery.Commands.UpdateGalleryCategory;
 using alefbafilm6.Application.Services.Gallery.Queries.GetGalleryCategory;
+using alefbafilm6.Application.Services.Gallery.Queries.GetGalleryPhotos;
 using alefbafilms.application.Interfaces.Contexts;
 using System;
 using System.Collections.Generic;
@@ -52,5 +53,10 @@ namespace alefbafilm6.Application.Services.Gallery.FacadePattern
             get { return _postGalleryService = _postGalleryService ?? new PostGalleryService(_context); }
         }
         //////////////////////////////////////////////////////////
+        public GetGalleryPhotosService _getGalleryPhotosService;
+        public GetGalleryPhotosService GetGalleryPhotosService
+        {
+            get { return _getGalleryPhotosService = _getGalleryPhotosService ?? new GetGalleryPhotosService(_context); }
+        }
     }
 }

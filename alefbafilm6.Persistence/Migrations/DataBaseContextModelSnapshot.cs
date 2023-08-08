@@ -87,12 +87,6 @@ namespace alefbafilm6.Persistence.Migrations
                     b.Property<long>("GalleryId")
                         .HasColumnType("bigint");
 
-                    b.Property<int>("IdCategory")
-                        .HasColumnType("int");
-
-                    b.Property<long>("IdGallery")
-                        .HasColumnType("bigint");
-
                     b.HasKey("Id");
 
                     b.HasIndex("GalleryCategoryId");
@@ -131,25 +125,25 @@ namespace alefbafilm6.Persistence.Migrations
                         new
                         {
                             id = 1L,
-                            InsertTime = new DateTime(2023, 8, 5, 1, 56, 24, 975, DateTimeKind.Local).AddTicks(2213),
+                            InsertTime = new DateTime(2023, 8, 7, 2, 14, 54, 544, DateTimeKind.Local).AddTicks(9853),
                             name = "Admin"
                         },
                         new
                         {
                             id = 2L,
-                            InsertTime = new DateTime(2023, 8, 5, 1, 56, 24, 975, DateTimeKind.Local).AddTicks(2307),
+                            InsertTime = new DateTime(2023, 8, 7, 2, 14, 54, 544, DateTimeKind.Local).AddTicks(9899),
                             name = "Operator"
                         },
                         new
                         {
                             id = 3L,
-                            InsertTime = new DateTime(2023, 8, 5, 1, 56, 24, 975, DateTimeKind.Local).AddTicks(2320),
+                            InsertTime = new DateTime(2023, 8, 7, 2, 14, 54, 544, DateTimeKind.Local).AddTicks(9910),
                             name = "User"
                         },
                         new
                         {
                             id = 4L,
-                            InsertTime = new DateTime(2023, 8, 5, 1, 56, 24, 975, DateTimeKind.Local).AddTicks(2333),
+                            InsertTime = new DateTime(2023, 8, 7, 2, 14, 54, 544, DateTimeKind.Local).AddTicks(9920),
                             name = "Guest"
                         });
                 });

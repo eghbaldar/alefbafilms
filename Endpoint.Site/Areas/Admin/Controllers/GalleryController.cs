@@ -1,7 +1,10 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
+using alefbafilm6.Application.Services.Gallery;
 using alefbafilm6.Application.Services.Gallery.Commands.PostGallery;
 using alefbafilm6.Application.Services.Gallery.Commands.PostGalleryCategory;
+using alefbafilm6.Application.Services.Gallery.Queries.Common;
 using alefbafilm6.Application.Services.Gallery.Queries.GetGalleryCategory;
+using alefbafilm6.Application.Services.Gallery.Queries.GetGalleryPhotos;
 using alefbafilm6.Domain.Entities.Gallery;
 using alefbafilms.Common.Constants;
 using Microsoft.AspNetCore.Authorization;
@@ -65,9 +68,14 @@ namespace Endpoint.Site.Areas.Admin.Controllers
             return Json(_galleryFacade.PostGalleryService.Execute(req));
         }
         [HttpGet]
-        public IActionResult Gallery()
+        public IActionResult photos()
         {
-            return View();
+            var models = new GetGalleryPhotosForAdminPhotos
+            {
+                _resultGetGalleryCategoryDto = _galleryFacade.GetGalleryCategoryService.Execute(),
+                _resultGetGalleryPhotosServiceDto = _galleryFacade.GetGalleryPhotosService.Execute(),
+            };
+            return View(models);
         }
     }
 }
