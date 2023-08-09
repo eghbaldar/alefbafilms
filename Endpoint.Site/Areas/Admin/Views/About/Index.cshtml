@@ -1,0 +1,64 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Gallery Category";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<textarea id="aboutTextarea">
+    Welcome to TinyMCE!
+  </textarea>
+<button onclick="Update()">
+    بروزرسانی
+</button>
+
+@section Scripts
+    {
+    <script src="https://cdn.tiny.cloud/1/pljei292r1sgckza6w6qkhguege50e0k2fafekp0nda2jpv7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant"))
+        });
+    </script>
+
+    <script>
+        function Update() {
+
+            var value = tinyMCE.get('aboutTextarea').getContent({ format: 'raw' });
+
+            var postData = {
+                'AboutPage': value,
+            };
+
+            $.ajax({
+                contentType: 'application/x-www-form-urlencoded',
+                dataType: 'json',
+                type: 'POST',
+                data: postData,
+                url: 'Update',
+                success: function (data) {
+                    if (data.isSuccess) {
+                        alert(data.message);
+                    }
+                    else{
+                        alert(data.message);
+                    }
+                },
+                error: function (request, status, error) {
+                    alert('Err: ' + request.responseText);
+                }
+            });
+        }
+    </script>
+      }

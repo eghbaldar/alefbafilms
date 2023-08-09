@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oX3cqg/ktTcl3/b0Ic1gPcAtRXz11FwG+mhFKGNTW4w=",
+  "Hash": "ErPGKH3dol9h8zTecQBPHlvRLwWeT0/0/uvBOyu4wAw=",
   "Source": "Endpoint.Site",
   "BasePath": "_content/Endpoint.Site",
   "Mode": "Default",
@@ -4792,6 +4792,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\gallery\\638271369412418315_DSC00602.jpg"
+    },
+    {
+      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\gallery\\638272145939454723production.jpg",
+      "SourceId": "Endpoint.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
+      "BasePath": "_content/Endpoint.Site",
+      "RelativePath": "images/gallery/638272145939454723production.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\gallery\\638272145939454723production.jpg"
     },
     {
       "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\js\\site.js",

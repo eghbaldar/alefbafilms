@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Areas/Admin/Views/About/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWJvdXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Areas/Admin/Views/Auth/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXV0aFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

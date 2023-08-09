@@ -1,4 +1,5 @@
 ﻿using alefbafilm6.Domain.Entities.Gallery;
+using alefbafilm6.Domain.Entities.Pages;
 using alefbafilms.domian.Entities.Users;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,6 +22,9 @@ namespace alefbafilms.application.Interfaces.Contexts
         DbSet<Gallery> Gallery { get; set; }
         DbSet<GalleryCategory> GalleryCategory { get; set; }
         DbSet<GalleryInCategory> GalleryInCategory { get; set; }
+
+        // Pages
+        DbSet<Page> Pages { get; set; }
 
         ///////////////////////////////////////////////////////////////////////////////////////// Methods
         //SaveChanges

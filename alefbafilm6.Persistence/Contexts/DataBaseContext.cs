@@ -1,4 +1,5 @@
 ﻿using alefbafilm6.Domain.Entities.Gallery;
+using alefbafilm6.Domain.Entities.Pages;
 using alefbafilms.application.Interfaces.Contexts;
 using alefbafilms.Common.Constants;
 using alefbafilms.domian.Entities.Users;
@@ -27,20 +28,26 @@ namespace alefbafilms.Persistence.Contexts
         public DbSet<Gallery> Gallery { get; set; }
         public DbSet<GalleryCategory> GalleryCategory { get; set; }
         public DbSet<GalleryInCategory> GalleryInCategory { get; set; }
+
+
+        // Pages
+        public DbSet<Page> Pages { get; set; }
         // End of TABELS of Database
 
-
-        //===================================== Data-Seeding
+ 
         // This function will be work after [add-migration and update-database]
         // This function applies the urgent actions on the database for good!
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //===================================== Data-Seeding
             // Describe: Whenever you want to launch the project database, the below values will be added automatically
             // Note: If you had added once the below values, you would have not been able to add those again with the same ID, so you have to change IDs.
             modelBuilder.Entity<Role>().HasData(new Role { id = 1, name = nameof(RoleConsts.Admin) });
             modelBuilder.Entity<Role>().HasData(new Role { id = 2, name = nameof(RoleConsts.Operator) });
             modelBuilder.Entity<Role>().HasData(new Role { id = 3, name = nameof(RoleConsts.User) });
             modelBuilder.Entity<Role>().HasData(new Role { id = 4, name = nameof(RoleConsts.Guest) });
+
+            //===================================== End of Data-Seeding
 
             // Make the email field unique!
             // Why? because the end-user will not be allowed to register by two the same email address

@@ -96,6 +96,23 @@ namespace alefbafilm6.Persistence.Migrations
                     b.ToTable("GalleryInCategory");
                 });
 
+            modelBuilder.Entity("alefbafilm6.Domain.Entities.Pages.Page", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AboutPage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pages");
+                });
+
             modelBuilder.Entity("alefbafilms.domian.Entities.Users.Role", b =>
                 {
                     b.Property<long>("id")
@@ -125,25 +142,25 @@ namespace alefbafilm6.Persistence.Migrations
                         new
                         {
                             id = 1L,
-                            InsertTime = new DateTime(2023, 8, 7, 2, 14, 54, 544, DateTimeKind.Local).AddTicks(9853),
+                            InsertTime = new DateTime(2023, 8, 10, 1, 0, 43, 267, DateTimeKind.Local).AddTicks(8777),
                             name = "Admin"
                         },
                         new
                         {
                             id = 2L,
-                            InsertTime = new DateTime(2023, 8, 7, 2, 14, 54, 544, DateTimeKind.Local).AddTicks(9899),
+                            InsertTime = new DateTime(2023, 8, 10, 1, 0, 43, 267, DateTimeKind.Local).AddTicks(8817),
                             name = "Operator"
                         },
                         new
                         {
                             id = 3L,
-                            InsertTime = new DateTime(2023, 8, 7, 2, 14, 54, 544, DateTimeKind.Local).AddTicks(9910),
+                            InsertTime = new DateTime(2023, 8, 10, 1, 0, 43, 267, DateTimeKind.Local).AddTicks(8825),
                             name = "User"
                         },
                         new
                         {
                             id = 4L,
-                            InsertTime = new DateTime(2023, 8, 7, 2, 14, 54, 544, DateTimeKind.Local).AddTicks(9920),
+                            InsertTime = new DateTime(2023, 8, 10, 1, 0, 43, 267, DateTimeKind.Local).AddTicks(8832),
                             name = "Guest"
                         });
                 });
