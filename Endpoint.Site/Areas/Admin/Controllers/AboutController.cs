@@ -18,7 +18,7 @@ namespace Endpoint.Site.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return View(_pagesFacade.GetAboutPageService.Execute());
         }
         [HttpPost]
         public IActionResult Update(string AboutPage)

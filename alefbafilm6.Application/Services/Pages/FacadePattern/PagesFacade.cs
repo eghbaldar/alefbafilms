@@ -1,5 +1,6 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
 using alefbafilm6.Application.Services.Pages.Commands.PostAboutPage;
+using alefbafilm6.Application.Services.Pages.Queries.GetAboutPage;
 using alefbafilms.application.Interfaces.Contexts;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,17 @@ namespace alefbafilm6.Application.Services.Pages.FacadePattern
         {
             _context = context;
         }
-        ////////////////////////////////////////////////////////// 
+        //////////////////////////////////////////////////////////  UpdateAboutPageService
         private UpdateAboutPageService _updateAboutPageService;
         public UpdateAboutPageService UpdateAboutPageService
         {
             get { return _updateAboutPageService = _updateAboutPageService ?? new UpdateAboutPageService(_context); }
+        }
+        //////////////////////////////////////////////////////////  GetAboutPageService
+        private GetAboutPageService _getAboutPageService;
+        public GetAboutPageService GetAboutPageService
+        {
+            get { return _getAboutPageService = _getAboutPageService ?? new GetAboutPageService(_context); }
         }
     }
 }
