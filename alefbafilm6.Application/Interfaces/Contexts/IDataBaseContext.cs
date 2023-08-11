@@ -1,5 +1,6 @@
 ﻿using alefbafilm6.Domain.Entities.Gallery;
 using alefbafilm6.Domain.Entities.Pages;
+using alefbafilm6.Domain.Entities.Staffs;
 using alefbafilms.domian.Entities.Users;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -25,6 +26,9 @@ namespace alefbafilms.application.Interfaces.Contexts
 
         // Pages
         DbSet<Page> Pages { get; set; }
+
+        // Staff
+        DbSet<Staff> Staff { get; set; }
 
         ///////////////////////////////////////////////////////////////////////////////////////// Methods
         //SaveChanges

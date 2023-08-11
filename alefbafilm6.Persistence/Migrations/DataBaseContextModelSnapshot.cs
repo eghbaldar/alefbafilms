@@ -113,6 +113,44 @@ namespace alefbafilm6.Persistence.Migrations
                     b.ToTable("Pages");
                 });
 
+            modelBuilder.Entity("alefbafilm6.Domain.Entities.Staffs.Staff", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<DateTime?>("DeleteTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Detail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("File")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Staff");
+                });
+
             modelBuilder.Entity("alefbafilms.domian.Entities.Users.Role", b =>
                 {
                     b.Property<long>("id")
@@ -142,25 +180,25 @@ namespace alefbafilm6.Persistence.Migrations
                         new
                         {
                             id = 1L,
-                            InsertTime = new DateTime(2023, 8, 10, 1, 0, 43, 267, DateTimeKind.Local).AddTicks(8777),
+                            InsertTime = new DateTime(2023, 8, 12, 1, 26, 8, 290, DateTimeKind.Local).AddTicks(725),
                             name = "Admin"
                         },
                         new
                         {
                             id = 2L,
-                            InsertTime = new DateTime(2023, 8, 10, 1, 0, 43, 267, DateTimeKind.Local).AddTicks(8817),
+                            InsertTime = new DateTime(2023, 8, 12, 1, 26, 8, 290, DateTimeKind.Local).AddTicks(757),
                             name = "Operator"
                         },
                         new
                         {
                             id = 3L,
-                            InsertTime = new DateTime(2023, 8, 10, 1, 0, 43, 267, DateTimeKind.Local).AddTicks(8825),
+                            InsertTime = new DateTime(2023, 8, 12, 1, 26, 8, 290, DateTimeKind.Local).AddTicks(765),
                             name = "User"
                         },
                         new
                         {
                             id = 4L,
-                            InsertTime = new DateTime(2023, 8, 10, 1, 0, 43, 267, DateTimeKind.Local).AddTicks(8832),
+                            InsertTime = new DateTime(2023, 8, 12, 1, 26, 8, 290, DateTimeKind.Local).AddTicks(823),
                             name = "Guest"
                         });
                 });

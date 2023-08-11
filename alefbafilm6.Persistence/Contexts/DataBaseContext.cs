@@ -1,5 +1,6 @@
 ﻿using alefbafilm6.Domain.Entities.Gallery;
 using alefbafilm6.Domain.Entities.Pages;
+using alefbafilm6.Domain.Entities.Staffs;
 using alefbafilms.application.Interfaces.Contexts;
 using alefbafilms.Common.Constants;
 using alefbafilms.domian.Entities.Users;
@@ -32,9 +33,13 @@ namespace alefbafilms.Persistence.Contexts
 
         // Pages
         public DbSet<Page> Pages { get; set; }
-        // End of TABELS of Database
 
- 
+        //Staff
+        public DbSet<Staff> Staff { get; set; }
+        //===================================== End of TABELS of Database
+
+
+
         // This function will be work after [add-migration and update-database]
         // This function applies the urgent actions on the database for good!
         protected override void OnModelCreating(ModelBuilder modelBuilder)
