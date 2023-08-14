@@ -22,6 +22,44 @@ namespace alefbafilm6.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("alefbafilm6.Domain.Entities.Contact.Contact", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsCheck")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Organization")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Contacts");
+                });
+
             modelBuilder.Entity("alefbafilm6.Domain.Entities.Gallery.Gallery", b =>
                 {
                     b.Property<long>("Id")
@@ -180,25 +218,25 @@ namespace alefbafilm6.Persistence.Migrations
                         new
                         {
                             id = 1L,
-                            InsertTime = new DateTime(2023, 8, 12, 1, 26, 8, 290, DateTimeKind.Local).AddTicks(725),
+                            InsertTime = new DateTime(2023, 8, 15, 0, 57, 3, 971, DateTimeKind.Local).AddTicks(2543),
                             name = "Admin"
                         },
                         new
                         {
                             id = 2L,
-                            InsertTime = new DateTime(2023, 8, 12, 1, 26, 8, 290, DateTimeKind.Local).AddTicks(757),
+                            InsertTime = new DateTime(2023, 8, 15, 0, 57, 3, 971, DateTimeKind.Local).AddTicks(2576),
                             name = "Operator"
                         },
                         new
                         {
                             id = 3L,
-                            InsertTime = new DateTime(2023, 8, 12, 1, 26, 8, 290, DateTimeKind.Local).AddTicks(765),
+                            InsertTime = new DateTime(2023, 8, 15, 0, 57, 3, 971, DateTimeKind.Local).AddTicks(2584),
                             name = "User"
                         },
                         new
                         {
                             id = 4L,
-                            InsertTime = new DateTime(2023, 8, 12, 1, 26, 8, 290, DateTimeKind.Local).AddTicks(823),
+                            InsertTime = new DateTime(2023, 8, 15, 0, 57, 3, 971, DateTimeKind.Local).AddTicks(2625),
                             name = "Guest"
                         });
                 });

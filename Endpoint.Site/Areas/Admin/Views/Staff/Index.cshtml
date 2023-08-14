@@ -1,5 +1,7 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿@using alefbafilm6.Application.Services.Staff.Queries.GetStaff
+@model ResultGetStaffServiceDto
+@*
+    Developer: Alimohammad Eghbaldar
 *@
 @{
     ViewData["Title"] = "Staff";
@@ -7,7 +9,42 @@
 }
 <div class="content">
 
-    <!-- Start Content-->
+    <!-- Show -->
+    <div class="row">
+        @foreach (var item in Model._resultGetStaffServiceDto)
+        {
+            <div class="col-xl-3 col-md-6">
+                <div class="card-box widget-user">
+                    <div>
+                        <div class="avatar-lg float-left mr-3">
+                            <img src="~/images/staff/@item.File" width="50px"
+                             class="img-fluid rounded" alt="@item.Name">
+                        </div>
+                        <div class="wid-u-info">
+                            <h5 class="mt-0">@item.Name</h5>
+                            <p class="text-muted mb-1 font-13 text-truncate">@item.Detail</p>
+                            <small class="text-warning"><b>@item.Title</b></small>
+                        </div>
+                        <hr />
+                        <div class="btn-group btn-group-sm" style="float: none;">
+                            <button type="button"
+                                onclick="PreUpdate('@item.Id','@item.Name','@item.Title','@item.Detail')"
+                                class="tabledit-edit-button btn btn-success" style="float: none;">
+                                <span class="mdi mdi-pencil">
+                                </span>
+                            </button>
+                            <button onclick="Delete(@item.Id)" class="btn btn-icon waves-effect waves-light btn-danger">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Add -->
     <div class="container-fluid">
 
         <div class="row">
@@ -71,7 +108,9 @@
             <!-- end row -->
 
         </div> <!-- end card-box -->
-    </div><!-- end col -->
+    </div>
+
+
 </div>
 
 @section Styles{
@@ -82,7 +121,7 @@
     <script src="~/AdminTemplate/libs/dropify/dropify.min.js"></script>
     <script src="~/AdminTemplate/js/pages/form-fileupload.init.js"></script>
     <script>
-        function Add(){
+        function Add() {
 
             var postData = new FormData();
             postData.append("Name", $("#txtFullname").val());
@@ -93,22 +132,119 @@
             postData.append("File", Image.files[0]);
 
             $.ajax({
-                contentType:false,
-                processData:false,
-                type:'POST',
-                data:postData,
-                url:'index',
-                success:function(data){
-                    if(data.isSuccess)
-                    {
-                        alert('OK');
+                contentType: false,
+                processData: false,
+                type: 'POST',
+                data: postData,
+                url: 'index',
+                success: function (data) {
+                    if (data.isSuccess) {
+                        Swal.fire(data.message);
+                        location.reload();
                     }
                 },
-                error:function(request,status,error){
+                error: function (request, status, error) {
                     alert('err:' + request.responseText);
                 }
             });
 
         }
+        function Delete(id) {
+
+            Swal.fire({
+                title: 'حذف این کارمند!',
+                text: 'مطمئن هستید؟',
+                icon: 'error',
+                showCancelButton: true,
+                confirmButtonColor: '#000222',
+                cancelButtonColor: '#000222',
+                confirmButtonText: 'بلی',
+                cancelButtonText: 'خیر'
+            }).then((result) => {
+                if (result.value) {
+
+                    var postData = { 'Id': id };
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: 'POST',
+                        data: postData,
+                        url: 'Delete',
+                        success: function (data) {
+                            if (data.isSuccess) {
+                                Swal.fire('everything went well!');
+                                location.reload();
+                            }
+                        },
+                        error: function (request, status, erro) {
+                            alert('err: ' + request.responseText);
+                        }
+                    });
+                }
+            }
+            );
+
+        }
+        function PreUpdate(Id, Name, Title, Detail) {
+
+            $("#txtEditId").val(Id);
+            $("#txtEditName").val(Name);
+            $("#txtEditTitle").val(Title);
+            $("#txtEditDetail").val(Detail);
+            $("#myModal").modal("show");
+        }
+        function Update() {
+
+            var postData = new FormData();
+            postData.append("Id", $("#txtEditId").val());
+            postData.append("Name", $("#txtEditName").val());
+            postData.append("Title", $("#txtEditTitle").val());
+            postData.append("Detail", $("#txtEditDetail").val(),);
+
+            var Image = document.getElementById("inputFileEdit");
+            postData.append("File", Image.files[0]);
+
+            $.ajax({
+                contentType: false,
+                processData: false,
+                type: 'POST',
+                data: postData,
+                url: 'Update',
+                success: function (data) {
+                    if (data.isSuccess) {
+                        Swal.fire(data.message);
+                        location.reload();
+                    }
+                },
+                error: function (request, status, error) {
+                    alert('err: ' + request.responseText);
+                }
+            });
+
+        }
     </script>
+}
+@section Modals{
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">ویرایش کارمند</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="txtEditId" />
+                    <input class="form-control" id="txtEditName" />
+                    <input class="form-control" id="txtEditTitle" />
+                    <input class="form-control" id="txtEditDetail" />
+                    <input type="file" id="inputFileEdit">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+                    <button type="button" onclick="Update()" class="btn btn-primary waves-effect waves-light">ذخیره تغییرات</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 }

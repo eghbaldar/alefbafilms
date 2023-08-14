@@ -16,8 +16,4 @@
     <ProjectReference Include="..\alefbafilm6.Domain\alefbafilm6.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\Staff\Queries\" />
-  </ItemGroup>
-
 </Project>

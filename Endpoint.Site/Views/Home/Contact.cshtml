@@ -2,14 +2,18 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "تماس با الفبا";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <main class="main">
     <section class="section-box">
         <div class="banner-hero banner-breadcrums">
             <div class="container text-center">
                 <h1 class="text-heading-2 color-gray-1000 mb-20">تماس با ما</h1>
-                <p class="text-body-text color-gray-500">در هر ساعتی از شبانه روز با افتخار پاسخگوی شما خواهیم بود
-                    <br class="d-lg-block d-none"> منتظر نظرات گرمتان هستیم.</p>
+                <p class="text-body-text color-gray-500">
+                    در هر ساعتی از شبانه روز با افتخار پاسخگوی شما خواهیم بود
+                    <br class="d-lg-block d-none"> منتظر نظرات گرمتان هستیم.
+                </p>
             </div>
         </div>
     </section>
@@ -18,10 +22,11 @@
             <div class="bdrd-58 box-gray-100 icon-wave">
                 <div class="row">
                     <div class="col-lg-12 mb-60">
-                        <span class="text-body-capitalized text-uppercase">با ما تماس بگیرید</span>
-                        <h2 class="text-heading-3 color-gray-900 mt-10">نظرات خود را با ما به اشتراک بگذارید</h2>
-                        <p class="text-body-text color-gray-600 mt-20">ما پیشرفت خود را به شما مدیونیم
-                            </p>
+                        <span class="text-body-capitalized text-uppercase">با ما در تماس باشد</span>
+                        <h2 class="text-heading-3 color-gray-900 mt-10">و نظرات خود را با ما به اشتراک بگذارید</h2>
+                        <p class="text-body-text color-gray-600 mt-20">
+                            ما پیشرفت خود را به شما مدیونیم
+                        </p>
                     </div>
                     <div class="col-lg-4 mb-40">
                         <h4 class="text-heading-6 color-gray-900 icon-home mb-10 mt-10">الفبا فیلم</h4>
@@ -31,33 +36,33 @@
                         </p>
                         <p class="text-body-text color-gray-600">(013)42127052</p>
                         <p class="text-body-text color-gray-600">0911-763-8948</p>
-                        
+
                         <p class="text-body-text color-gray-600">info [@@] alefbafilm.ir</p>
 
-                        
-                            <div class="footer-social">
 
-                                <a href="https://aparat.com/alefbafilm"
-                                   target="_blank">
-                                    <img width="40" src="~/SiteTemplate/imgs/template/icons/icons8-aparat.svg" />
-                                </a>
+                        <div class="footer-social">
 
-                                <a href="https://wa.me/9117638948?text="
-                                   target="_blank">
-                                    <img width="40" src="~/SiteTemplate/imgs/template/icons/icons8-whatsapp.svg" />
-                                </a>
+                            <a href="https://aparat.com/alefbafilm"
+                               target="_blank">
+                                <img width="40" src="~/SiteTemplate/imgs/template/icons/icons8-aparat.svg" />
+                            </a>
 
-                                <a href="https://instagram.com/alefbafilm"
-                                   target="_blank">
-                                    <img width="40" src="~/SiteTemplate/imgs/template/icons/icons8-instagram.svg" />
-                                </a>
+                            <a href="https://wa.me/9117638948?text="
+                               target="_blank">
+                                <img width="40" src="~/SiteTemplate/imgs/template/icons/icons8-whatsapp.svg" />
+                            </a>
 
-                                <a href="https://t.me/alefbafilm"
-                                   target="_blank">
-                                    <img width="40" src="~/SiteTemplate/imgs/template/icons/icons8-telegram.svg" />
-                                </a>
+                            <a href="https://instagram.com/alefbafilm"
+                               target="_blank">
+                                <img width="40" src="~/SiteTemplate/imgs/template/icons/icons8-instagram.svg" />
+                            </a>
 
-                            
+                            <a href="https://t.me/alefbafilm"
+                               target="_blank">
+                                <img width="40" src="~/SiteTemplate/imgs/template/icons/icons8-telegram.svg" />
+                            </a>
+
+
                         </div>
                     </div>
 
@@ -65,31 +70,34 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" value="" placeholder="نام خود را وارد کنید">
+                                    <input class="form-control" id="txtFullname" type="text" value="" placeholder="نام خود را وارد کنید">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" value="" placeholder="موسسه یا سازمان (اختیاری)">
+                                    <input class="form-control" id="txtOrganization" type="text" value="" placeholder="موسسه یا سازمان (اختیاری)">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" value="" placeholder="ایمیل شما">
+                                    <input class="form-control" id="txtEmail" type="text" value="" placeholder="ایمیل شما">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" value="" placeholder="شماره تلفن">
+                                    <input class="form-control" id="txtPhone" type="text" value="" placeholder="شماره تلفن">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="پیام شما ..."></textarea>
+                                    <textarea class="form-control" id="txtMessage" placeholder="پیام شما ..."></textarea>
                                 </div>
                             </div>
                             <div class="col-lg-12 mt-15">
-                                <button class="btn btn-black icon-arrow-right-white mr-40 mb-20" type="submit">ارسال</button><br class="d-lg-none d-block">
+                                <button class="btn btn-black icon-arrow-right-white mr-40 mb-20"
+                                        onclick="Add()">
+                                    ارسال
+                                </button><br class="d-lg-none d-block">
                                 <span class="text-body-text-md color-gray-500 mb-20">
                                 </span>
                             </div>
@@ -100,45 +108,74 @@
         </div>
     </section>
     @*<section class="section-box mt-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-sm-10 col-12 text-center mt-40">
-                    <h2 class="text-heading-1 color-gray-900 mb-20">مکان ما</h2>
-                    <p class="text-body-lead-large color-gray-600 mt-20">در یک زمینه حرفه ای اغلب اتفاق می افتد که مشتریان خصوصی یا<br class="d-lg-block d-none"> شرکتی سفارش می دهند نشریه ای برای انتشار اخبار.</p>
-                </div>
-            </div>
-        </div>
-        <div class="container mt-100">
-            <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="list-icons hover-up">
-                        <div class="item-icon">
-                            <span class="icon-left"><img src="assets/imgs/page/homepage2/icon-acquis.svg" alt="alefbafilm"></span>
-                            <h4 class="text-heading-4">دفتر</h4>
-                            <p class="text-body-text color-gray-1100 mt-15">خیابان میشیگان شمالی 205، سوئیت 810<br> شیکاگو, ایالات متحده آمریکا<br> تلفن: (123) 456-7890<br> ایمیل : contact@alefbafilm.com</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="list-icons hover-up">
-                        <div class="item-icon">
-                            <span class="icon-left"><img src="assets/imgs/page/homepage2/icon-active.svg" alt="alefbafilm"></span>
-                            <h4 class="text-heading-4">استودیو</h4>
-                            <p class="text-body-text color-gray-1100 mt-15">خیابان میشیگان شمالی 205، سوئیت 810<br> شیکاگو, ایالات متحده آمریکا<br> تلفن: (123) 456-7890<br> ایمیل : contact@alefbafilm.com</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="list-icons hover-up">
-                        <div class="item-icon">
-                            <span class="icon-left"><img src="assets/imgs/page/homepage2/icon-retent.svg" alt="alefbafilm"></span>
-                            <h4 class="text-heading-4">کارخانه</h4>
-                            <p class="text-body-text color-gray-1100 mt-15">خیابان میشیگان شمالی 205، سوئیت 810<br>  شیکاگو, ایالات متحده آمریکا<br> تلفن: (123) 456-7890<br> ایمیل : contact@alefbafilm.com</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12 col-sm-10 col-12 text-center mt-40">
+    <h2 class="text-heading-1 color-gray-900 mb-20">مکان ما</h2>
+    <p class="text-body-lead-large color-gray-600 mt-20">در یک زمینه حرفه ای اغلب اتفاق می افتد که مشتریان خصوصی یا<br class="d-lg-block d-none"> شرکتی سفارش می دهند نشریه ای برای انتشار اخبار.</p>
+    </div>
+    </div>
+    </div>
+    <div class="container mt-100">
+    <div class="row">
+    <div class="col-lg-4 col-md-12 col-sm-12">
+    <div class="list-icons hover-up">
+    <div class="item-icon">
+    <span class="icon-left"><img src="assets/imgs/page/homepage2/icon-acquis.svg" alt="alefbafilm"></span>
+    <h4 class="text-heading-4">دفتر</h4>
+    <p class="text-body-text color-gray-1100 mt-15">خیابان میشیگان شمالی 205، سوئیت 810<br> شیکاگو, ایالات متحده آمریکا<br> تلفن: (123) 456-7890<br> ایمیل : contact@alefbafilm.com</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-md-12 col-sm-12">
+    <div class="list-icons hover-up">
+    <div class="item-icon">
+    <span class="icon-left"><img src="assets/imgs/page/homepage2/icon-active.svg" alt="alefbafilm"></span>
+    <h4 class="text-heading-4">استودیو</h4>
+    <p class="text-body-text color-gray-1100 mt-15">خیابان میشیگان شمالی 205، سوئیت 810<br> شیکاگو, ایالات متحده آمریکا<br> تلفن: (123) 456-7890<br> ایمیل : contact@alefbafilm.com</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-md-12 col-sm-12">
+    <div class="list-icons hover-up">
+    <div class="item-icon">
+    <span class="icon-left"><img src="assets/imgs/page/homepage2/icon-retent.svg" alt="alefbafilm"></span>
+    <h4 class="text-heading-4">کارخانه</h4>
+    <p class="text-body-text color-gray-1100 mt-15">خیابان میشیگان شمالی 205، سوئیت 810<br>  شیکاگو, ایالات متحده آمریکا<br> تلفن: (123) 456-7890<br> ایمیل : contact@alefbafilm.com</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </section>
     *@
 </main>
+@section Scripts{
+    <script>
+        function Add() {
+            var postData = {
+                'FullName': $("#txtFullname").val(),
+                'Organization': $("#txtOrganization").val(),
+                'Email': $("#txtEmail").val(),
+                'Phone': $("#txtPhone").val(),
+                'Message': $("#txtMessage").val(),
+            };
+            $.ajax({
+                contentType: 'application/x-www-form-urlencoded',
+                dataType: 'json',
+                type: 'POST',
+                data: postData,
+                url: 'Contact',
+                success: function (data) {
+                    if (data.isSuccess) {
+                        //document.getElementById("MainBoxContact").style.display = "none";
+                        Swal.fire(data.message);
+                    }
+                },
+                error:function(request,status,error){
+                    alert('err:' + request.responseText)
+                }
+            });
+        }
+    </script>
+}

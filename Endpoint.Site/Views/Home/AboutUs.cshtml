@@ -1,10 +1,14 @@
-﻿
+﻿@using alefbafilm6.Application.Services.Pages.Queries.GetAboutPage
+@model GetAboutPageDto
+
 @{
     ViewData["Title"] = "AboutUs";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <main class="main">
+    @Html.Raw(Model.AboutPage)
+    <!--
     <section class="section-box">
         <div class="banner-hero bg-about-3">
             <div class="container">
@@ -34,6 +38,7 @@
         </div>
     </div>
     <section class="section-box mt-100">
+       
         <div class="container">
             <div class="row">
                 <div class="col-lg-1 col-sm-1 col-12"></div>
@@ -83,5 +88,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 </main>

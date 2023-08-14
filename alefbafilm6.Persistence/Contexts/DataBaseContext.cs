@@ -1,4 +1,5 @@
-﻿using alefbafilm6.Domain.Entities.Gallery;
+﻿using alefbafilm6.Domain.Entities.Contact;
+using alefbafilm6.Domain.Entities.Gallery;
 using alefbafilm6.Domain.Entities.Pages;
 using alefbafilm6.Domain.Entities.Staffs;
 using alefbafilms.application.Interfaces.Contexts;
@@ -36,6 +37,9 @@ namespace alefbafilms.Persistence.Contexts
 
         //Staff
         public DbSet<Staff> Staff { get; set; }
+
+        // Contact
+        public DbSet<Contact> Contacts { get; set; }
         //===================================== End of TABELS of Database
 
 
@@ -61,6 +65,11 @@ namespace alefbafilms.Persistence.Contexts
             //Let show only records that their [DeleteTime] field equal with NULL, why?
             // because if this field wasn't NULL, it would mean that this record had been deleted
             modelBuilder.Entity<User>().HasQueryFilter(x => x.DeleteTime == null);
+            modelBuilder.Entity<Staff>().HasQueryFilter(x => x.DeleteTime == null);
+            modelBuilder.Entity<Gallery>().HasQueryFilter(x=> x.DeleteTime == null);
+
+            //
+            modelBuilder.Entity<Contact>().Property(x => x.IsCheck).HasDefaultValue(false);
         }
         // End of Data-Seeding
 

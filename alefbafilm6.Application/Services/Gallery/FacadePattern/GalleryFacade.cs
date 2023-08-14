@@ -1,5 +1,6 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
 using alefbafilm6.Application.Services.Gallery.Commands.DeleteGalleryCategory;
+using alefbafilm6.Application.Services.Gallery.Commands.DeleteGalleryPhotos;
 using alefbafilm6.Application.Services.Gallery.Commands.PostGallery;
 using alefbafilm6.Application.Services.Gallery.Commands.PostGalleryCategory;
 using alefbafilm6.Application.Services.Gallery.Commands.UpdateGalleryCategory;
@@ -58,5 +59,12 @@ namespace alefbafilm6.Application.Services.Gallery.FacadePattern
         {
             get { return _getGalleryPhotosService = _getGalleryPhotosService ?? new GetGalleryPhotosService(_context); }
         }
+        //////////////////////////////////////////////////////////
+        private DeleteGalleryPhotoService _deleteGalleryPhotoService;
+        public DeleteGalleryPhotoService DeleteGalleryPhotoService
+        {
+            get { return _deleteGalleryPhotoService = _deleteGalleryPhotoService ?? new DeleteGalleryPhotoService(_context); }
+        }
+        //////////////////////////////////////////////////////////
     }
 }

@@ -25,7 +25,7 @@
         </div>
         <div class="port mb-2">
             <div class="portfolioContainer" style="position: relative; height: 911.276px;">
-                @foreach(var photo in Model._resultGetGalleryPhotosServiceDto.GetGalleryPhotosServiceDto)
+                @foreach (var photo in Model._resultGetGalleryPhotosServiceDto.GetGalleryPhotosServiceDto)
                 {
                     <div class="col-md-6 col-xl-3 col-lg-4 @photo.IdCategory" style="position: absolute; left: 0px; top: 0px;">
                         <div class="gal-detail thumb">
@@ -37,6 +37,10 @@
                                 <h4>@photo.Name</h4>
                                 <p class="font-13 text-muted mb-2">@photo.NameCategory</p>
                             </div>
+                            <button onclick="DeletePhoto('@photo.IdPhoto')"
+                                class="btn btn-icon waves-effect waves-light btn-danger">
+                                <i class="fas fa-times"></i>
+                            </button>
                         </div>
                     </div>
                 }
@@ -57,4 +61,45 @@
     <script src="~/admintemplate/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
     <!-- Gallery Init-->
     <script src="~/admintemplate/js/pages/gallery.init.js"></script>
+    <!-- Behind Code-->
+    <script>
+        function DeletePhoto(Id) {
+
+            Swal.fire({
+                title: 'پاک کردن تصویر!',
+                text: 'از حذف این تصویر مطمئن هستید؟',
+                icon: 'error',
+                showCancelButton: true,
+                confirmButtonColor: '#000222',
+                cancelButtonColor: '#000222',
+                confirmButtonText: 'بلی',
+                cancelButtonText: 'خیر'
+            }).then((result) => {
+                if (result.value) {
+                    var postData = { 'Id': Id };
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: 'POST',
+                        data: postData,
+                        url: 'delete',
+                        success: function (data) {
+                            if (data.isSuccess) {
+                                Swal.fire(data.message);
+                                location.reload();
+                            }else
+                            {
+                                Swal.fire(data.message);
+                            }
+                        },
+                        error: function (request, status, error) {
+                            alert(request.responseText);
+                        }
+                    });
+                } else {
+
+                }
+            });
+        }
+    </script>
 }
