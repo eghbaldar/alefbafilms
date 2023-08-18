@@ -1,5 +1,6 @@
 ﻿using alefbafilm6.Domain.Entities.Contact;
 using alefbafilm6.Domain.Entities.Gallery;
+using alefbafilm6.Domain.Entities.Newsletter;
 using alefbafilm6.Domain.Entities.Pages;
 using alefbafilm6.Domain.Entities.Staffs;
 using alefbafilms.application.Interfaces.Contexts;
@@ -40,6 +41,9 @@ namespace alefbafilms.Persistence.Contexts
 
         // Contact
         public DbSet<Contact> Contacts { get; set; }
+
+        // Newsletter
+        public DbSet<Newsletter> Newsletters { get; set; }
         //===================================== End of TABELS of Database
 
 

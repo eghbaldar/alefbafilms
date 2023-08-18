@@ -1,6 +1,7 @@
 using alefbafilm6.Application.Interfaces.FacadePattern;
 using alefbafilm6.Application.Services.Contact.FacadePattern;
 using alefbafilm6.Application.Services.Gallery.FacadePattern;
+using alefbafilm6.Application.Services.Newsletter.FacadePattern;
 using alefbafilm6.Application.Services.Pages.FacadePattern;
 using alefbafilm6.Application.Services.Staff.FacadePattern;
 using alefbafilm6.Application.Services.Users.FacadePattern;
@@ -31,6 +32,7 @@ builder.Services.AddScoped<IGalleryFacade,GalleryFacade>();
 builder.Services.AddScoped<IPagesFacade,PagesFacade>();
 builder.Services.AddScoped<IStaffFacade,StaffFacade>();
 builder.Services.AddScoped<IContactFacade, ContactPattern>();
+builder.Services.AddScoped<INewsletterFacade,NewsletterFacade>();
 
 // ASN // Add SQL SERVICE Provider services
 var connStr = builder.Configuration.GetConnectionString("LocalServer"); // Get connectionstring value directly from "appsetting.json" file

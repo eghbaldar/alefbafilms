@@ -1,6 +1,7 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
 using alefbafilm6.Application.Services.Contact.Commands.PostContact;
 using alefbafilm6.Application.Services.Gallery.Queries.Common;
+using alefbafilm6.Application.Services.Newsletter.Queries;
 using Endpoint.Site.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -13,16 +14,19 @@ namespace Endpoint.Site.Controllers
         private readonly IStaffFacade _staffFacade;
         private readonly IPagesFacade _pagesFacade;
         private readonly IContactFacade _contactFacade;
+        private readonly INewsletterFacade _newsletterFacade;
         public HomeController(
             IGalleryFacade galleryFacade,
             IStaffFacade staffFacade,
             IPagesFacade pagesFacade,
-            IContactFacade contactFacade)
+            IContactFacade contactFacade,
+            INewsletterFacade newsletterfacade)
         {
             _galleryFacade = galleryFacade;
             _staffFacade = staffFacade;
             _pagesFacade = pagesFacade;
             _contactFacade = contactFacade;
+            _newsletterFacade = newsletterfacade;
         }
         public IActionResult Index()
         {
@@ -79,6 +83,11 @@ namespace Endpoint.Site.Controllers
                 _resultGetGalleryPhotosServiceDto = _galleryFacade.GetGalleryPhotosService.Execute(),
             };
             return View(models);
+        }
+        [HttpPost]
+        public IActionResult Newsletter(RequestNewsletterServiceDto req)
+        {
+            return Json(_newsletterFacade.PostNewsletterService.Execute(req));
         }
     }
 }

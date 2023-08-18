@@ -916,17 +916,21 @@
                 <div class="col-lg-10 mx-auto">
                     <div class="bg-2 box-newsletter position-relative">
                         <div class="row">
-                            <div class="col-lg-5 col-md-7">
-                                <span class="text-body-capitalized color-gray-500 text-uppercase">خبرنامه</span>
+                            <div class="col-lg-5 col-md-7" id="Newsletter" >
                                 <h4 class="text-heading-2 mb-10 mt-10">در خبرنامه الفبا مشترک شوید</h4>
-                                <p class="text-body-text color-gray-500">با کلیک کردن روی دکمه، شما با</p><a href="page-terms.html">شرایط و شرایط</a>
-                                <div class="box-form-newsletter mt-30">
-                                    <form class="form-newsletter">
-                                        <input class="input-newsletter" type="text" value=""
-                                               placeholder="ایمیل خود را وارد کنید">
-                                        <button class="btn btn-send"></button>
-                                    </form>
+                                <div class="box-form-newsletter mt-30" style="direction:ltr;">
+                                    <div class="form-newsletter">  <button onclick="RegisterNewsletter()" class="btn btn-send"></button>
+                                        <input
+                                            class="input-newsletter"
+                                            style="border:0;width:250px;"
+                                            id="txtEmailNewsletter" type="text" value=""
+                                               placeholder="Email Address (پست الکترونیکی) ...">
+                                      
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="col-lg-5 col-md-7" id="succeededNewsletter" style="display:none;text-align:center;">
+                                <h2 style="color:green;font-size:19px;" class="text-heading-2 mb-10 mt-10">با موفقیت در خبرنامه الفبا عضو شدید</h2>
                             </div>
                             <div class="col-lg-7 col-md-5 mt-30 mt-lg-0 mt-md-30 mt-sm-30 position-relative text-end">
                                 <div class="block-chart shape-1">
@@ -1050,12 +1054,37 @@
     <script src="~/sitetemplate/js/vendors/slider.js"></script>
     <script src="~/sitetemplate/js/main.js"></script>
 
-    
+
     <!-- Sweet Alert -->
     <script src="~/sweetalert/sweetalert2.all.min.js"></script>
     <script src="~/sweetalert/sweetalert2.min.js"></script>
     <link href="~/sweetalert/sweetalert2.min.css" rel="stylesheet" />
 
     @RenderSection("Scripts",required:false)
+
+    <!--  -->
+    <script>
+        function RegisterNewsletter() {
+            var postData = { 'Email': $("#txtEmailNewsletter").val() };
+            
+            $.ajax({
+                contentType:'application/x-www-form-urlencoded',
+                dataType:'json',
+                type:'POST',
+                url: '/home/Newsletter',
+                data:postData,
+                success:function(data){
+                    if(data.isSuccess){
+                        document.getElementById("succeededNewsletter").style.display="inline";
+                        document.getElementById("Newsletter").style.display = "none";
+                    }
+                },
+                error:function(request,status,error){
+                    alert(request.responseText);
+                }
+            });
+            
+        }
+    </script>
 </body>
 </html>

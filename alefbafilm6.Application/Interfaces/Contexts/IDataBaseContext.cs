@@ -1,5 +1,6 @@
 ﻿using alefbafilm6.Domain.Entities.Contact;
 using alefbafilm6.Domain.Entities.Gallery;
+using alefbafilm6.Domain.Entities.Newsletter;
 using alefbafilm6.Domain.Entities.Pages;
 using alefbafilm6.Domain.Entities.Staffs;
 using alefbafilms.domian.Entities.Users;
@@ -33,6 +34,9 @@ namespace alefbafilms.application.Interfaces.Contexts
 
         // Contact
         DbSet<Contact> Contacts { get; set; }
+
+        // Newsletter
+        DbSet<Newsletter> Newsletters { get; set; }
 
         ///////////////////////////////////////////////////////////////////////////////////////// Methods
         //SaveChanges
