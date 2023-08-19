@@ -14,42 +14,56 @@ namespace alefbafilms.application.Services.Users.Commands.PostUsers
         }
         public ResultDto<ResultPostUserDto> Execute(RequestPostUserDto req)
         {
-            var PassHasher = new PasswordHasher();
-            var HashedPass = PassHasher.HashPassword(req.Password);
+            try
+            {
+                var PassHasher = new PasswordHasher();
+                var HashedPass = PassHasher.HashPassword(req.Password);
 
-            User user = new User()
-            {
-                fullname = req.Fullname,
-                email= req.Email,                
-                password = HashedPass,
-            };
-            List<UserInRole> UserInRole = new List<UserInRole>();
-            foreach (var item in req.Roles)
-            {
-                var role = _context.Roles.Find(item.Id);
-                UserInRole.Add(new UserInRole
+                User user = new User()
                 {
-                    Role = role,
-                    RoleId=role.id,
-                    User = user,   
-                    UserId=user.id, // This ID has ***already*** reserved!
-                });
+                    fullname = req.Fullname,
+                    email = req.Email,
+                    password = HashedPass,
+                };
+                List<UserInRole> UserInRole = new List<UserInRole>();
+                foreach (var item in req.Roles)
+                {
+                    var role = _context.Roles.Find(item.Id);
+                    UserInRole.Add(new UserInRole
+                    {
+                        Role = role,
+                        RoleId = role.id,
+                        User = user,
+                        UserId = user.id, // This ID has ***already*** reserved!
+                    });
+                }
+                // [****] user.UserInRole = UserInRole;
+                _context.Users.Add(user); // Exective Line!
+                _context.UserInRoles.AddRange(UserInRole); // Instead of using this code you could use [****] line
+
+                _context.SaveChanges();
+
+                return new ResultDto<ResultPostUserDto>()
+                {
+                    Data = new ResultPostUserDto
+                    {
+                        Id = user.id, // This ID is a real ID and not reserved ID anymore!
+                    },
+                    IsSuccess = true,
+                    Message = "کاربر جدید اضافه شد",
+                };
+            } catch (Exception ex)
+            {
+                return new ResultDto<ResultPostUserDto>()
+                {
+                    Data = new ResultPostUserDto
+                    {
+                        Id = 0,
+                    },
+                    IsSuccess = true,
+                    Message = "خطایی رخ داده است"
+                };
             }
-            // [****] user.UserInRole = UserInRole;
-            _context.Users.Add(user); // Exective Line!
-            _context.UserInRoles.AddRange(UserInRole); // Instead of using this code you could use [****] line
-
-            _context.SaveChanges();
-
-            return new ResultDto<ResultPostUserDto>()
-            {
-                Data = new ResultPostUserDto
-                {
-                    Id = user.id, // This ID is a real ID and not reserved ID anymore!
-                },
-                IsSuccess = true,
-                Message = "New User Has Just Been Added!",
-            };
         }
     }
 }

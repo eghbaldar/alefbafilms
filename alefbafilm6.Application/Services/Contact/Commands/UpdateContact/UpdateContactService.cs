@@ -40,7 +40,7 @@ namespace alefbafilm6.Application.Services.Contact.Commands.UpdateContact
                 return new ResultDto
                 {
                     IsSuccess = false,
-                    Message = null,
+                    Message = "خطایی رخ داده است",
                 };
             }
         }

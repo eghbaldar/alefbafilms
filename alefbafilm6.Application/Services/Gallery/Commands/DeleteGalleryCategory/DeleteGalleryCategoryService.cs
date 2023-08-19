@@ -12,24 +12,34 @@ namespace alefbafilm6.Application.Services.Gallery.Commands.DeleteGalleryCategor
         }
         public ResultDto Execute(int Id)
         {
-            var galleryCategory = _context.GalleryCategory.Find(Id);
-            if(galleryCategory == null)
+            try
             {
+                var galleryCategory = _context.GalleryCategory.Find(Id);
+                if (galleryCategory == null)
+                {
+                    return new ResultDto()
+                    {
+                        IsSuccess = false,
+                        Message = "دسته مورد نظر یافت نشد - Considered Category not Found",
+                    };
+                }
+
+                _context.GalleryCategory.Remove(galleryCategory);
+                _context.SaveChanges();
+
                 return new ResultDto()
                 {
                     IsSuccess = true,
-                    Message = "دسته مورد تظر یافت نشد - Considered Category not Found",
+                    Message = "دسته مورد نظر با موفقیت حذف شد - Considered Category was Deleted!",
+                };
+            } catch (Exception ex)
+            {
+                return new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "خطایی رخ داده است"
                 };
             }
-
-            _context.GalleryCategory.Remove(galleryCategory);
-            _context.SaveChanges();
-
-            return new ResultDto()
-            {
-                IsSuccess = true,
-                Message = "دسته مورد نظر با موفقیت حذف شد - Considered Category was Deleted!",
-            };
         }
     }
 }

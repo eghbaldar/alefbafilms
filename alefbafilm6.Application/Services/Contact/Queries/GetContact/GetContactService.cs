@@ -11,21 +11,31 @@ namespace alefbafilm6.Application.Services.Contact.Queries.GetContact
         }
         public ResultGetContactServiceDto Execute()
         {
-            var result = _context.Contacts.Select(x => new GetContactServiceDto
+            try
             {
-                Id=x.Id,
-                FullName = x.FullName,
-                Organization = x.Organization,
-                Email = x.Email,
-                Phone = x.Phone,
-                Message = x.Message,
-                IsCheck = x.IsCheck,
+                var result = _context.Contacts.Select(x => new GetContactServiceDto
+                {
+                    Id = x.Id,
+                    FullName = x.FullName,
+                    Organization = x.Organization,
+                    Email = x.Email,
+                    Phone = x.Phone,
+                    Message = x.Message,
+                    IsCheck = x.IsCheck,
 
-            }).ToList();
-            return new ResultGetContactServiceDto
+                }).ToList();
+                return new ResultGetContactServiceDto
+                {
+                    _ResultGetContactServiceDto = result,
+                };
+            }
+            catch (Exception ex)
             {
-                _ResultGetContactServiceDto = result,
-            };
+                return new ResultGetContactServiceDto
+                {
+                    _ResultGetContactServiceDto = null,
+                };
+            }
         }
     }
 }

@@ -12,23 +12,33 @@ namespace alefbafilm6.Application.Services.Gallery.Commands.UpdateGalleryCategor
         }
         public ResultDto Exectue(int Id, string Name)
         {
-            var galleryCategory = _context.GalleryCategory.Find(Id);
-            if (galleryCategory == null)
+            try
             {
+                var galleryCategory = _context.GalleryCategory.Find(Id);
+                if (galleryCategory == null)
+                {
+                    return new ResultDto
+                    {
+                        IsSuccess = true,
+                        Message = "دسته ای یافت نشد",
+                    };
+                }
+                galleryCategory.Name = Name;
+                _context.SaveChanges();
+
                 return new ResultDto
                 {
                     IsSuccess = true,
-                    Message = "دسته ای یافت نشد - Cosindered Category Not Found",
+                    Message = "تغییرات اعمال شد",
+                };
+            } catch (Exception ex)
+            {
+                return new ResultDto
+                {
+                    IsSuccess = false,
+                    Message = "خطایی رخ داده است",
                 };
             }
-            galleryCategory.Name = Name;
-            _context.SaveChanges();
-
-            return new ResultDto
-            {
-                IsSuccess = true,
-                Message = "تغییرات اعمال شد - Updated!",
-            };
         }
     }
 }

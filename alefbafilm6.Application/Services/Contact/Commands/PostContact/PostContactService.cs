@@ -12,21 +12,32 @@ namespace alefbafilm6.Application.Services.Contact.Commands.PostContact
         }
         public ResultDto Execute(RequestPostContactDto req)
         {
-            Domain.Entities.Contact.Contact contact = new Domain.Entities.Contact.Contact();
-            contact.FullName = req.FullName;
-            contact.Organization = req.Organization;
-            contact.Email = req.Email;
-            contact.Phone = req.Phone;
-            contact.Message = req.Message;
-
-            _context.Contacts.Add(contact);
-            _context.SaveChanges();
-
-            return new ResultDto
+            try
             {
-                IsSuccess = true,
-                Message = "پیام شما با موفقیت به ثبت رسید و در اسرع وقت پاسخ داده خواهد شد."
-            };
+                Domain.Entities.Contact.Contact contact = new Domain.Entities.Contact.Contact();
+                contact.FullName = req.FullName;
+                contact.Organization = req.Organization;
+                contact.Email = req.Email;
+                contact.Phone = req.Phone;
+                contact.Message = req.Message;
+
+                _context.Contacts.Add(contact);
+                _context.SaveChanges();
+
+                return new ResultDto
+                {
+                    IsSuccess = true,
+                    Message = "پیام شما با موفقیت به ثبت رسید و در اسرع وقت پاسخ داده خواهد شد."
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResultDto
+                {
+                    IsSuccess = false,
+                    Message = "خطایی رخ داده است، لطفا در زمان دیگری تلاش کنید",
+                };
+            }
         }
     }
 }

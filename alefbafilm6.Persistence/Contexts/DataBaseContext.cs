@@ -71,6 +71,7 @@ namespace alefbafilms.Persistence.Contexts
             modelBuilder.Entity<User>().HasQueryFilter(x => x.DeleteTime == null);
             modelBuilder.Entity<Staff>().HasQueryFilter(x => x.DeleteTime == null);
             modelBuilder.Entity<Gallery>().HasQueryFilter(x=> x.DeleteTime == null);
+            modelBuilder.Entity<Newsletter>().HasQueryFilter(x => x.DeleteTime== null);
 
             //
             modelBuilder.Entity<Contact>().Property(x => x.IsCheck).HasDefaultValue(false);

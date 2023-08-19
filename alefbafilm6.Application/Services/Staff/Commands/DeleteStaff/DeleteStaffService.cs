@@ -12,35 +12,44 @@ namespace alefbafilm6.Application.Services.Staff.Commands.DeleteStaff
         }
         public ResultDto Execute(RequestDeleteStaffDto req)
         {
-            alefbafilm6.Domain.Entities.Staffs.Staff staff = new Domain.Entities.Staffs.Staff();
-            staff = _context.Staff.Find(req.Id);
-            if (staff != null)
+            try
             {
-                staff.DeleteTime= DateTime.Now;
-
-                string filePath = @"wwwroot/images/staff/" + staff.File;
-                if (System.IO.File.Exists(filePath))
+                alefbafilm6.Domain.Entities.Staffs.Staff staff = new Domain.Entities.Staffs.Staff();
+                staff = _context.Staff.Find(req.Id);
+                if (staff != null)
                 {
-                    System.IO.File.Delete(filePath);
+                    staff.DeleteTime = DateTime.Now;
+
+                    string filePath = @"wwwroot/images/staff/" + staff.File;
+                    if (System.IO.File.Exists(filePath))
+                    {
+                        System.IO.File.Delete(filePath);
+                    }
+
+                    _context.SaveChanges();
+
+                    return new ResultDto
+                    {
+                        IsSuccess = true,
+                        Message = "حذف با موفقیت انجام شد.",
+                    };
                 }
-                
-                _context.SaveChanges();
-
-                return new ResultDto
+                else
                 {
-                    IsSuccess = true,
-                    Message = "حذف با موفقیت انجام شد.",
-                };
-            }
-            else
+                    return new ResultDto
+                    {
+                        IsSuccess = false,
+                        Message = "کارمندی یافت نشد.",
+                    };
+                }
+            }catch (Exception ex)
             {
                 return new ResultDto
                 {
                     IsSuccess = false,
-                    Message = "کارمندی یافت نشد.",
+                    Message = "خطایی رخ داده است",
                 };
             }
-
         }
     }
 

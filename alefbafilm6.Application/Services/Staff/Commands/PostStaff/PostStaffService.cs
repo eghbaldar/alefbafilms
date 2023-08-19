@@ -15,32 +15,42 @@ namespace alefbafilm6.Application.Services.Staff.Commands.PostStaff
         }
         public ResultDto Execute(RequestPostStaffServiceDto req)
         {
-            alefbafilm6.Domain.Entities.Staffs.Staff staff = new alefbafilm6.Domain.Entities.Staffs.Staff();
-            staff.Name = req.Name;
-            staff.Title = req.Title;
-            staff.Detail = req.Detail;
-
-            var file = UploadFile(req.File);
-            if (file.Status)
+            try
             {
-                staff.File = file.FileName;
-            }
-            else
+                alefbafilm6.Domain.Entities.Staffs.Staff staff = new alefbafilm6.Domain.Entities.Staffs.Staff();
+                staff.Name = req.Name;
+                staff.Title = req.Title;
+                staff.Detail = req.Detail;
+
+                var file = UploadFile(req.File);
+                if (file.Status)
+                {
+                    staff.File = file.FileName;
+                }
+                else
+                {
+                    return new ResultDto
+                    {
+                        IsSuccess = false,
+                        Message = "مشکلی در آپلود فایل بوجود آماده است، لطفا دوباره اقدام کنید.",
+                    };
+                }
+
+                _context.Staff.Add(staff);
+                _context.SaveChanges();
+                return new ResultDto
+                {
+                    IsSuccess = true,
+                    Message = "با موفقیت این کارمند درج شد",
+                };
+            } catch (Exception ex)
             {
                 return new ResultDto
                 {
                     IsSuccess = false,
-                    Message = "مشکلی در آپلود فایل بوجود آماده است، لطفا دوباره اقدام کنید.",
+                    Message = "خطایی رخ داده است"
                 };
             }
-
-            _context.Staff.Add(staff);
-            _context.SaveChanges();
-            return new ResultDto
-            {
-                IsSuccess = true,
-                Message = "با موفقیت این کارمند درج شد",
-            };
         }
         private UploadDto UploadFile(IFormFile file)
         {

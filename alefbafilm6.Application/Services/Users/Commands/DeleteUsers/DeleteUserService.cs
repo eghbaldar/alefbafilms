@@ -12,23 +12,33 @@ namespace alefbafilms.application.Services.Users.Commands.DeleteUsers
         }
         public ResultDto Execute(RequestDeleteUserDto req)
         {
-            var user = _context.Users.Find(req.IdUser);
-            if (user == null)
+            try
+            {
+                var user = _context.Users.Find(req.IdUser);
+                if (user == null)
+                {
+                    return new ResultDto
+                    {
+                        IsSuccess = false,
+                        Message = "کاربر یافت نشد",
+                    };
+                }
+                else
+                {
+                    user.DeleteTime = DateTime.Now;
+                    _context.SaveChanges();
+                    return new ResultDto
+                    {
+                        IsSuccess = true,
+                        Message = "کاربر با موفقیت حذف شد"
+                    };
+                }
+            }catch (Exception ex)
             {
                 return new ResultDto
                 {
                     IsSuccess = false,
-                    Message = "User not found - کاربر یافت نشد",
-                };
-            }
-            else
-            {
-                user.DeleteTime = DateTime.Now;
-                _context.SaveChanges();
-                return new ResultDto
-                {
-                    IsSuccess = true,
-                    Message = "User was deleted - کاربر با موفقیت حذف شد"
+                    Message = "خطایی رخ داده است"
                 };
             }
         }

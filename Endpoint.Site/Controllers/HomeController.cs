@@ -1,7 +1,7 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
 using alefbafilm6.Application.Services.Contact.Commands.PostContact;
 using alefbafilm6.Application.Services.Gallery.Queries.Common;
-using alefbafilm6.Application.Services.Newsletter.Queries;
+using alefbafilm6.Application.Services.Newsletter.Commands.PostNewsletter;
 using Endpoint.Site.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;

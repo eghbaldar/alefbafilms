@@ -1,4 +1,5 @@
-﻿using alefbafilms.application.Interfaces.Contexts;
+﻿using alefbafilm6.Domain.Entities.Staffs;
+using alefbafilms.application.Interfaces.Contexts;
 
 namespace alefbafilm6.Application.Services.Staff.Queries.GetStaff
 {
@@ -11,18 +12,27 @@ namespace alefbafilm6.Application.Services.Staff.Queries.GetStaff
         }
         public ResultGetStaffServiceDto Execute()
         {
-            var staff = _context.Staff.Select(x => new GetStaffServiceDto
+            try
             {
-                Id = x.Id,
-                Name = x.Name,
-                Title = x.Title,
-                Detail = x.Detail,
-                File = x.File,
-            }).ToList();
-            return new ResultGetStaffServiceDto
+                var staff = _context.Staff.Select(x => new GetStaffServiceDto
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Title = x.Title,
+                    Detail = x.Detail,
+                    File = x.File,
+                }).ToList();
+                return new ResultGetStaffServiceDto
+                {
+                    _resultGetStaffServiceDto = staff,
+                };
+            } catch (Exception ex)
             {
-                _resultGetStaffServiceDto = staff,
-            };
+                return new ResultGetStaffServiceDto
+                {
+                    _resultGetStaffServiceDto = null,
+                };
+            }
         }
     }
 }

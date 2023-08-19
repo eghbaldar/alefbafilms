@@ -12,28 +12,39 @@ namespace alefbafilms.application.Services.Users.Commands.UpdateUsers
         }
         public ResultDto Execute(RequestUpdateUserDto req)
         {
-            var user = _context.Users.Find(req.IdUser);
-            if (user == null)
+            try
+            {
+                var user = _context.Users.Find(req.IdUser);
+                if (user == null)
+                {
+                    return new ResultDto
+                    {
+                        IsSuccess = false,
+                        Message = "کاربر پیدا نشد"
+                    };
+                }
+                else
+                {
+                    user.fullname = req.Fullname;
+                    user.email = req.Email;
+                    user.password = req.Password;
+                    user.UpdateTime = DateTime.Now;
+
+                    _context.SaveChanges();
+
+                    return new ResultDto
+                    {
+                        IsSuccess = true,
+                        Message = "تغییرات کاربر اعمال شد",
+                    };
+                }
+            }
+            catch (Exception ex)
             {
                 return new ResultDto
                 {
                     IsSuccess = false,
-                    Message = "User Not Found - کاربر پیدا نشد"
-                };
-            }
-            else
-            {
-                user.fullname= req.Fullname;
-                user.email= req.Email;
-                user.password= req.Password;
-                user.UpdateTime = DateTime.Now;
-
-                _context.SaveChanges();
-
-                return new ResultDto
-                {
-                    IsSuccess = true,
-                    Message = "User has just changed - تغییرات کاربر اعمال شد",
+                    Message = "خطایی رخ داده است"
                 };
             }
         }

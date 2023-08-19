@@ -13,25 +13,35 @@ namespace alefbafilm6.Application.Services.Pages.Commands.PostAboutPage
         }
         public ResultDto Execute(RequestUpdateAboutPageDto req)
         {
-            Page aboutPage = new Page();
-            aboutPage = _context.Pages.First();
+            try
+            {
+                Page aboutPage = new Page();
+                aboutPage = _context.Pages.First();
 
-            if(aboutPage == null)
+                if (aboutPage == null)
+                {
+                    return new ResultDto
+                    {
+                        IsSuccess = false,
+                        Message = "اطلاعاتی جهت ویرایش یافت نشد",
+                    };
+                }
+                aboutPage.AboutPage = req.AboutPage;
+                _context.SaveChanges();
+                return new ResultDto
+                {
+                    IsSuccess = false,
+                    Message = "صفحه درباره ی ما ویرایش شد"
+                };
+            }
+            catch (Exception ex)
             {
                 return new ResultDto
                 {
                     IsSuccess = false,
-                    Message = "Nok",
+                    Message = "خطایی رخ داده است",
                 };
             }
-
-            aboutPage.AboutPage = req.AboutPage;
-            _context.SaveChanges();
-            return new ResultDto
-            {
-                IsSuccess = true,
-                Message = "Ok",
-            };
         }
     }
 }

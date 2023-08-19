@@ -1,15 +1,17 @@
 ﻿@using alefbafilms.application.Services.Users.Queries.GetUsers
 @model ResultGetUsersDto;
+@*
+    Delevloper: Alimohammad Eghbaldar
+*@
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "مدیریت کاربران";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="mt-0 header-title">ویرایش درون خط با دکمه</h4>
-                <p class="sub-header">ویرایش درون خط با استفاده از یک دکمه و بدون فوکوس روی اولین ورودی</p>
+                <h4 class="mt-0 header-title">ویرایش کاربران</h4>
                 <div class="table-responsive">
                     <table class="table table-centered mb-0" id="btn-editable">
                         <thead>
@@ -26,9 +28,9 @@
                             {
                                 <tr id="1">
                                     <td><span class="tabledit-span tabledit-identifier">1</span><input class="tabledit-input tabledit-identifier" type="hidden" name="id" value="1" disabled=""></td>
-                                    <td class="tabledit-view-mode"><span class="tabledit-span">@item.id</span><input class="tabledit-input form-control form-control-sm" type="text" name="col1" value="قائم امیدی" style="display: none;" disabled=""></td>
-                                    <td class="tabledit-view-mode"><span class="tabledit-span">@item.fullname</span><input class="tabledit-input form-control form-control-sm" type="text" name="col1" value="قائم امیدی" style="display: none;" disabled=""></td>
-                                    <td class="tabledit-view-mode"><span class="tabledit-span">@item.email</span><input class="tabledit-input form-control form-control-sm" type="text" name="col2" value="معماری سیستم" style="display: none;" disabled=""></td>
+                                    <td class="tabledit-view-mode"><span class="tabledit-span">@item.id</span><input class="tabledit-input form-control form-control-sm" type="text" name="col1" style="display: none;" disabled=""></td>
+                                    <td class="tabledit-view-mode"><span class="tabledit-span">@item.fullname</span><input class="tabledit-input form-control form-control-sm" type="text" name="col1" style="display: none;" disabled=""></td>
+                                    <td class="tabledit-view-mode"><span class="tabledit-span">@item.email</span><input class="tabledit-input form-control form-control-sm" type="text" name="col2"  style="display: none;" disabled=""></td>
                                     <td style="white-space: nowrap; width: 1%;">
                                         <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
                                             <div class="btn-group btn-group-sm" style="float: none;">

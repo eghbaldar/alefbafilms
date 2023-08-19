@@ -4,7 +4,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "Gallery Category";
+    ViewData["Title"] = "مدیریت دسته بندی ها";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <div class="content">
@@ -60,8 +60,8 @@
                                 @foreach (var item in Model.GalleryCategory)
                                 {
                                     <tr id="1">
-                                        <td class="tabledit-view-mode"><span class="tabledit-span">@item.Id</span><input class="tabledit-input form-control form-control-sm" type="text" name="col1" value="قائم امیدی" style="display: none;" disabled=""></td>
-                                        <td class="tabledit-view-mode"><span class="tabledit-span">@item.Name</span><input class="tabledit-input form-control form-control-sm" type="text" name="col1" value="قائم امیدی" style="display: none;" disabled=""></td>
+                                        <td class="tabledit-view-mode"><span class="tabledit-span">@item.Id</span><input class="tabledit-input form-control form-control-sm" type="text" name="col1"  style="display: none;" disabled=""></td>
+                                        <td class="tabledit-view-mode"><span class="tabledit-span">@item.Name</span><input class="tabledit-input form-control form-control-sm" type="text" name="col1" style="display: none;" disabled=""></td>
                                         <td style="white-space: nowrap; width: 1%;">
                                             <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
                                                 <div class="btn-group btn-group-sm" style="float: none;">

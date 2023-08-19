@@ -36,13 +36,60 @@ namespace alefbafilms.application.Services.Users.Queries.AuthUsers.SignIn
         }
         public ResultDto<ResultAuthSignInUserDto> Execute(RequestAuthSignInUserDto req)
         {
-            var user = _context.Users
-                .Include(x => x.UserInRole)
-                .ThenInclude(x => x.Role)
-                .Where(x => x.email.Equals(req.Email) && x.IsActive == true)
-                .FirstOrDefault();
+            try
+            {
+                var user = _context.Users
+    .Include(x => x.UserInRole)
+    .ThenInclude(x => x.Role)
+    .Where(x => x.email.Equals(req.Email) && x.IsActive == true)
+    .FirstOrDefault();
 
-            if (user == null)
+                if (user == null)
+                {
+                    return new ResultDto<ResultAuthSignInUserDto>
+                    {
+                        Data = new ResultAuthSignInUserDto
+                        {
+
+                        },
+                        IsSuccess = false,
+                        Message = "کاربری با این مشخصات وجود ندارد",
+                    };
+                }
+
+                var PasswordHasher = new PasswordHasher();
+                var HashedPass = PasswordHasher.VerifyPassword(user.password, req.Password);
+                if (!HashedPass)
+                {
+                    return new ResultDto<ResultAuthSignInUserDto>
+                    {
+                        Data = new ResultAuthSignInUserDto
+                        {
+
+                        },
+                        IsSuccess = false,
+                        Message = "پسورد وارد شده نادرست است",
+                    };
+                }
+
+                List<string> roles = new List<string>();
+                foreach (var item in user.UserInRole)
+                {
+                    roles.Add(item.Role.name);
+                }
+
+                return new ResultDto<ResultAuthSignInUserDto>
+                {
+                    Data = new ResultAuthSignInUserDto
+                    {
+                        Fullname = user.fullname,
+                        IdUser = user.id,
+                        Roles = roles,
+                    },
+                    IsSuccess = true,
+                    Message = " با موفقیت ورود کرده اید ",
+                };
+            } catch(Exception ex)
             {
                 return new ResultDto<ResultAuthSignInUserDto>
                 {
@@ -51,42 +98,9 @@ namespace alefbafilms.application.Services.Users.Queries.AuthUsers.SignIn
 
                     },
                     IsSuccess = false,
-                    Message = "کاربری با این مشخصات وجود ندارد - There is no use with this information.",
+                    Message = "خطایی رخ داده است"
                 };
             }
-
-            var PasswordHasher = new PasswordHasher();
-            var HashedPass = PasswordHasher.VerifyPassword(user.password, req.Password);
-            if (!HashedPass)
-            {
-                return new ResultDto<ResultAuthSignInUserDto>
-                {
-                    Data = new ResultAuthSignInUserDto
-                    {
-
-                    },
-                    IsSuccess = false,
-                    Message = "پسورد وارد شده نادرست است - Entered Password is not Correct",
-                };
-            }
-
-            List<string> roles = new List<string>();
-            foreach (var item in user.UserInRole)
-            {
-                roles.Add(item.Role.name);
-            }
-
-            return new ResultDto<ResultAuthSignInUserDto>
-            {
-                Data = new ResultAuthSignInUserDto
-                {
-                    Fullname=user.fullname,
-                    IdUser=user.id,
-                    Roles=roles,
-                },
-                IsSuccess = true,
-                Message = " با موفقیت ورود کرده اید - You Entered Successfully",
-            };
         }
     }
 }
