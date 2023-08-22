@@ -1,4 +1,5 @@
-﻿using alefbafilms.application.Services.Users.Commands.ActiveUsers;
+﻿using alefbafilm6.Application.Services.Users.Queries.GetUserFullname;
+using alefbafilms.application.Services.Users.Commands.ActiveUsers;
 using alefbafilms.application.Services.Users.Commands.DeleteUsers;
 using alefbafilms.application.Services.Users.Commands.PostUsers;
 using alefbafilms.application.Services.Users.Commands.UpdateUsers;
@@ -22,5 +23,6 @@ namespace alefbafilm6.Application.Interfaces.FacadePattern
         ActiveUserService ActiveUserService { get; }
         UpdateUsersService UpdateUsersService { get; }
         AuthSignInUserService AuthSignInUserService { get; }
+        GetUserFullnameService GetUserFullnameService { get; }
     }
 }

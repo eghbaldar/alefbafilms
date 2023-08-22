@@ -6,7 +6,6 @@ using alefbafilms.application.Services.Users.Commands.UpdateUsers;
 using alefbafilms.application.Services.Users.Queries.GetRoles;
 using alefbafilms.application.Services.Users.Queries.GetUsers;
 using alefbafilms.Common.Constants;
-using Endpoint.site.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -34,7 +33,7 @@ namespace Endpoint.site.Areas.Admin.Controllers
             {
                 KeySearch = SearchKey,
                 Page = page,
-            })) ;
+            }));
         }
 
         [HttpPost]

@@ -1,4 +1,5 @@
-﻿using alefbafilms.application.Services.Users.Queries.AuthUsers.SignIn;
+﻿using alefbafilm6.Application.Interfaces.FacadePattern;
+using alefbafilms.application.Services.Users.Queries.AuthUsers.SignIn;
 using Endpoint.site.Utilities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -10,10 +11,10 @@ namespace Endpoint.site.Areas.Admin.Controllers
     [Area("Admin")]
     public class AuthController : Controller
     {
-        private readonly IAuthSignInUser _authSignInUser;
-        public AuthController(IAuthSignInUser authSignInUser)
+        private readonly IUserFacade _userFacade;
+        public AuthController(IUserFacade userFacade)
         {
-            _authSignInUser = authSignInUser;
+            _userFacade = userFacade;
         }
 
         [HttpGet]
@@ -26,7 +27,7 @@ namespace Endpoint.site.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult SignIn(string Email, string Password, string url = "/")
         {
-            var signIn = _authSignInUser.Execute(new RequestAuthSignInUserDto
+            var signIn = _userFacade.AuthSignInUserService.Execute(new RequestAuthSignInUserDto
             {
                 Email = Email,
                 Password = Password
@@ -53,30 +54,19 @@ namespace Endpoint.site.Areas.Admin.Controllers
                     ExpiresUtc = DateTime.Now.AddYears(1),
                 };
                 HttpContext.SignInAsync(principal, propertise);
+
+                /**************************
+                User.Identity.Name  => Access User's Name in all of website!
+                and about other things, please check out the Root > Utilities > ClaimUtility.cs
+                ***************************/
             }
             return Json(signIn);
         }
         
-        public IActionResult SignOut()
-        {//info@eghbaldar.ir
-
-            //HttpContext.SignOutAsync();
+        public IActionResult Logout()
+        {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return Json("");
-            //return RedirectToAction("Index", "Home");
-
-            //HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            //return RedirectToAction("Index","Users");
-
-            //if (ClaimUtility.DoesUserExist(HttpContext.User))
-            //    return Json(ClaimUtility.DoesUserExist(HttpContext.User));
-            //else
-            //    return Json(ClaimUtility.DoesUserExist(HttpContext.User));
-
-            //if ((HttpContext.User != null) && HttpContext.User.Identity.IsAuthenticated)
-            //    return Json("true");
-            //else
-            //    return Json("false");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

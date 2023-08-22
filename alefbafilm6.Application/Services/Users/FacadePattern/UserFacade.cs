@@ -1,4 +1,5 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
+using alefbafilm6.Application.Services.Users.Queries.GetUserFullname;
 using alefbafilms.application.Interfaces.Contexts;
 using alefbafilms.application.Services.Users.Commands.ActiveUsers;
 using alefbafilms.application.Services.Users.Commands.DeleteUsers;
@@ -101,6 +102,14 @@ namespace alefbafilm6.Application.Services.Users.FacadePattern
             {
                 return _authSignInUserService = _authSignInUserService?? new AuthSignInUserService(_context);
             }
+        }
+        /// <summary>
+        /// /////////////////////////////////////// Get User Fullname by Id
+        /// </summary>
+        private GetUserFullnameService _getUserFullnameService;
+        public GetUserFullnameService GetUserFullnameService
+        {
+            get { return _getUserFullnameService = _getUserFullnameService ?? new GetUserFullnameService(_context); }
         }
     }
 }

@@ -39,31 +39,35 @@
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                         <!-- item-->
                         <div class="dropdown-header noti-title">
-                            <h6 class="text-overflow m-0">خوش اومدی!</h6>
+                            <h6 class="text-overflow m-0">
+                                @await Component.InvokeAsync("TopLeftMenu", new{
+                                    UserFullName="King",
+                                });
+                            </h6>
                         </div>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-user"></i>
-                            <span>حساب کاربری</span>
-                        </a>
+                        @* <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="fe-user"></i>
+                        <span>حساب کاربری</span>
+                        </a>*@
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-settings"></i>
-                            <span>تنظیمات</span>
-                        </a>
+                        @*<a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="fe-settings"></i>
+                        <span>تنظیمات</span>
+                        </a>*@
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-lock"></i>
-                            <span>قفل کردن صفحه</span>
-                        </a>
+                        @* <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="fe-lock"></i>
+                        <span>قفل کردن صفحه</span>
+                        </a>*@
 
-                        <div class="dropdown-divider"></div>
+                        @* <div class="dropdown-divider"></div>*@
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <a href="~/admin/Auth/Logout" class="dropdown-item notify-item">
                             <i class="fe-log-out"></i>
                             <span>خروج</span>
                         </a>
@@ -74,18 +78,18 @@
             </ul>
 
             <!-- LOGO -->
-            <div class="logo-box">
-                <a href="index.html" class="logo text-center">
-                    <span class="logo-lg">
-                        <img src="~/admintemplate/images/logo-dark.png" alt="تصویر" height="16">
-                        <!-- <span class="logo-lg-text-light">Xeria</span> -->
-                    </span>
-                    <span class="logo-sm">
-                        <!-- <span class="logo-sm-text-dark">X</span> -->
-                        <img src="~/admintemplate/images/logo-sm.png" alt="تصویر" height="24">
-                    </span>
-                </a>
-            </div>
+            @* <div class="logo-box">
+            <a href="index.html" class="logo text-center">
+            <span class="logo-lg">
+            <img src="~/admintemplate/images/logo-dark.png" alt="تصویر" height="16">
+            <!-- <span class="logo-lg-text-light">Xeria</span> -->
+            </span>
+            <span class="logo-sm">
+            <!-- <span class="logo-sm-text-dark">X</span> -->
+            <img src="~/admintemplate/images/logo-sm.png" alt="تصویر" height="24">
+            </span>
+            </a>
+            </div>*@
 
             <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
                 <li>
@@ -95,7 +99,9 @@
                 </li>
 
                 <li>
-                    <h4 class="page-title-main">عنوان صفحه</h4>
+                    <h4 class="page-title-main">
+                        @ViewData["Title"]
+                    </h4>
                 </li>
 
             </ul>
@@ -163,8 +169,8 @@
 
                             </ul>
                         </li>
-                          <li>
-                          <a href="javascript: void(0);">
+                        <li>
+                            <a href="javascript: void(0);">
                                 <i class="mdi mdi-invert-colors"></i>
                                 <span>پیام های دریافتی</span>
                                 <span class="menu-arrow"></span>
@@ -175,7 +181,7 @@
                             </ul>
                         </li>
                         <li>
-                          <a href="javascript: void(0);">
+                            <a href="javascript: void(0);">
                                 <i class="mdi mdi-invert-colors"></i>
                                 <span>اشتراکی ها</span>
                                 <span class="menu-arrow"></span>
@@ -283,7 +289,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6">
-                          Developer: <a href="http://eghbaldar.ir">EGHBALDAR</a>
+                            Developer: <a href="http://eghbaldar.ir">EGHBALDAR</a>
                         </div>
                         <div class="col-md-6">
                             <div class="text-md-right footer-links d-none d-sm-block">
