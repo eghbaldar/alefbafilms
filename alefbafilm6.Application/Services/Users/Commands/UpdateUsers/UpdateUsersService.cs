@@ -1,5 +1,6 @@
 ﻿using alefbafilms.application.Interfaces.Contexts;
 using alefbafilms.Common.Dtos;
+using Bugeto_Store.Common;
 
 namespace alefbafilms.application.Services.Users.Commands.UpdateUsers
 {
@@ -27,7 +28,10 @@ namespace alefbafilms.application.Services.Users.Commands.UpdateUsers
                 {
                     user.fullname = req.Fullname;
                     user.email = req.Email;
-                    user.password = req.Password;
+
+                    PasswordHasher passwordHasher = new PasswordHasher();
+                    user.password = passwordHasher.HashPassword(req.Password);
+
                     user.UpdateTime = DateTime.Now;
 
                     _context.SaveChanges();

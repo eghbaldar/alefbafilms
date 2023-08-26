@@ -20,13 +20,13 @@ namespace alefbafilms.application.Services.Users.Commands.ActiveUsers
                     return new ResultDto
                     {
                         IsSuccess = false,
-                        Message = "Not Found User - کاربر یافت نشد",
+                        Message = "کاربر یافت نشد",
                     };
                 }
                 else
                 {
                     user.IsActive = !user.IsActive;
-                    var UserEnglishStatus = user.IsActive == true ? "Active" : "Inactive";
+                    //var UserEnglishStatus = user.IsActive == true ? "Active" : "Inactive";
                     var UserPersianStatus = user.IsActive == true ? "فعال" : "غیرفعال";
 
                     _context.SaveChanges();
@@ -34,7 +34,7 @@ namespace alefbafilms.application.Services.Users.Commands.ActiveUsers
                     return new ResultDto
                     {
                         IsSuccess = true,
-                        Message = String.Format("User Activity Status was Changed to {0} - وضعیت کاربر {1} شد", UserEnglishStatus, UserPersianStatus),
+                        Message = String.Format("وضعیت کاربر {0} شد", UserPersianStatus),
                     };
                 }
             } catch (Exception ex)

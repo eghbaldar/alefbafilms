@@ -35,7 +35,7 @@
                                         <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
                                             <div class="btn-group btn-group-sm" style="float: none;">
                                                 <button type="button"
-                                                    onclick="PreUpdateUser('@item.id','@item.fullname','@item.email','@item.password')"
+                                                    onclick="PreUpdateUser('@item.id','@item.fullname','@item.email')"
                                                     class="tabledit-edit-button btn btn-success" style="float: none;">
                                                     <span class="mdi mdi-pencil">
                                                     </span>
@@ -159,12 +159,11 @@
                 }
             });
         }
-        function PreUpdateUser(IdUser, Fullname, Email, Password) {
+        function PreUpdateUser(IdUser, Fullname, Email) {
 
             $('#txtEditIdUser').val(IdUser);
             $('#txtEditFullname').val(Fullname);
             $('#txtEditEmail').val(Email);
-            $('#txtEditPassword').val(Password);
 
             $('#myModal').modal('show');
         }
@@ -221,8 +220,10 @@
                 <div class="modal-body">
                     <input type="hidden" id="txtEditIdUser" />
                     <input class="form-control" id="txtEditFullname" />
-                    <input class="form-control" id="txtEditEmail" />
-                    <input class="form-control" id="txtEditPassword" />
+                    <br/>
+                    <input class="form-control" style="direction:ltr;" id="txtEditEmail" />
+                    <br />
+                    <input class="form-control" id="txtEditPassword" placeholder="پسورد جدید را وارد کنید" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>

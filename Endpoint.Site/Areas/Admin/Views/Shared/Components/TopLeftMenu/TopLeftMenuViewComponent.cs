@@ -13,12 +13,16 @@ namespace Endpoint.Site.Areas.Admin.Views.Components.TopLeftMenu
         {
             _userFacade = userFacade;
         }
-        public IViewComponentResult Invoke(string UserFullName)
+        public IViewComponentResult Invoke()
         {
-            //var principal = new ClaimsPrincipal(User);
-            var req = (User.Identity as ClaimsIdentity).Claims.FirstOrDefault();
-            string reqValue = req.Value;
-
+            //-------------------------------------------- GET USER's NAME by Cooke after loging
+            // There two kinds of codes!
+            // [1]
+            //     var req = (User.Identity as ClaimsIdentity).Claims.FirstOrDefault();
+            //     string reqValue = req.Value;
+            //
+            // [2]
+            string reqValue = ClaimUtility.GetUserId(User as ClaimsPrincipal).Value.ToString();
             return View("Index", _userFacade.GetUserFullnameService.Execute(new RequestGetUserFullnameServiceDto
             {
                 IdUser = long.Parse(reqValue),
