@@ -1,4 +1,6 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using alefbafilms.application.Services.Users.Commands.PostUsers
+@model RequestPostUserDto
 @*
     Delevloper: Alimohammad Eghbaldar
 *@
@@ -17,46 +19,61 @@
                 <div class="card-box">
                     <h4 class="m-t-0 header-title">اضافه کردن کاربر جدید</h4>
 
-                    <div class="row">
-                        <div class="col-12">
+                    <form id="formdata">
+
+                        <div class="row">
+                            <div class="col-12">
                                 <div class="form-group row">
                                     <label class="col-sm-2  col-form-label" for="simpleinput">نام کامل کاربر:</label>
                                     <div class="col-sm-10">
-                                    <input type="text"
-                                            id="txtFullname" placeholder="نام کامل کاربر به فارسی"
-                                           class="form-control">
+
+                                        <input type="text"
+                                               name="roll"
+                                               data-val-required="Roll no. is required."
+                                               data-val="true"
+                                               id="txtFullname"
+                                               placeholder="نام کامل کاربر به فارسی"
+                                               class="form-control">
+
+                                        <span data-valmsg-for="roll"
+                                              data-valmsg-replace="true"
+                                              style="margin-left: 75px; color: red;" />
+
                                     </div>
                                 </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2  col-form-label" for="example-email">ایمیل:</label>
-                                <div class="col-sm-10">
-                                    <input type="email" id="txtEmail" name="example-email" class="form-control" placeholder="ایمیل">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  col-form-label" for="example-email">ایمیل:</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" id="txtEmail" name="example-email" class="form-control" placeholder="ایمیل">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2  col-form-label" for="example-password">رمز عبور:</label>
-                                <div class="col-sm-10">
-                                    <input type="password" id="txtPassword" class="form-control" value="">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  col-form-label" for="example-password">رمز عبور:</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" id="txtPassword" class="form-control" value="">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2  col-form-label" for="example-password">تکرار رمز عبور:</label>
-                                <div class="col-sm-10">
-                                    <input type="password" id="txtrePassword" class="form-control" value="">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  col-form-label" for="example-password">تکرار رمز عبور:</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" id="txtrePassword" class="form-control" value="">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2  col-form-label">نقش کاربر</label>
-                                <div class="col-sm-10">
-                                    <select class="custom-select" id="RoleId" name="Role"
-                                            asp-items="@ViewBag.Roles">
-                                    </select>
-                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2  col-form-label">نقش کاربر</label>
+                                    <div class="col-sm-10">
+                                        <select class="custom-select" id="RoleId" name="Role"
+                                                asp-items="@ViewBag.Roles">
+                                        </select>
+                                    </div>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <button onclick="Register()" class="btn btn-primary">درج کاربر</button>
+                        <button type="button" onclick="Register()" class="btn btn-primary">درج کاربر</button>
+
+                    </form>
+
                 </div>
 
             </div>
@@ -67,13 +84,25 @@
 </div>
 
 
+
+
+
 @section Scripts
     {
+
+    <!--These validation libraries need to be included for unobtrusive validation -->
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <!-- End -->
 
     <script>
         function Register() {
+            //alert($("#formdata").valid());
+            if ($("#formdata").valid()) {
+                  
+
+            
+
             Swal.fire({
                 title: 'ثبت نام کاربر!',
                 text: 'مایل به ثبت کاربر جدید هستید؟',
@@ -111,7 +140,7 @@
                                     data.message,
                                     'success'
                                 ).then(function (isConfirm) {
-                                    location.reload();
+                                    //location.reload();
                                 });
                             }
                             else // if success is not happend!
@@ -132,6 +161,8 @@
                     Swal.fire('NO');
                 }
             });
+                            
+            }
         }
     </script>
 }

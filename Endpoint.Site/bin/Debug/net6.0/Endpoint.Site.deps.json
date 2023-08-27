@@ -8,16 +8,26 @@
     ".NETCoreApp,Version=v6.0": {
       "Endpoint.Site/1.0.0": {
         "dependencies": {
+          "FluentValidation": "11.7.1",
           "Microsoft.EntityFrameworkCore": "6.0.0",
           "Microsoft.EntityFrameworkCore.Design": "6.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16",
           "alefbafilm6.Application": "1.0.0",
           "alefbafilm6.Common": "1.0.0",
-          "alefbafilm6.Persistence": "1.0.0"
+          "alefbafilm6.Persistence": "1.0.0",
+          "jQuery.Validation": "1.19.5"
         },
         "runtime": {
           "Endpoint.Site.dll": {}
+        }
+      },
+      "FluentValidation/11.7.1": {
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.7.1.0"
+          }
         }
       },
       "Humanizer/2.14.1": {
@@ -558,6 +568,12 @@
           "lib/net6.0/zh-Hant/Humanizer.resources.dll": {
             "locale": "zh-Hant"
           }
+        }
+      },
+      "jQuery/1.4.4": {},
+      "jQuery.Validation/1.19.5": {
+        "dependencies": {
+          "jQuery": "1.4.4"
         }
       },
       "MessagePack/2.1.152": {
@@ -2507,6 +2523,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "FluentValidation/11.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-w9Al4gls6iVGFbTd/NPOPlwzqDTghH+ntL4c4FYUatc+LeybpIwhYArLykZJP/VjF2n3ihj3ws+1yd7KR5lQlg==",
+      "path": "fluentvalidation/11.7.1",
+      "hashPath": "fluentvalidation.11.7.1.nupkg.sha512"
+    },
     "Humanizer/2.14.1": {
       "type": "package",
       "serviceable": true,
@@ -2856,6 +2879,20 @@
       "sha512": "sha512-VIXB7HCUC34OoaGnO3HJVtSv2/wljPhjV7eKH4+TFPgQdJj2lvHNKY41Dtg0Bphu7X5UaXFR4zrYYyo+GNOjbA==",
       "path": "humanizer.core.zh-hant/2.14.1",
       "hashPath": "humanizer.core.zh-hant.2.14.1.nupkg.sha512"
+    },
+    "jQuery/1.4.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kexCeYIZehR5fRjo8CK1sngN5SZEQRFNfCYZHMS1RxwEEiSKetBw/gliYJcLJdJEBB+e9aHqleLCjuaSI7u23g==",
+      "path": "jquery/1.4.4",
+      "hashPath": "jquery.1.4.4.nupkg.sha512"
+    },
+    "jQuery.Validation/1.19.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lBHoaszLpKYxiVCWwIoxdqSCrlqnW9jeVMinMQ0uNMFcl3rmY8XyeaerfGLRbkVRUzh/fM3APaKepEezrR5AcA==",
+      "path": "jquery.validation/1.19.5",
+      "hashPath": "jquery.validation.1.19.5.nupkg.sha512"
     },
     "MessagePack/2.1.152": {
       "type": "package",

@@ -15,6 +15,8 @@ using alefbafilms.application.Services.Users.Queries.GetRoles;
 using alefbafilms.application.Services.Users.Queries.GetUsers;
 using alefbafilms.Common.Constants;
 using alefbafilms.Persistence.Contexts;
+using Endpoint.Site.Areas.Admin.Models.Validations;
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -33,6 +35,9 @@ builder.Services.AddScoped<IPagesFacade,PagesFacade>();
 builder.Services.AddScoped<IStaffFacade,StaffFacade>();
 builder.Services.AddScoped<IContactFacade, ContactPattern>();
 builder.Services.AddScoped<INewsletterFacade,NewsletterFacade>();
+
+// Fluent Validation
+builder.Services.AddScoped<IValidator<RequestPostUserDto>,UserValidator>();
 
 // ASN // Add SQL SERVICE Provider services
 var connStr = builder.Configuration.GetConnectionString("LocalServer"); // Get connectionstring value directly from "appsetting.json" file
@@ -79,6 +84,12 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+//Access to area sections
+app.MapControllerRoute(
+        name: "areas",
+        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+);
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
@@ -90,12 +101,6 @@ app.MapControllerRoute(
         name: "admin_authentication",
         pattern: "{area:exists}/users/auth/{type}",
         defaults: new { controller = "Auth", action = "Index", type = "signin" }
-);
-
-//Access to area sections
-app.MapControllerRoute(
-        name: "areas",
-        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
 );
 
 app.Run();

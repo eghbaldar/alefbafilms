@@ -6,11 +6,16 @@ using alefbafilms.application.Services.Users.Commands.UpdateUsers;
 using alefbafilms.application.Services.Users.Queries.GetRoles;
 using alefbafilms.application.Services.Users.Queries.GetUsers;
 using alefbafilms.Common.Constants;
+using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
+using alefbafilms.domian.Entities.Users;
+using Microsoft.AspNetCore.Mvc.Formatters.Xml;
+using FluentValidation.Results;
+using NuGet.Protocol;
 
 namespace Endpoint.site.Areas.Admin.Controllers
 {
@@ -18,11 +23,13 @@ namespace Endpoint.site.Areas.Admin.Controllers
     [Authorize(RoleConsts.Admin)]
     public class UsersController : Controller
     {
-        // Injection of IUserFacade to this Controller
+        // Injection of [IUserFacade] & [IValidator] to this Controller
         private readonly IUserFacade _userFacade;
-        public UsersController(IUserFacade userFacade)
+        private readonly IValidator<RequestPostUserDto> _validator;
+        public UsersController(IUserFacade userFacade, IValidator<RequestPostUserDto> validator)
         {
             _userFacade = userFacade;
+            _validator = validator;
         }
         // End of Injection
 
@@ -55,13 +62,31 @@ namespace Endpoint.site.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(string Fullname, string Email, string Password, long roleId)
+        public IActionResult Create(RequestPostUserDto req, long roleId)
         {
+
+            //// Validation
+            //var valResult = _validator.Validate(req);
+            //if (!valResult.IsValid)
+            //{
+            //    return View(req);
+            //    //return BadRequest(valResult.Errors);
+            //    ///////////////////////////////////////
+            //    //var errorGroups = valResult.Errors.GroupBy(x=>x.PropertyName).ToList();
+            //    //var errors = errorGroups.Select(x => new
+            //    //{
+            //    //    PropertyName = x.Key,
+            //    //    Error=x.Select(x=>x.ErrorMessage).ToArray()
+            //    //});
+            //    //return BadRequest(errors);
+            //}
+
+            // Insert Process
             var result = _userFacade.PostUserService.Execute(new RequestPostUserDto
             {
-                Fullname = Fullname,
-                Password = Password,
-                Email = Email,
+                Fullname = req.Fullname,
+                Password = req.Password,
+                Email = req.Email,
                 Roles = new List<RequestPostRoleOfUserDto>()
                 {
                     // why the below code? because we will get only one role in every register.

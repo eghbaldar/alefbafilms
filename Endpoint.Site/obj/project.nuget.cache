@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "MHBNB/ycTincAntMKH2kQ9HXrMjGHHgNQKkWA0uAuSwxL9w14rugdS1aQASCIbcDEQzpBNHtP8BebjpiC9byZQ==",
+  "dgSpecHash": "/30RcspK3ntBxHR8D7MrIyFWkY6ugf8f50vE2ANoFcz4gxi22hm8UEAAmtLkYCxYEE56/ApEd8kO9guRXgGGXQ==",
   "success": true,
   "projectFilePath": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\Endpoint.Site.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -54,6 +55,8 @@
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\humanizer.core.zh-cn\\2.14.1\\humanizer.core.zh-cn.2.14.1.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
+    "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\jquery\\1.4.4\\jquery.1.4.4.nupkg.sha512",
+    "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\jquery.validation\\1.19.5\\jquery.validation.1.19.5.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
