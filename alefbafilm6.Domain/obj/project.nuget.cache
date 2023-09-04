@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "jnaQ7uo71Fcji0rZS4nMtUguYlKzTjH7aEAFC9xZhC3V9Q2Nlo/K7YyAJlzXuRlQWRkTG7TIMJkfq/A1u/ZdJQ==",
+  "dgSpecHash": "af/WMlnQ8D0iYNYPIDJuFWp3cAgHD/twrBoBIETWfTQCDwRt+ZBBtJpUcY/732BBKFTmmwZ9u9OledRMSgV88w==",
   "success": true,
   "projectFilePath": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\alefbafilm6.Domain\\alefbafilm6.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

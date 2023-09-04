@@ -25,16 +25,14 @@ namespace Endpoint.site.Areas.Admin.Controllers
     {
         // Injection of [IUserFacade] & [IValidator] to this Controller
         private readonly IUserFacade _userFacade;
-        private readonly IValidator<RequestPostUserDto> _validator;
-        public UsersController(IUserFacade userFacade, IValidator<RequestPostUserDto> validator)
+        public UsersController(IUserFacade userFacade)
         {
             _userFacade = userFacade;
-            _validator = validator;
         }
         // End of Injection
 
         [HttpGet]
-        public IActionResult Index(String SearchKey, int page=1)
+        public IActionResult Index(String SearchKey, int page = 1)
         {
             return View(_userFacade.GetUsersService.Execute(new RequestGetUsersDto
             {
@@ -62,32 +60,22 @@ namespace Endpoint.site.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(RequestPostUserDto req, long roleId)
+        public IActionResult Create(User req, long roleId)
         {
 
-            //// Validation
-            //var valResult = _validator.Validate(req);
-            //if (!valResult.IsValid)
-            //{
-            //    return View(req);
-            //    //return BadRequest(valResult.Errors);
-            //    ///////////////////////////////////////
-            //    //var errorGroups = valResult.Errors.GroupBy(x=>x.PropertyName).ToList();
-            //    //var errors = errorGroups.Select(x => new
-            //    //{
-            //    //    PropertyName = x.Key,
-            //    //    Error=x.Select(x=>x.ErrorMessage).ToArray()
-            //    //});
-            //    //return BadRequest(errors);
-            //}
-
-            // Insert Process
-            var result = _userFacade.PostUserService.Execute(new RequestPostUserDto
+            if (!ModelState.IsValid)
             {
-                Fullname = req.Fullname,
-                Password = req.Password,
-                Email = req.Email,
-                Roles = new List<RequestPostRoleOfUserDto>()
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                // Insert Process
+                var result = _userFacade.PostUserService.Execute(new RequestPostUserDto
+                {
+                    Fullname = req.fullname,
+                    Password = req.password,
+                    Email = req.email,
+                    Roles = new List<RequestPostRoleOfUserDto>()
                 {
                     // why the below code? because we will get only one role in every register.
                     // if we change our registor form in order to get more than one role, then we have to change the below code, dude!
@@ -96,8 +84,9 @@ namespace Endpoint.site.Areas.Admin.Controllers
                         Id=roleId,
                     }
                 }
-            }); ;
-            return Json(result);
+                }); ;
+                return Json(result);
+            }
         }
 
         [HttpPost]

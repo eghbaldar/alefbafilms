@@ -1,6 +1,6 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @using alefbafilms.application.Services.Users.Commands.PostUsers
-@model RequestPostUserDto
+@model alefbafilms.domian.Entities.Users.User
 @*
     Delevloper: Alimohammad Eghbaldar
 *@
@@ -10,7 +10,6 @@
 }
 
 <div class="content">
-
     <!-- Start Content-->
     <div class="container-fluid">
 
@@ -19,7 +18,7 @@
                 <div class="card-box">
                     <h4 class="m-t-0 header-title">اضافه کردن کاربر جدید</h4>
 
-                    <form id="formdata">
+                    <form id="formdata" asp-action="create" method="post">
 
                         <div class="row">
                             <div class="col-12">
@@ -28,29 +27,38 @@
                                     <div class="col-sm-10">
 
                                         <input type="text"
-                                               name="roll"
-                                               data-val-required="Roll no. is required."
-                                               data-val="true"
                                                id="txtFullname"
+                                               name="fullname"
+                                               asp-for="fullname"
                                                placeholder="نام کامل کاربر به فارسی"
-                                               class="form-control">
+                                               class="form-control" />
 
-                                        <span data-valmsg-for="roll"
-                                              data-valmsg-replace="true"
-                                              style="margin-left: 75px; color: red;" />
+                                        <span asp-validation-for="fullname"
+                                              class="text-danger"
+                                              data-valmsg-for="fullname">
+                                        </span>
+
 
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2  col-form-label" for="example-email">ایمیل:</label>
                                     <div class="col-sm-10">
-                                        <input type="email" id="txtEmail" name="example-email" class="form-control" placeholder="ایمیل">
+                                        <input type="email"
+                                               asp-for="email"
+                                               name="email"
+                                               id="txtEmail" class="form-control" placeholder="ایمیل">
+                                        @Html.ValidationMessageFor(m => m.email,null,new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2  col-form-label" for="example-password">رمز عبور:</label>
                                     <div class="col-sm-10">
-                                        <input type="password" id="txtPassword" class="form-control" value="">
+                                        <input
+                                            asp-for="password"
+                                            name="password"
+                                            type="password" id="txtPassword" class="form-control" value="">
+                                        @Html.ValidationMessageFor(x => x.password,null,new {@class="text-danger"})
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -71,7 +79,6 @@
                             </div>
                         </div>
                         <button type="button" onclick="Register()" class="btn btn-primary">درج کاربر</button>
-
                     </form>
 
                 </div>
@@ -95,73 +102,90 @@
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <!-- End -->
 
+
     <script>
         function Register() {
-            //alert($("#formdata").valid());
             if ($("#formdata").valid()) {
-                  
+                Swal.fire({
+                    title: 'ثبت نام کاربر!',
+                    text: 'مایل به ثبت کاربر جدید هستید؟',
+                    icon: 'info',
+                    showCancelButton: true,
+                    confirmButtonColor: '#000222',
+                    cancelButtonColor: '#000222',
+                    confirmButtonText: 'بله انجام شود',
+                    cancelButtonText: 'خیر'
+                }).then((result) => {
+                    if (result.value) {
 
-            
+                        var fullname = $("#txtFullname").val();
+                        var email = $("#txtEmail").val();
+                        var password = $("#txtPassword").val();
+                        var repassword = $("#txtrePassword").val();
+                        var role = $("#RoleId").val();
 
-            Swal.fire({
-                title: 'ثبت نام کاربر!',
-                text: 'مایل به ثبت کاربر جدید هستید؟',
-                icon: 'info',
-                showCancelButton: true,
-                confirmButtonColor: '#000222',
-                cancelButtonColor: '#000222',
-                confirmButtonText: 'بله انجام شود',
-                cancelButtonText: 'خیر'
-            }).then((result) => {
-                if (result.value) {
+                        if (!CheckPasses(password, repassword)) return;
 
-                    var fullname = $("#txtFullname").val();
-                    var email = $("#txtEmail").val();
-                    var password = $("#txtPassword").val();
-                    var role = $("#RoleId").val();
+                        var postData = {
+                            'fullname': fullname,
+                            'email': email,
+                            'password': password,
+                            'roleId': role,
+                        };
 
-                    var postData = {
-                        'fullname': fullname,
-                        'email': email,
-                        'password': password,
-                        'roleId': role,
-                    };
-
-                    $.ajax({
-                        contentType: 'application/x-www-form-urlencoded',
-                        dataType: 'json',
-                        type: 'POST',
-                        url: 'Create', // IActionResult's name in this route! if you would call an action from another route, you had to add new route before the "Create"
-                        data: postData,
-                        success: function (data) { //returned value as json format from backend! [this code:  return Json(result); from UserController.cs]
-                            if (data.isSuccess == true) {
-                                swal.fire(
-                                    'موفق',
-                                    data.message,
-                                    'success'
-                                ).then(function (isConfirm) {
-                                    //location.reload();
-                                });
+                        $.ajax({
+                            contentType: 'application/x-www-form-urlencoded',
+                            dataType: 'json',
+                            type: 'POST',
+                            url: 'Create', // IActionResult's name in this route! if you would call an action from another route, you had to add new route before the "Create"
+                            data: postData,
+                            success: function (data) { //returned value as json format from backend! [this code:  return Json(result); from UserController.cs]
+                                if (data.isSuccess == true) {
+                                    swal.fire(
+                                        'موفق',
+                                        data.message,
+                                        'success'
+                                    ).then(function (isConfirm) {
+                                        window.location.replace("/admin/users/index");
+                                    });
+                                }
+                                else // if success is not happend!
+                                {
+                                    swal.fire(
+                                        'هشدار',
+                                        data.message,
+                                        'warning'
+                                    );
+                                }
+                            },
+                            error: function (request, status, error) {
+                                alert(request.responseText);
                             }
-                            else // if success is not happend!
-                            {
-                                swal.fire(
-                                    'هشدار',
-                                    data.message,
-                                    'warning'
-                                );
-                            }
-                        },
-                        error: function (request, status, error) {
-                            alert(request.responseText);
-                        }
-                    });
-                }
-                else {
-                    Swal.fire('NO');
-                }
-            });
-                            
+                        });
+                    }
+                    else {
+                        Swal.fire('NO');
+                    }
+                });
+            }
+        }
+        function CheckPasses(firstPass, secondPass) {
+            if (firstPass != secondPass) {
+                Swal.fire(
+                    {
+                        title: 'خطا!',
+                        text: 'کلمه های عبور یکی نمی باشد',
+                        icon: 'error',
+                        showCancelButton: true,
+                        confirmButtonColor: '#000222',
+                        cancelButtonColor: '#000222',
+                        confirmButtonText: 'Yes, Do It',
+                        cancelButtonText: 'No'
+                    }
+                );
+                return false;
+            } else {
+                return true;
             }
         }
     </script>

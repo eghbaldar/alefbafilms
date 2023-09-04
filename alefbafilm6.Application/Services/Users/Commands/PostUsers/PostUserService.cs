@@ -19,6 +19,22 @@ namespace alefbafilms.application.Services.Users.Commands.PostUsers
                 var PassHasher = new PasswordHasher();
                 var HashedPass = PassHasher.HashPassword(req.Password);
 
+                // Checking Duplicated User by Email
+                var duplicatedUser = _context.Users.Where(x => x.email == req.Email).FirstOrDefault();
+                if (duplicatedUser != null)
+                {
+                    return new ResultDto<ResultPostUserDto>()
+                    {
+                        Data = new ResultPostUserDto
+                        {
+                            Id = 0,
+                        },
+                        IsSuccess = false,
+                        Message = "کاربری با این ایمیل قبلا ثبت شده است",
+                    };
+                }
+                // End
+
                 User user = new User()
                 {
                     fullname = req.Fullname,
@@ -52,7 +68,8 @@ namespace alefbafilms.application.Services.Users.Commands.PostUsers
                     IsSuccess = true,
                     Message = "کاربر جدید اضافه شد",
                 };
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return new ResultDto<ResultPostUserDto>()
                 {
@@ -61,7 +78,7 @@ namespace alefbafilms.application.Services.Users.Commands.PostUsers
                         Id = 0,
                     },
                     IsSuccess = true,
-                    Message = "خطایی رخ داده است"
+                    Message = "خطایی رخ داده است" + "</br>" + ex.Message.ToString()
                 };
             }
         }

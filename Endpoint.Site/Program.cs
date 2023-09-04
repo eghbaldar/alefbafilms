@@ -5,6 +5,7 @@ using alefbafilm6.Application.Services.Newsletter.FacadePattern;
 using alefbafilm6.Application.Services.Pages.FacadePattern;
 using alefbafilm6.Application.Services.Staff.FacadePattern;
 using alefbafilm6.Application.Services.Users.FacadePattern;
+using alefbafilm6.Domain.Entities;
 using alefbafilms.application.Interfaces.Contexts;
 using alefbafilms.application.Services.Users.Commands.ActiveUsers;
 using alefbafilms.application.Services.Users.Commands.DeleteUsers;
@@ -14,8 +15,8 @@ using alefbafilms.application.Services.Users.Queries.AuthUsers.SignIn;
 using alefbafilms.application.Services.Users.Queries.GetRoles;
 using alefbafilms.application.Services.Users.Queries.GetUsers;
 using alefbafilms.Common.Constants;
+using alefbafilms.domian.Entities.Users;
 using alefbafilms.Persistence.Contexts;
-using Endpoint.Site.Areas.Admin.Models.Validations;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
@@ -35,9 +36,6 @@ builder.Services.AddScoped<IPagesFacade,PagesFacade>();
 builder.Services.AddScoped<IStaffFacade,StaffFacade>();
 builder.Services.AddScoped<IContactFacade, ContactPattern>();
 builder.Services.AddScoped<INewsletterFacade,NewsletterFacade>();
-
-// Fluent Validation
-builder.Services.AddScoped<IValidator<RequestPostUserDto>,UserValidator>();
 
 // ASN // Add SQL SERVICE Provider services
 var connStr = builder.Configuration.GetConnectionString("LocalServer"); // Get connectionstring value directly from "appsetting.json" file

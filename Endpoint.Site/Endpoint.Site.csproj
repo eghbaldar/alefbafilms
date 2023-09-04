@@ -51,6 +51,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="wwwroot\SiteTemplate\imgs\page\about\3\" />
     <Folder Include="wwwroot\SiteTemplate\imgs\page\blog\2\" />
     <Folder Include="wwwroot\SiteTemplate\imgs\page\homepage3\" />

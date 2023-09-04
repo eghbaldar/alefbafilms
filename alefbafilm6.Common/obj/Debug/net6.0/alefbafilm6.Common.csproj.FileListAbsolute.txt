@@ -1,11 +1,11 @@
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Common\bin\Debug\net6.0\alefbafilm6.Common.deps.json
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Common\bin\Debug\net6.0\alefbafilm6.Common.dll
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Common\bin\Debug\net6.0\alefbafilm6.Common.pdb
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Common\obj\Debug\net6.0\alefbafilm6.Common.csproj.AssemblyReference.cache
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Common\obj\Debug\net6.0\alefbafilm6.Common.GeneratedMSBuildEditorConfig.editorconfig
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Common\obj\Debug\net6.0\alefbafilm6.Common.AssemblyInfoInputs.cache
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Common\obj\Debug\net6.0\alefbafilm6.Common.AssemblyInfo.cs
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Common\obj\Debug\net6.0\alefbafilm6.Common.csproj.CoreCompileInputs.cache
-D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Common\bin\Debug\net6.0\alefbafilm6.Common.deps.json
-D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Common\bin\Debug\net6.0\alefbafilm6.Common.dll
-D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Common\bin\Debug\net6.0\alefbafilm6.Common.pdb
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Common\obj\Debug\net6.0\alefbafilm6.Common.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Common\obj\Debug\net6.0\refint\alefbafilm6.Common.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Common\obj\Debug\net6.0\alefbafilm6.Common.pdb
