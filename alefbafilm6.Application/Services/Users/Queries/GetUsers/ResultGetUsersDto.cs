@@ -1,4 +1,6 @@
-﻿namespace alefbafilms.application.Services.Users.Queries.GetUsers
+﻿using ServiceStack.DataAnnotations;
+
+namespace alefbafilms.application.Services.Users.Queries.GetUsers
 {
     /// STEP ........................................ 4
     /// <summary>

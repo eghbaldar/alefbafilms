@@ -1,5 +1,7 @@
-﻿@using alefbafilms.application.Services.Users.Queries.GetUsers
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using alefbafilms.application.Services.Users.Queries.GetUsers
 @model ResultGetUsersDto;
+
 @*
     Delevloper: Alimohammad Eghbaldar
 *@
@@ -7,6 +9,7 @@
     ViewData["Title"] = "مدیریت کاربران";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -29,7 +32,7 @@
                                 <tr id="1">
                                     <td class="tabledit-view-mode"><span class="tabledit-span">@item.id</span><input class="tabledit-input form-control form-control-sm" type="text" name="col1" style="display: none;" disabled=""></td>
                                     <td class="tabledit-view-mode"><span class="tabledit-span">@item.fullname</span><input class="tabledit-input form-control form-control-sm" type="text" name="col1" style="display: none;" disabled=""></td>
-                                    <td class="tabledit-view-mode"><span class="tabledit-span">@item.email</span><input class="tabledit-input form-control form-control-sm" type="text" name="col2"  style="display: none;" disabled=""></td>
+                                    <td class="tabledit-view-mode"><span class="tabledit-span">@item.email</span><input class="tabledit-input form-control form-control-sm" type="text" name="col2" style="display: none;" disabled=""></td>
                                     <td style="white-space: nowrap; width: 1%;">
                                         <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
                                             <div class="btn-group btn-group-sm" style="float: none;">
@@ -39,7 +42,7 @@
                                                     <span class="mdi mdi-pencil">
                                                     </span>
                                                 </button>
-                                                <button onclick="DeleteUser('@item.id')"
+                                                <button onclick="DeleteUser('@item.id',this)"
                                                     class="btn btn-icon waves-effect waves-light btn-danger">
                                                     <i class="fas fa-times"></i>
                                                 </button>
@@ -72,6 +75,10 @@
 
 
 @section Scripts{
+    <!-- These validation libraries need to be included for unobtrusive validation -->
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <!-- End -->
     <script>
         function ActiveUser(IdUser) {
             Swal.fire({
@@ -119,7 +126,8 @@
             }
             );
         }
-        function DeleteUser(IdUser) {
+        function DeleteUser(IdUser, e) {
+
             Swal.fire(
                 {
                     title: 'Register!',
@@ -143,8 +151,10 @@
                         url: '/Admin/Users/Index/',
                         data: Data,
                         success: function (data) {
-                            if (data.isSuccess)
-                                Swal.fire('correct');
+                            if (data.isSuccess) {
+                                var i = e.parentNode.parentNode.parentNode.parentNode.rowIndex;
+                                document.getElementById("btn-editable").deleteRow(i);
+                            }
                             else
                                 Swal.fire('wrong');
                         },
@@ -163,47 +173,49 @@
             $('#txtEditIdUser').val(IdUser);
             $('#txtEditFullname').val(Fullname);
             $('#txtEditEmail').val(Email);
+            $('#txtEditPassword').val('');
 
             $('#myModal').modal('show');
         }
         function UpdateUser() {
 
-            var IdUser = $("#txtEditIdUser").val();
-            var EditedEmail = $("#txtEditFullname").val();
-            var EditedPassword = $("#txtEditEmail").val();
-            var EditedFullname = $("#txtEditPassword").val();
+            if ($("#formdataUpdate").valid()) {
+                var IdUser = $("#txtEditIdUser").val();
+                var EditedEmail = $("#txtEditFullname").val();
+                var EditedPassword = $("#txtEditEmail").val();
+                var EditedFullname = $("#txtEditPassword").val();
 
-            var Data = {
-                'IdUser': IdUser,
-                'Fullname': EditedEmail,
-                'Email': EditedPassword,
-                'Password': EditedFullname
-            };
+                var Data = {
+                    'IdUser': IdUser,
+                    'Fullname': EditedEmail,
+                    'Email': EditedPassword,
+                    'Password': EditedFullname
+                };
 
-            $.ajax({
-                contentType: 'application/x-www-form-urlencoded',
-                dataType: 'json',
-                type: 'POST',
-                data: Data,
-                url: '/Admin/Users/UpdateUser',
-                success: function (data) {
-                    if (data.isSuccess) {
-                        Swal.fire(
-                            'موفق!',
-                            data.message,
-                            'success'
-                        ).then(function(){
-                            location.reload();
-                        });
+                $.ajax({
+                    contentType: 'application/x-www-form-urlencoded',
+                    dataType: 'json',
+                    type: 'POST',
+                    data: Data,
+                    url: '/Admin/Users/UpdateUser',
+                    success: function (data) {
+                        if (data.isSuccess) {
+                            Swal.fire(
+                                'موفق!',
+                                data.message,
+                                'success'
+                            ).then(function () {
+                                location.reload();
+                            });
+                        }
+                    },
+                    error: function (request, status, error) {
+                        alert(request.responseText);
                     }
-                },
-                error: function (request, status, error) {
-                    alert(request.responseText);
-                }
-            });
+                });
 
-            $('#myModal').modal('hide');
-
+                $('#myModal').modal('hide');
+            }
         }
     </script>
 }
@@ -211,24 +223,70 @@
     <!-- Modal -->
     <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">ویرایش کاربر</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" id="txtEditIdUser" />
-                    <input class="form-control" id="txtEditFullname" />
-                    <br/>
-                    <input class="form-control" style="direction:ltr;" id="txtEditEmail" />
+
+            <form id="formdataUpdate" asp-action="UpdateUser" method="post">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">ویرایش کاربر</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="txtEditIdUser" />
+
+                          <br/>
+                        <input 
+                         asp-for="Users[0].fullname"
+                           type="text"
+                           class="form-control"
+                           id="txtEditFullname" />
+                        <span asp-validation-for="Users[0].fullname"
+                          class="text-danger"
+                          data-valmsg-for="Users[0].fullname">
+                          </span>
+
+                        <br />
+
+                        <input
+                           name="Users[0].email"
+                           asp-for="Users[0].email"
+                           type="text"
+                           style="direction:ltr;"
+                           class="form-control"
+                           placeholder="پست الکترونیکی معتبر"
+                           id="txtEditEmail" />
+                        <span asp-validation-for="Users[0].email"
+                          class="text-danger"
+                          data-valmsg-for="Users[0].email">
+                    </span>
+
+                    
+
                     <br />
-                    <input class="form-control" id="txtEditPassword" placeholder="پسورد جدید را وارد کنید" />
+                        <input
+                            name="Users[0].password"
+                           asp-for="Users[0].password"
+                           type="text"
+                           style="direction:ltr;"
+                           class="form-control"
+                           id="txtEditPassword" />
+                        <span asp-validation-for="Users[0].password"
+                          class="text-danger"
+                          data-valmsg-for="Users[0].password">
+                        </span>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
-                    <button type="button" onclick="UpdateUser()" class="btn btn-primary waves-effect waves-light">ذخیره تغییرات</button>
+                    <button
+                        type="button"
+                        onclick="UpdateUser()"
+                        class="btn btn-primary waves-effect waves-light">ذخیره تغییرات</button>
                 </div>
             </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+
+        </form>
+
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 }
