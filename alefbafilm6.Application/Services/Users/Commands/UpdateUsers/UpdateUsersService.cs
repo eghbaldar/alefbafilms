@@ -29,8 +29,11 @@ namespace alefbafilms.application.Services.Users.Commands.UpdateUsers
                     user.fullname = req.Fullname;
                     user.email = req.Email;
 
-                    PasswordHasher passwordHasher = new PasswordHasher();
-                    user.password = passwordHasher.HashPassword(req.Password);
+                    if (req.Password.Trim() != "-1")
+                    {
+                        PasswordHasher passwordHasher = new PasswordHasher();
+                        user.password = passwordHasher.HashPassword(req.Password);
+                    }
 
                     user.UpdateTime = DateTime.Now;
 

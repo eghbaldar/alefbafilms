@@ -32,10 +32,17 @@ namespace Endpoint.Site.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult PostCategory(string Name)
         {
-            return Json(_galleryFacade.PostGalleryCategoryService.Execute(new RequestPostGalleryCategoryDto
+            if(!ModelState.IsValid)
             {
-                Name = Name,
-            }));
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                return Json(_galleryFacade.PostGalleryCategoryService.Execute(new RequestPostGalleryCategoryDto
+                {
+                    Name = Name,
+                }));
+            }
         }
         [HttpDelete]
         public IActionResult Delete(int Id)
@@ -58,15 +65,22 @@ namespace Endpoint.Site.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult create(string Name, string Detail, int IdGalleryCategory)
         {
-            IFormFile file = Request.Form.Files[0];
-            RequestPostGalleryServiceDto req = new RequestPostGalleryServiceDto
+            if (!ModelState.IsValid)
             {
-                Name = Name,
-                Detail = Detail,
-                Filename = file,
-                IdGalleryCategory = IdGalleryCategory,
-            };
-            return Json(_galleryFacade.PostGalleryService.Execute(req));
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                IFormFile file = Request.Form.Files[0];
+                RequestPostGalleryServiceDto req = new RequestPostGalleryServiceDto
+                {
+                    Name = Name,
+                    Detail = Detail,
+                    Filename = file,
+                    IdGalleryCategory = IdGalleryCategory,
+                };
+                return Json(_galleryFacade.PostGalleryService.Execute(req));
+            }
         }
         [HttpGet]
         public IActionResult photos()

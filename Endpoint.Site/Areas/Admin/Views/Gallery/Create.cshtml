@@ -1,4 +1,6 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using alefbafilm6.Domain.Entities.Gallery
+@model Gallery
 @*
     Developer: Alimohamamd Eghbaldar
 *@
@@ -16,59 +18,79 @@
         <div class="row">
             <div class="col-12">
                 <div class="card-box">
-                    <h4 class="m-t-0 header-title">اضافه کردن تصویر جدید در گالری</h4>
+                    <form id="frmAddPhoto" asp-action="create" method="post">
+                        <h4 class="m-t-0 header-title">اضافه کردن تصویر جدید در گالری</h4>
 
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="p-2">
+                        <div class="row">
+                            <div class="col-12">
+
 
                                 <div class="form-group row">
                                     <label class="col-sm-2  col-form-label" for="simpleinput">نام تصویر:</label>
                                     <div class="col-sm-10">
-                                        <input type="text" id="txtFullname" class="form-control">
+                                        <input asp-for="Name"
+                                               name="Name"
+                                               type="text"
+                                               id="txtFullname"
+                                               class="form-control">
+                                        <span asp-validation-for="Name"
+                                              class="text-danger"></span>
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2  col-form-label" for="example-email">توضیحات:</label>
+                                    <div class="col-sm-10">
+                                        <input asp-for="Detail"
+                                               name="Detail"
+                                               type="text"
+                                               id="txtDetail"
+                                               class="form-control"
+                                               placeholder="توضیحات اختیاری تصویر">
+                                        <span asp-validation-for="Detail"
+                                              class="text-danger" />
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2  col-form-label" for="example-email">توضیحات:</label>
-                                <div class="col-sm-10">
-                                    <input type="text" id="txtDetail" name="example-email" class="form-control"
-                                           placeholder="توضیحات اختیاری تصویر">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  col-form-label">گالری:</label>
+                                    <div class="col-sm-10">
+                                        <select class="custom-select" id="CateId" name="Name"
+                                                asp-items="@ViewBag.Item">
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2  col-form-label">گالری:</label>
-                                <div class="col-sm-10">
-                                    <select class="custom-select" id="CateId" name="Name"
-                                            asp-items="@ViewBag.Item">
-                                    </select>
+                                <div class="dropify-message">
+                                    <span class="file-icon">
+
+                                </div><div class="dropify-loader"></div><div class="dropify-errors-container">
+                                    <ul></ul>
                                 </div>
 
-                            </div>
-                            <div class="dropify-message">
-                                <span class="file-icon">
+                                <input asp-for="Filename"
+                                       name="Filename"
+                                       type="file"
+                                       id="inputFile"
+                                       class="dropify"
+                                       data-height="300">
+                                <span asp-validation-for="Filename"
+                                      class="text-danger" />
 
-                            </div><div class="dropify-loader"></div><div class="dropify-errors-container">
-                                <ul></ul>
-                            </div>
+                                <div class="dropify-preview">
+                                    <span class="dropify-render"></span>
+                                    <div class="dropify-infos">
+                                        <div class="dropify-infos-inner">
+                                            <p class="dropify-filename">
+                                                <span class="file-icon">
 
-                            <input type="file" id="inputFile" class="dropify" data-height="300">
-
-                            <div class="dropify-preview">
-                                <span class="dropify-render"></span>
-                                <div class="dropify-infos">
-                                    <div class="dropify-infos-inner">
-                                        <p class="dropify-filename">
-                                            <span class="file-icon">
-
-                                            </span> <span class="dropify-filename-inner"></span>
-                                        </p>
+                                                </span> <span class="dropify-filename-inner"></span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <button onclick="Add()" class="btn btn-primary">درج تصویر</button>
+                        <button onclick="Add()" type="button" class="btn btn-primary">درج تصویر</button>
+                    </form>
                 </div>
 
             </div>
@@ -78,50 +100,71 @@
     </div><!-- end col -->
 </div>
 @section Scripts{
+
+    @*Validation Js*@
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @*End*@
+
+    @*Upload Js*@
     <script src="~/AdminTemplate/libs/dropify/dropify.min.js"></script>
     <script src="~/AdminTemplate/js/pages/form-fileupload.init.js"></script>
+    @*End*@
+
     <script>
         function Add() {
+            if ($("#frmAddPhoto").valid()) {
 
-            Swal.fire({
-                title: 'درج تصویر!',
-                text: 'از درج این تصویر مطمئن هستید؟',
-                icon: 'info',
-                showCancelButton: true,
-                confirmButtonColor: '#000222',
-                cancelButtonColor: '#000222',
-                confirmButtonText: 'بلی',
-                cancelButtonText: 'خیر'
-            }).then((result) => {
-                if (result.value) {
+                var indexOfCategory = $("#CateId option:selected").index();
+                if (indexOfCategory != -1) {
+                    Swal.fire({
+                        title: 'درج تصویر!',
+                        text: 'از درج این تصویر مطمئن هستید؟',
+                        icon: 'info',
+                        showCancelButton: true,
+                        confirmButtonColor: '#000222',
+                        cancelButtonColor: '#000222',
+                        confirmButtonText: 'بلی',
+                        cancelButtonText: 'خیر'
+                    }).then((result) => {
+                        if (result.value) {
 
-                    var postData = new FormData();
-                    postData.append("Name", $("#txtFullname").val());
-                    postData.append("Detail", $("#txtDetail").val());
-                    postData.append("IdGalleryCategory", $("#CateId").val());
+                            var postData = new FormData();
+                            postData.append("Name", $("#txtFullname").val());
+                            postData.append("Detail", $("#txtDetail").val());
+                            postData.append("IdGalleryCategory", $("#CateId").val());
 
-                    var Images = document.getElementById("inputFile");
-                    postData.append("Filename", Images.files[0]);
+                            var Images = document.getElementById("inputFile");
+                            postData.append("Filename", Images.files[0]);
 
-                    $.ajax({
-                        contentType: false,
-                        processData: false,
-                        type: 'POST',
-                        data: postData,
-                        url: '/admin/gallery/create',
-                        success: function (data) {
-                            if (data.isSuccess == true) {
-                               Swal.fire('تصویر با موفقیت درج شد');
-                               location.reload();
-                            }
-                        },
-                        error: function (request, status, error) {
-                            alert('Err:' + request.responseText);
+                            $.ajax({
+                                contentType: false,
+                                processData: false,
+                                type: 'POST',
+                                data: postData,
+                                url: '/admin/gallery/create',
+                                success: function (data) {
+                                    if (data.isSuccess == true) {
+                                        Swal.fire('تصویر با موفقیت درج شد');
+                                        location.reload();
+                                    }
+                                },
+                                error: function (request, status, error) {
+                                    alert('Err:' + request.responseText);
+                                }
+                            });
                         }
                     });
+                } else {
+                     Swal.fire({
+                        title: 'خطا!',
+                        text: 'دسته‌ی تصویر مشخص نیست',
+                        icon: 'error',
+                        confirmButtonColor: 'red',
+                        confirmButtonText: 'متوجه شدم',
+                    })
                 }
-            });
-
+            }
         }
     </script>
 }

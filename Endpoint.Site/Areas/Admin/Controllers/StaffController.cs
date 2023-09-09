@@ -1,7 +1,9 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
+using alefbafilm6.Application.Services.Staff._Commons.DTOs;
 using alefbafilm6.Application.Services.Staff.Commands.DeleteStaff;
 using alefbafilm6.Application.Services.Staff.Commands.PostStaff;
 using alefbafilm6.Application.Services.Staff.Commands.UpdateStaff;
+using alefbafilm6.Application.Services.Staff.Queries.GetStaff;
 using alefbafilms.Common.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,24 +17,37 @@ namespace Endpoint.Site.Areas.Admin.Controllers
         private readonly IStaffFacade _staffFacade;
         public StaffController(IStaffFacade staffFacade)
         {
-            _staffFacade= staffFacade;
+            _staffFacade = staffFacade;
         }
         [HttpGet]
         public IActionResult Index()
         {
-            return View(_staffFacade.GetStaffService.Execute());
+            var _getStaffService = _staffFacade.GetStaffService.Execute();
+            return View(new AdminStaffDto
+            {
+                GetStaffServiceDto = _getStaffService._resultGetStaffServiceDto,
+                RequestUpdateStaffServiceDto=null,
+
+            });
         }
         [HttpPost]
         public IActionResult Index(RequestPostStaffServiceDto req)
         {
-            IFormFile formFile = Request.Form.Files[0];
-            return Json(_staffFacade.PostStaffService.Execute(new RequestPostStaffServiceDto
+            if (!ModelState.IsValid)
             {
-                Name = req.Name,
-                Detail= req.Detail,
-                Title= req.Title,
-                File= formFile,
-            }));
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                IFormFile formFile = Request.Form.Files[0];
+                return Json(_staffFacade.PostStaffService.Execute(new RequestPostStaffServiceDto
+                {
+                    Name = req.Name,
+                    Detail = req.Detail,
+                    Title = req.Title,
+                    File = formFile,
+                }));
+            }
         }
         [HttpPost]
         public IActionResult Delete(RequestDeleteStaffDto req)
@@ -42,15 +57,22 @@ namespace Endpoint.Site.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Update(RequestUpdateStaffServiceDto req)
         {
-            var image = Request.Form.Files[0];
-            return Json(_staffFacade.UpdateStaffService.Execute(new RequestUpdateStaffServiceDto
+            if (!ModelState.IsValid)
             {
-                Name = req.Name,
-                Detail = req.Detail,
-                Title = req.Title,
-                Id = req.Id,
-                File = image,
-            }));
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                var image = Request.Form.Files[0];
+                return Json(_staffFacade.UpdateStaffService.Execute(new RequestUpdateStaffServiceDto
+                {
+                    Name = req.Name,
+                    Detail = req.Detail,
+                    Title = req.Title,
+                    Id = req.Id,
+                    File = image,
+                }));
+            }
         }
     }
 }

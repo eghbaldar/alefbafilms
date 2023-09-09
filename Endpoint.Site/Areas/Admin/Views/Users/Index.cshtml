@@ -179,17 +179,28 @@
         }
         function UpdateUser() {
 
+            var check = $('#chkPassword').is(":checked");
+
             if ($("#formdataUpdate").valid()) {
+
                 var IdUser = $("#txtEditIdUser").val();
-                var EditedEmail = $("#txtEditFullname").val();
-                var EditedPassword = $("#txtEditEmail").val();
-                var EditedFullname = $("#txtEditPassword").val();
+                var EditedEmail = $("#txtEditEmail").val();
+                var EditedFullname = $("#txtEditFullname").val();
+
+                //If user enables 'CheckBoxPass' as a way of changing password, the value of 'txtEditPassword' will be got
+                //otherwise '-1' will be got that is going to be analyzed on behind side (application layer)
+                var EditedPassword;
+                if (check)
+                    EditedPassword = $("#txtEditPassword").val();
+                else
+                    EditedPassword = "-1";
+                // End
 
                 var Data = {
                     'IdUser': IdUser,
-                    'Fullname': EditedEmail,
-                    'Email': EditedPassword,
-                    'Password': EditedFullname
+                    'Fullname': EditedFullname,
+                    'Email': EditedEmail,
+                    'Password': EditedPassword
                 };
 
                 $.ajax({
@@ -210,11 +221,24 @@
                         }
                     },
                     error: function (request, status, error) {
+                        alert('err1');
                         alert(request.responseText);
                     }
                 });
 
                 $('#myModal').modal('hide');
+            }
+            else {
+                //some error
+            }
+        }
+        function changeCheckbox(e) {
+            var check = $(e).is(":checked");
+            if (check)
+                $('#txtEditPassword').removeAttr('disabled');
+            else {
+                $('#txtEditPassword').attr('disabled', 'disabled');
+                $('#txtEditPassword').val('');
             }
         }
     </script>
@@ -223,9 +247,7 @@
     <!-- Modal -->
     <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-
             <form id="formdataUpdate" asp-action="UpdateUser" method="post">
-
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title" id="myModalLabel">ویرایش کاربر</h4>
@@ -234,21 +256,19 @@
                     <div class="modal-body">
                         <input type="hidden" id="txtEditIdUser" />
 
-                          <br/>
-                        <input 
-                         asp-for="Users[0].fullname"
+                        <br />
+                        <input asp-for="Users[0].fullname"
                            type="text"
                            class="form-control"
                            id="txtEditFullname" />
                         <span asp-validation-for="Users[0].fullname"
                           class="text-danger"
                           data-valmsg-for="Users[0].fullname">
-                          </span>
+                        </span>
 
                         <br />
 
-                        <input
-                           name="Users[0].email"
+                        <input name="Users[0].email"
                            asp-for="Users[0].email"
                            type="text"
                            style="direction:ltr;"
@@ -258,15 +278,18 @@
                         <span asp-validation-for="Users[0].email"
                           class="text-danger"
                           data-valmsg-for="Users[0].email">
-                    </span>
+                        </span>
 
-                    
 
-                    <br />
-                        <input
-                            name="Users[0].password"
+
+                        <br />
+                        <input type="checkbox" onchange="changeCheckbox(this)" id="chkPassword" name="chkPassword">
+                        <label for="chkPassword"> پسورد تغییر کند</label><br>
+
+                        <input name="Users[0].password"
                            asp-for="Users[0].password"
                            type="text"
+                           disabled="disabled"
                            style="direction:ltr;"
                            class="form-control"
                            id="txtEditPassword" />
@@ -275,18 +298,17 @@
                           data-valmsg-for="Users[0].password">
                         </span>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
-                    <button
-                        type="button"
-                        onclick="UpdateUser()"
-                        class="btn btn-primary waves-effect waves-light">ذخیره تغییرات</button>
-                </div>
-            </div><!-- /.modal-content -->
-
-        </form>
-
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+                        <button type="button"
+                            onclick="UpdateUser()"
+                            class="btn btn-primary waves-effect waves-light">
+                            ذخیره تغییرات
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </form>
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 }

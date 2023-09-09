@@ -1,5 +1,6 @@
-﻿@using alefbafilm6.Application.Services.Staff.Queries.GetStaff
-@model ResultGetStaffServiceDto
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@using alefbafilm6.Application.Services.Staff._Commons.DTOs
+@model AdminStaffDto
 @*
     Developer: Alimohammad Eghbaldar
 *@
@@ -11,7 +12,7 @@
 
     <!-- Show -->
     <div class="row">
-        @foreach (var item in Model._resultGetStaffServiceDto)
+        @foreach (var item in Model.GetStaffServiceDto)
         {
             <div class="col-xl-3 col-md-6">
                 <div class="card-box widget-user">
@@ -19,6 +20,7 @@
                         <div class="avatar-lg float-left mr-3">
                             <img src="~/images/staff/@item.File" width="50px"
                              class="img-fluid rounded" alt="@item.Name">
+                            <p class="text-muted mb-1 font-13 text-truncate" style="color:white;">@item.Id</p>
                         </div>
                         <div class="wid-u-info">
                             <h5 class="mt-0">@item.Name</h5>
@@ -51,54 +53,85 @@
             <div class="col-12">
                 <div class="card-box">
                     <h4 class="m-t-0 header-title">اضافه کردن کارمند جدید</h4>
+                    <form id="frmAddStaff" action="Index" method="post">
+                        <div class="row">
 
-                    <div class="row">
-                        <div class="col-12">
+                            <div class="col-12">
                                 <div class="form-group row">
                                     <label class="col-sm-2  col-form-label" for="simpleinput">نام کارمند:</label>
                                     <div class="col-sm-10">
-                                        <input type="text" id="txtFullname" class="form-control">
+                                        <input asp-for="GetStaffServiceDto[0].Name"
+                                               name="GetStaffServiceDto[0].Name"
+                                               type="text"
+                                               value=""
+                                               placeholder="نام کامل کارمند"
+                                               id="txtFullname"
+                                               class="form-control">
+                                        <span asp-validation-for="GetStaffServiceDto[0].Name"
+                                              class="text-danger" />
                                     </div>
                                 </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2  col-form-label" for="example-email">سمت:</label>
-                                <div class="col-sm-10">
-                                    <input type="text" id="txtPosition" name="example-email" class="form-control"
-                                           placeholder="سمت کارمند">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  col-form-label" for="example-email">سمت:</label>
+                                    <div class="col-sm-10">
+                                        <input asp-for="GetStaffServiceDto[0].Title"
+                                               name="GetStaffServiceDto[0].Title"
+                                               type="text"
+                                               value=""
+                                               id="txtPosition"
+                                               class="form-control"
+                                               placeholder="سمت کارمند">
+                                        <span asp-validation-for="GetStaffServiceDto[0].Title"
+                                              class="text-danger" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-2  col-form-label" for="example-email">توضیحات:</label>
-                                <div class="col-sm-10">
-                                    <input type="text" id="txtDetail" name="example-email" class="form-control"
-                                           placeholder="توضیحات">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  col-form-label" for="example-email">توضیحات:</label>
+                                    <div class="col-sm-10">
+                                        <input asp-for="GetStaffServiceDto[0].Detail"
+                                               name="GetStaffServiceDto[0].Detail"
+                                               value=""
+                                               type="text"
+                                               id="txtDetail"
+                                               class="form-control"
+                                               placeholder="توضیحات">
+                                        <span asp-validation-for="GetStaffServiceDto[0].Detail"
+                                              class="text-danger" />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="dropify-message">
-                                <span class="file-icon">
+                                <div class="dropify-message">
+                                    <span class="file-icon">
 
-                            </div><div class="dropify-loader"></div><div class="dropify-errors-container">
-                                <ul></ul>
-                            </div>
+                                </div><div class="dropify-loader"></div><div class="dropify-errors-container">
+                                    <ul></ul>
+                                </div>
 
-                            <input type="file" id="inputFile" class="dropify" data-height="300">
+                                <input asp-for="GetStaffServiceDto[0].File"
+                                       name="GetStaffServiceDto[0].File"
+                                       type="file"
+                                       id="inputFile"
+                                       class="dropify"
+                                       data-height="300">
+                                <span asp-validation-for="GetStaffServiceDto[0].File"
+                                      class="text-danger" />
+                                <div class="dropify-preview">
+                                    <span class="dropify-render"></span>
+                                    <div class="dropify-infos">
+                                        <div class="dropify-infos-inner">
+                                            <p class="dropify-filename">
+                                                <span class="file-icon">
 
-                            <div class="dropify-preview">
-                                <span class="dropify-render"></span>
-                                <div class="dropify-infos">
-                                    <div class="dropify-infos-inner">
-                                        <p class="dropify-filename">
-                                            <span class="file-icon">
-
-                                            </span> <span class="dropify-filename-inner"></span>
-                                        </p>
+                                                </span> <span class="dropify-filename-inner"></span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
-                    </div>
-                    <button onclick="Add()" class="btn btn-primary">درج کارمند</button>
+                        <button type="button" onclick="Add()" class="btn btn-primary">درج کارمند</button>
+                    </form>
                 </div>
 
             </div>
@@ -115,36 +148,45 @@
 }
 
 @section Scripts{
+
+    @*Validation Js*@
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @*End*@
+
+    @*Upload Js*@
     <script src="~/AdminTemplate/libs/dropify/dropify.min.js"></script>
     <script src="~/AdminTemplate/js/pages/form-fileupload.init.js"></script>
+    @*End*@
+
     <script>
         function Add() {
+            if ($("#frmAddStaff").valid()) {
+                var postData = new FormData();
+                postData.append("Name", $("#txtFullname").val());
+                postData.append("Title", $("#txtPosition").val());
+                postData.append("Detail", $("#txtDetail").val());
 
-            var postData = new FormData();
-            postData.append("Name", $("#txtFullname").val());
-            postData.append("Title", $("#txtPosition").val());
-            postData.append("Detail", $("#txtDetail").val());
+                var Image = document.getElementById("inputFile");
+                postData.append("File", Image.files[0]);
 
-            var Image = document.getElementById("inputFile");
-            postData.append("File", Image.files[0]);
-
-            $.ajax({
-                contentType: false,
-                processData: false,
-                type: 'POST',
-                data: postData,
-                url: 'index',
-                success: function (data) {
-                    if (data.isSuccess) {
-                        Swal.fire(data.message);
-                        location.reload();
+                $.ajax({
+                    contentType: false,
+                    processData: false,
+                    type: 'POST',
+                    data: postData,
+                    url: 'index',
+                    success: function (data) {
+                        if (data.isSuccess) {
+                            Swal.fire(data.message);
+                            location.reload();
+                        }
+                    },
+                    error: function (request, status, error) {
+                        alert('err:' + request.responseText);
                     }
-                },
-                error: function (request, status, error) {
-                    alert('err:' + request.responseText);
-                }
-            });
-
+                });
+            }
         }
         function Delete(id) {
 
@@ -192,32 +234,37 @@
         }
         function Update() {
 
-            var postData = new FormData();
-            postData.append("Id", $("#txtEditId").val());
-            postData.append("Name", $("#txtEditName").val());
-            postData.append("Title", $("#txtEditTitle").val());
-            postData.append("Detail", $("#txtEditDetail").val(),);
+            if ($("#frmEditPhoto").valid()) {
 
-            var Image = document.getElementById("inputFileEdit");
-            postData.append("File", Image.files[0]);
+                var postData = new FormData();
+                postData.append("Id", $("#txtEditId").val());
+                postData.append("Name", $("#txtEditName").val());
+                postData.append("Title", $("#txtEditTitle").val());
+                postData.append("Detail", $("#txtEditDetail").val());
 
-            $.ajax({
-                contentType: false,
-                processData: false,
-                type: 'POST',
-                data: postData,
-                url: 'Update',
-                success: function (data) {
-                    if (data.isSuccess) {
-                        Swal.fire(data.message);
-                        location.reload();
+                var Image = document.getElementById("inputFileEdit");
+                postData.append("File", Image.files[0]);
+
+                $.ajax({
+                    contentType: false,
+                    processData: false,
+                    type: 'POST',
+                    data: postData,
+                    url: 'Update',
+                    success: function (data) {
+                        if (data.isSuccess) {
+                            Swal.fire(data.message);
+                            location.reload();
+                        }
+                    },
+                    error: function (request, status, error) {
+                        alert('err: ' + request.responseText);
                     }
-                },
-                error: function (request, status, error) {
-                    alert('err: ' + request.responseText);
-                }
-            });
-
+                });
+            }
+            else {
+                //alert('error');
+            }
         }
     </script>
 }
@@ -225,23 +272,62 @@
     <!-- Modal -->
     <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">ویرایش کارمند</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" id="txtEditId" />
-                    <input class="form-control" id="txtEditName" />
-                    <input class="form-control" id="txtEditTitle" />
-                    <input class="form-control" id="txtEditDetail" />
-                    <input type="file" id="inputFileEdit">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
-                    <button type="button" onclick="Update()" class="btn btn-primary waves-effect waves-light">ذخیره تغییرات</button>
-                </div>
-            </div><!-- /.modal-content -->
+            <form id="frmEditPhoto" asp-action="Update" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">ویرایش کارمند</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="txtEditId" />
+
+                        <input asp-for="RequestUpdateStaffServiceDto.Name"
+                           name="RequestUpdateStaffServiceDto.Name"
+                           type="text"
+                           class="form-control"
+                           id="txtEditName" />
+                        <span asp-validation-for="RequestUpdateStaffServiceDto.Name" class="text-danger" ></span>
+
+                        <br />
+
+                        <input
+                            asp-for="RequestUpdateStaffServiceDto.Title"
+                            name="RequestUpdateStaffServiceDto.Title"
+                           type="text"
+                           class="form-control"
+                           id="txtEditTitle" />
+                        <span asp-validation-for="RequestUpdateStaffServiceDto.Title" class="text-danger" ></span>
+
+
+                        <br />
+
+                        <input
+                            asp-for="RequestUpdateStaffServiceDto.Detail"
+                            name="RequestUpdateStaffServiceDto.Detail"
+                           type="text"
+                           class="form-control"
+                           id="txtEditDetail" />
+                        <span asp-validation-for="RequestUpdateStaffServiceDto.Detail" class="text-danger" ></span>
+
+                        <br />
+
+                        <input
+                            asp-for="RequestUpdateStaffServiceDto.File"
+                            name="RequestUpdateStaffServiceDto.File"
+                           type="file"
+                           id="inputFileEdit">
+                        <span asp-validation-for="RequestUpdateStaffServiceDto.File" class="text-danger" ></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+                        <button type="button"
+                            onclick="Update()"
+                            class="btn btn-primary waves-effect waves-light">
+                            ذخیره تغییرات
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </form>
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 }

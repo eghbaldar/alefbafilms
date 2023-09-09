@@ -1,4 +1,5 @@
-﻿@using alefbafilm6.Application.Services.Gallery.Queries.GetGalleryCategory
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@using alefbafilm6.Application.Services.Gallery.Queries.GetGalleryCategory
 @model ResultGetGalleryCategoryDto
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -14,25 +15,33 @@
 
         <div class="row">
             <div class="col-12">
-                <div class="card-box">
-                    <h4 class="m-t-0 header-title">اضافه کردن دسته گالری</h4>
+                <form id="frmAddCate" asp-action="PostCategory" method="post">
+                    <div class="card-box">
+                        <h4 class="m-t-0 header-title">اضافه کردن دسته گالری</h4>
 
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="p-2">
-                                <div class="form-group row">
-                                    <label class="col-sm-2  col-form-label" for="simpleinput">نام دسته :</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" id="txtname" class="form-control">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="p-2">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2  col-form-label" for="simpleinput">نام دسته :</label>
+                                        <div class="col-sm-10">
+                                            <input asp-for="GalleryCategory[0].Name"
+                                                   name="GalleryCategory[0].Name"
+                                                   value=""
+                                                   type="text"
+                                                   id="txtname"
+                                                   class="form-control">
+                                            <span asp-validation-for="GalleryCategory[0].Name"
+                                                  class="text-danger" />
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
-
                         </div>
+                        <button type="button" onclick="Add()" class="btn btn-primary">درج دسته</button>
                     </div>
-                    <button onclick="Add()" class="btn btn-primary">درج دسته</button>
-                </div>
-
+                </form>
             </div>
             <!-- end row -->
 
@@ -60,7 +69,7 @@
                                 @foreach (var item in Model.GalleryCategory)
                                 {
                                     <tr id="1">
-                                        <td class="tabledit-view-mode"><span class="tabledit-span">@item.Id</span><input class="tabledit-input form-control form-control-sm" type="text" name="col1"  style="display: none;" disabled=""></td>
+                                        <td class="tabledit-view-mode"><span class="tabledit-span">@item.Id</span><input class="tabledit-input form-control form-control-sm" type="text" name="col1" style="display: none;" disabled=""></td>
                                         <td class="tabledit-view-mode"><span class="tabledit-span">@item.Name</span><input class="tabledit-input form-control form-control-sm" type="text" name="col1" style="display: none;" disabled=""></td>
                                         <td style="white-space: nowrap; width: 1%;">
                                             <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
@@ -91,31 +100,39 @@
 </div>
 
 @section Scripts{
+
+    @*Validation Js*@
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @*End*@
+
     <script>
 
         function Add() {
-            var name = $("#txtname").val();
-            var postDate = {
-                'name': name,
-            };
+            if ($("#frmAddCate").valid()) {
+                var name = $("#txtname").val();
+                var postDate = {
+                    'name': name,
+                };
 
-            $.ajax({
-                contentType: "application/x-www-form-urlencoded",
-                dataType: "json",
-                type: "POST",
-                data: postDate,
-                url: "PostCategory",
-                success: function (data) {
-                    if (data.isSuccess == true) {
-                        Swal.fire(data.message);
-                        $("#txtname").val('');
-                        document.location.reload();
+                $.ajax({
+                    contentType: "application/x-www-form-urlencoded",
+                    dataType: "json",
+                    type: "POST",
+                    data: postDate,
+                    url: "PostCategory",
+                    success: function (data) {
+                        if (data.isSuccess == true) {
+                            Swal.fire(data.message);
+                            $("#txtname").val('');
+                            document.location.reload();
+                        }
+                    },
+                    error: function (request, status, error) {
+                        alert(request.responseText);
                     }
-                },
-                error: function (request, status, error) {
-                    alert(request.responseText);
-                }
-            });
+                });
+            }
         }
 
         function DeleteGalleryCategory(Id) {
@@ -162,30 +179,34 @@
             $('#txtEditNameGalleryCategory').val(Name);
             $('#myModal').modal('show');
         }
-        function UpdateGalleryCategory() {
-            var Id = $('#txtEditIdGalleryCategory').val();
-            var Name = $('#txtEditNameGalleryCategory').val();
-            var dataPost = {
-                'Id': Id,
-                'Name': Name,
-            };
 
-            $.ajax({
-                contentType: 'application/x-www-form-urlencoded',
-                dataType: 'json',
-                type: 'POST',
-                data: dataPost,
-                url: 'Update',
-                success: function (data) {
-                    if (data.isSuccess) {
-                        Swal.fire(data.message);
-                        document.location.reload();
+        function UpdateGalleryCategory() {
+
+            if ($("#frmEditCate").valid()) {
+                var Id = $('#txtEditIdGalleryCategory').val();
+                var Name = $('#txtEditNameGalleryCategory').val();
+                var dataPost = {
+                    'Id': Id,
+                    'Name': Name,
+                };
+
+                $.ajax({
+                    contentType: 'application/x-www-form-urlencoded',
+                    dataType: 'json',
+                    type: 'POST',
+                    data: dataPost,
+                    url: 'Update',
+                    success: function (data) {
+                        if (data.isSuccess) {
+                            Swal.fire(data.message);
+                            document.location.reload();
+                        }
+                    },
+                    error: function (request, status, error) {
+                        alert(request.responseText);
                     }
-                },
-                error: function (request, status, error) {
-                    alert(request.responseText);
-                }
-            });
+                });
+            }
         }
 
     </script>
@@ -195,18 +216,29 @@
     <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">ویرایش دسته</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" id="txtEditIdGalleryCategory" />
-                    <input class="form-control" id="txtEditNameGalleryCategory" />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
-                    <button type="button" onclick="UpdateGalleryCategory()" class="btn btn-primary waves-effect waves-light">ذخیره تغییرات</button>
-                </div>
+                <form id="frmEditCate" asp-action="Update" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">ویرایش دسته</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="txtEditIdGalleryCategory" />
+                        <input asp-for="GalleryCategory[0].Name"
+                           name="GalleryCategory[0].Name"
+                           value=""
+                           class="form-control"
+                           id="txtEditNameGalleryCategory" />
+                        <span asp-validation-for="GalleryCategory[0].Name" class="text-danger" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+                        <button type="button"
+                            onclick="UpdateGalleryCategory()"
+                            class="btn btn-primary waves-effect waves-light">
+                            ذخیره تغییرات
+                        </button>
+                    </div>
+                </form>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->

@@ -101,13 +101,20 @@ namespace Endpoint.site.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult UpdateUser(long IdUser, string Fullname, string Email, string Password)
         {
-            return Json(_userFacade.UpdateUsersService.Execute(new RequestUpdateUserDto
+            if(!ModelState.IsValid)
             {
-                IdUser = IdUser,
-                Fullname = Fullname,
-                Email = Email,
-                Password = Password
-            }));
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                return Json(_userFacade.UpdateUsersService.Execute(new RequestUpdateUserDto
+                {
+                    IdUser = IdUser,
+                    Fullname = Fullname,
+                    Email = Email,
+                    Password = Password
+                }));
+            }
         }
     }
 }
