@@ -26,7 +26,7 @@ namespace Endpoint.Site.Areas.Admin.Controllers
             return View(new AdminStaffDto
             {
                 GetStaffServiceDto = _getStaffService._resultGetStaffServiceDto,
-                RequestUpdateStaffServiceDto=null,
+                RequestUpdateStaffServiceDto = null,
 
             });
         }
@@ -57,13 +57,15 @@ namespace Endpoint.Site.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Update(RequestUpdateStaffServiceDto req)
         {
-            if (!ModelState.IsValid)
+            // Why [&& req.File != null]:
+            // If a client decides to dismiss changing photo, the below line will be handling its expectation.
+            if (!ModelState.IsValid && req.File != null)
             {
                 return BadRequest(ModelState);
             }
             else
             {
-                var image = Request.Form.Files[0];
+                var image = (req.File == null) ? null : Request.Form.Files[0];
                 return Json(_staffFacade.UpdateStaffService.Execute(new RequestUpdateStaffServiceDto
                 {
                     Name = req.Name,

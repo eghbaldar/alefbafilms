@@ -22,7 +22,10 @@ namespace alefbafilm6.Application.Services.Staff.Commands.UpdateStaff
                 staff.Title = req.Title;
                 staff.Detail = req.Detail;
 
-                staff.File = Upload(staff.File, req.File).FileName;
+                //if client doesn't want to change staff's photo
+                if(req.File!= null)
+                    staff.File = Upload(staff.File, req.File).FileName;
+                //end
 
                 _context.SaveChanges();
 

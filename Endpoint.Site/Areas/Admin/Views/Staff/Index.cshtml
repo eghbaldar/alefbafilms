@@ -234,6 +234,8 @@
         }
         function Update() {
 
+            var check = $('#chkFile').is(":checked");
+
             if ($("#frmEditPhoto").valid()) {
 
                 var postData = new FormData();
@@ -242,8 +244,16 @@
                 postData.append("Title", $("#txtEditTitle").val());
                 postData.append("Detail", $("#txtEditDetail").val());
 
-                var Image = document.getElementById("inputFileEdit");
-                postData.append("File", Image.files[0]);
+                //If user enables 'CheckBoxPass' as a way of changing file, the value of 'inputFileEdit' will be got
+                //otherwise 'null' will be got that is going to be analyzed on behind side (application layer)
+                var Image;
+                if (check) {
+                    Image = document.getElementById("inputFileEdit");
+                    postData.append("File", Image.files[0]);
+                } else {
+                    postData.append("File", null); //of course, this line is not mandatory!
+                }
+                // End
 
                 $.ajax({
                     contentType: false,
@@ -258,12 +268,19 @@
                         }
                     },
                     error: function (request, status, error) {
-                        alert('err: ' + request.responseText);
+                        alert('err1: ' + request.responseText);
                     }
                 });
             }
             else {
-                //alert('error');
+            }
+        }
+        function changeCheckbox(e) {
+            var check = $(e).is(":checked");
+            if (check)
+                $('#inputFileEdit').removeAttr('disabled');
+            else {
+                $('#inputFileEdit').attr('disabled', 'disabled');
             }
         }
     </script>
@@ -286,37 +303,38 @@
                            type="text"
                            class="form-control"
                            id="txtEditName" />
-                        <span asp-validation-for="RequestUpdateStaffServiceDto.Name" class="text-danger" ></span>
+                        <span asp-validation-for="RequestUpdateStaffServiceDto.Name" class="text-danger"></span>
 
                         <br />
 
-                        <input
-                            asp-for="RequestUpdateStaffServiceDto.Title"
-                            name="RequestUpdateStaffServiceDto.Title"
+                        <input asp-for="RequestUpdateStaffServiceDto.Title"
+                           name="RequestUpdateStaffServiceDto.Title"
                            type="text"
                            class="form-control"
                            id="txtEditTitle" />
-                        <span asp-validation-for="RequestUpdateStaffServiceDto.Title" class="text-danger" ></span>
+                        <span asp-validation-for="RequestUpdateStaffServiceDto.Title" class="text-danger"></span>
 
 
                         <br />
 
-                        <input
-                            asp-for="RequestUpdateStaffServiceDto.Detail"
-                            name="RequestUpdateStaffServiceDto.Detail"
+                        <input asp-for="RequestUpdateStaffServiceDto.Detail"
+                           name="RequestUpdateStaffServiceDto.Detail"
                            type="text"
                            class="form-control"
                            id="txtEditDetail" />
-                        <span asp-validation-for="RequestUpdateStaffServiceDto.Detail" class="text-danger" ></span>
+                        <span asp-validation-for="RequestUpdateStaffServiceDto.Detail" class="text-danger"></span>
 
                         <br />
 
-                        <input
-                            asp-for="RequestUpdateStaffServiceDto.File"
-                            name="RequestUpdateStaffServiceDto.File"
+                        <input type="checkbox" onchange="changeCheckbox(this)" id="chkFile" name="chkFile">
+                        <label for="chkFile"> تصویر نیز تغییر کند</label><br>
+
+                        <input asp-for="RequestUpdateStaffServiceDto.File"
+                           name="RequestUpdateStaffServiceDto.File"
                            type="file"
+                           disabled="disabled"
                            id="inputFileEdit">
-                        <span asp-validation-for="RequestUpdateStaffServiceDto.File" class="text-danger" ></span>
+                        <span asp-validation-for="RequestUpdateStaffServiceDto.File" class="text-danger"></span>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
