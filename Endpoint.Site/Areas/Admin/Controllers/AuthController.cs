@@ -20,6 +20,7 @@ namespace Endpoint.site.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index(string ReturnUrl = "/")
         {
+            if(User.Identity.IsAuthenticated) return RedirectToAction("Index", "Users", new { Areas = "admin" });
             ViewBag.url = ReturnUrl;
             return View();
         }
@@ -66,7 +67,7 @@ namespace Endpoint.site.Areas.Admin.Controllers
         public IActionResult Logout()
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", new { area = ""});
         }
     }
 }

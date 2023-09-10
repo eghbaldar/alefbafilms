@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cExbk749a9uWpqyeuFY6sWstlniAE7Hm7moFXPPL6cQ=",
+  "Hash": "zWzy039RlLdJRfzFxdCFR84jVPbo6iadUG0JD6cMsAE=",
   "Source": "Endpoint.Site",
   "BasePath": "_content/Endpoint.Site",
   "Mode": "Default",
@@ -4879,12 +4879,12 @@
       "OriginalItemSpec": "wwwroot\\images\\staff\\638298742181396729user-2.png"
     },
     {
-      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638299572513159109user-4.png",
+      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638299612175772527user-4.png",
       "SourceId": "Endpoint.Site",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
       "BasePath": "_content/Endpoint.Site",
-      "RelativePath": "images/staff/638299572513159109user-4.png",
+      "RelativePath": "images/staff/638299612175772527user-4.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -4893,7 +4893,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\staff\\638299572513159109user-4.png"
+      "OriginalItemSpec": "wwwroot\\images\\staff\\638299612175772527user-4.png"
     },
     {
       "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\js\\site.js",
