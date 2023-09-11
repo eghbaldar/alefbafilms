@@ -44,14 +44,21 @@ namespace Endpoint.Site.Controllers
         [HttpPost]
         public IActionResult Contact(RequestPostContactDto req)
         {
-            return Json(_contactFacade.PostContactService.Execute(new RequestPostContactDto
+            if (!ModelState.IsValid)
             {
-                FullName = req.FullName,
-                Organization = req.Organization,
-                Email = req.Email,
-                Message = req.Message,
-                Phone = req.Phone,
-            }));
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                return Json(_contactFacade.PostContactService.Execute(new RequestPostContactDto
+                {
+                    FullName = req.FullName,
+                    Organization = req.Organization,
+                    Email = req.Email,
+                    Message = req.Message,
+                    Phone = req.Phone,
+                }));
+            }
         }
 
         public IActionResult Production()

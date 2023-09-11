@@ -15,7 +15,6 @@ namespace alefbafilm6.Application.Services.Staff.Commands.UpdateStaff
         [Required(ErrorMessage = "توضیحات اجباری است")]
         [MinLength(8, ErrorMessage = "توضیحات حداقل 10 کارکتر باشد")]
         public string Detail { get; set; }
-        [Required(ErrorMessage = "فایل اجباری است")]
-        public IFormFile File { get; set; }
+        public IFormFile? File { get; set; }
     }
 }

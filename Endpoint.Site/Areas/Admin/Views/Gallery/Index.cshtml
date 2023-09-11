@@ -122,10 +122,30 @@
                     data: postDate,
                     url: "PostCategory",
                     success: function (data) {
-                        if (data.isSuccess == true) {
-                            Swal.fire(data.message);
-                            $("#txtname").val('');
-                            document.location.reload();
+                        if (data.isSuccess) {
+                            Swal.fire({
+                                title: 'موفقیت!',
+                                text: data.message,
+                                icon: 'success',
+                                confirmButtonColor: 'green',
+                                confirmButtonText: 'متوجه شدم',
+                            }).then((result) => {
+                                if (result) {
+                                    $("#txtname").val('');
+                                    document.location.reload();
+                                }
+                            });
+                        }
+                        else {
+                            Swal.fire({
+                                title: 'خطا!',
+                                text: data.message,
+                                icon: 'error',
+                                confirmButtonColor: 'red',
+                                confirmButtonText: 'متوجه شدم',
+                            }).then((result) => {
+                                //
+                            });
                         }
                     },
                     error: function (request, status, error) {
@@ -139,10 +159,10 @@
             Swal.fire({
                 title: 'حذف ذسته!',
                 text: 'از حذف این دسته مطمئن هستید؟',
-                icon: 'info',
+                icon: 'question',
                 showCancelButton: true,
-                confirmButtonColor: '#000222',
-                cancelButtonColor: '#000222',
+                confirmButtonColor: 'green',
+                cancelButtonColor: 'red',
                 confirmButtonText: 'بله, حذف شود',
                 cancelButtonText: 'خیر'
             }).then((result) => {
@@ -159,8 +179,28 @@
                         url: 'Delete',
                         success: function (data) {
                             if (data.isSuccess) {
-                                Swal.fire(data.message);
-                                document.location.reload();
+                                Swal.fire({
+                                    title: 'موفقیت!',
+                                    text: data.message,
+                                    icon: 'success',
+                                    confirmButtonColor: 'green',
+                                    confirmButtonText: 'متوجه شدم',
+                                }).then((result) => {
+                                    if (result) {
+                                        document.location.reload();
+                                    }
+                                });
+                            }
+                            else {
+                                Swal.fire({
+                                    title: 'خطا!',
+                                    text: data.message,
+                                    icon: 'error',
+                                    confirmButtonColor: 'red',
+                                    confirmButtonText: 'متوجه شدم',
+                                }).then((result) => {
+                                    //
+                                });
                             }
                         },
                         error: function (request, status, error) {
@@ -169,7 +209,7 @@
                     });
                 }
                 else {
-                    Swal.fire('No');
+                    //Swal.fire('No');
                 }
             });
         }
@@ -198,8 +238,28 @@
                     url: 'Update',
                     success: function (data) {
                         if (data.isSuccess) {
-                            Swal.fire(data.message);
-                            document.location.reload();
+                            Swal.fire({
+                                title: 'موفقیت!',
+                                text: data.message,
+                                icon: 'success',
+                                confirmButtonColor: 'green',
+                                confirmButtonText: 'متوجه شدم',
+                            }).then((result) => {
+                                if (result) {
+                                    document.location.reload();
+                                }
+                            });
+                        }
+                        else {
+                            Swal.fire({
+                                title: 'خطا!',
+                                text: data.message,
+                                icon: 'error',
+                                confirmButtonColor: 'red',
+                                confirmButtonText: 'متوجه شدم',
+                            }).then((result) => {
+                                //
+                            });
                         }
                     },
                     error: function (request, status, error) {

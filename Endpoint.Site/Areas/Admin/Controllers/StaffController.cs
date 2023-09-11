@@ -57,9 +57,7 @@ namespace Endpoint.Site.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Update(RequestUpdateStaffServiceDto req)
         {
-            // Why [&& req.File != null]:
-            // If a client decides to dismiss changing photo, the below line will be handling its expectation.
-            if (!ModelState.IsValid && req.File != null)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

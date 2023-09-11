@@ -20,7 +20,7 @@ namespace alefbafilm6.Application.Services.Gallery.Commands.DeleteGalleryCategor
                     return new ResultDto()
                     {
                         IsSuccess = false,
-                        Message = "دسته مورد نظر یافت نشد - Considered Category not Found",
+                        Message = "دسته مورد نظر یافت نشد",
                     };
                 }
 
@@ -30,7 +30,7 @@ namespace alefbafilm6.Application.Services.Gallery.Commands.DeleteGalleryCategor
                 return new ResultDto()
                 {
                     IsSuccess = true,
-                    Message = "دسته مورد نظر با موفقیت حذف شد - Considered Category was Deleted!",
+                    Message = "دسته مورد نظر با موفقیت حذف شد",
                 };
             } catch (Exception ex)
             {

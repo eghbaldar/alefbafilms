@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\AdminTemplate\\css\\fontiran.css"
     },
     {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\css\\fontiran_auth.css",
+      "PackagePath": "staticwebassets\\AdminTemplate\\css\\fontiran_auth.css"
+    },
+    {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\css\\icons.css",
       "PackagePath": "staticwebassets\\AdminTemplate\\css\\icons.css"
     },
@@ -2305,24 +2309,12 @@
       "PackagePath": "staticwebassets\\images\\gallery\\638275735926581159زیر درخت توت.jpg"
     },
     {
-      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\gallery\\638275736126126110طلوع جنگل.jpg",
-      "PackagePath": "staticwebassets\\images\\gallery\\638275736126126110طلوع جنگل.jpg"
-    },
-    {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638275731654726923user-4.png",
       "PackagePath": "staticwebassets\\images\\staff\\638275731654726923user-4.png"
     },
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638275732399236065user-1.png",
       "PackagePath": "staticwebassets\\images\\staff\\638275732399236065user-1.png"
-    },
-    {
-      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638298568690523156user-1.png",
-      "PackagePath": "staticwebassets\\images\\staff\\638298568690523156user-1.png"
-    },
-    {
-      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638298619404929016user-4.png",
-      "PackagePath": "staticwebassets\\images\\staff\\638298619404929016user-4.png"
     },
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638298699055126356user-1.png",
@@ -2333,8 +2325,8 @@
       "PackagePath": "staticwebassets\\images\\staff\\638298742181396729user-2.png"
     },
     {
-      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638299612175772527user-4.png",
-      "PackagePath": "staticwebassets\\images\\staff\\638299612175772527user-4.png"
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638300456662840335user-3.png",
+      "PackagePath": "staticwebassets\\images\\staff\\638300456662840335user-3.png"
     },
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\js\\site.js",

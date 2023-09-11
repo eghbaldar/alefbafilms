@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using alefbafilms.Persistence.Contexts;
 
@@ -11,9 +12,10 @@ using alefbafilms.Persistence.Contexts;
 namespace alefbafilm6.Persistence.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230911084857_11-9-2023-4")]
+    partial class _11920234
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -194,6 +196,7 @@ namespace alefbafilm6.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("File")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("InsertTime")
@@ -244,25 +247,25 @@ namespace alefbafilm6.Persistence.Migrations
                         new
                         {
                             id = 1L,
-                            InsertTime = new DateTime(2023, 9, 11, 15, 14, 0, 997, DateTimeKind.Local).AddTicks(6092),
+                            InsertTime = new DateTime(2023, 9, 11, 12, 18, 56, 687, DateTimeKind.Local).AddTicks(8628),
                             name = "Admin"
                         },
                         new
                         {
                             id = 2L,
-                            InsertTime = new DateTime(2023, 9, 11, 15, 14, 0, 997, DateTimeKind.Local).AddTicks(6153),
+                            InsertTime = new DateTime(2023, 9, 11, 12, 18, 56, 687, DateTimeKind.Local).AddTicks(8694),
                             name = "Operator"
                         },
                         new
                         {
                             id = 3L,
-                            InsertTime = new DateTime(2023, 9, 11, 15, 14, 0, 997, DateTimeKind.Local).AddTicks(6164),
+                            InsertTime = new DateTime(2023, 9, 11, 12, 18, 56, 687, DateTimeKind.Local).AddTicks(8705),
                             name = "User"
                         },
                         new
                         {
                             id = 4L,
-                            InsertTime = new DateTime(2023, 9, 11, 15, 14, 0, 997, DateTimeKind.Local).AddTicks(6171),
+                            InsertTime = new DateTime(2023, 9, 11, 12, 18, 56, 687, DateTimeKind.Local).AddTicks(8714),
                             name = "Guest"
                         });
                 });

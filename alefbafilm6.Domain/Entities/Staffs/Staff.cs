@@ -13,6 +13,6 @@ namespace alefbafilm6.Domain.Entities.Staffs
         public string Name { get; set; }
         public string Title { get; set; }
         public string Detail { get; set; }
-        public string File { get; set; }
+        public string? File { get; set; }
     }
 }

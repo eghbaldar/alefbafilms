@@ -1,4 +1,4 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
 @using alefbafilms.application.Services.Users.Queries.GetUsers
 @model ResultGetUsersDto;
 
@@ -84,10 +84,10 @@
             Swal.fire({
                 title: 'تغییر وضعیت کاربر',
                 text: 'از تغییر مطمئن هستید؟',
-                icon: 'info',
+                icon: 'question',
                 showCancelButton: true,
-                confirmButtonColor: '#000222',
-                cancelButtonColor: '#000222',
+                confirmButtonColor: 'green',
+                cancelButtonColor: 'red',
                 confirmButtonText: 'بلی',
                 cancelButtonText: 'خیر'
             }).then((result) => {
@@ -103,15 +103,28 @@
                         data: Data,
                         success: function (data) {
                             if (data.isSuccess) {
-                                Swal.fire(
-                                    'عملیات موفق آمیز بوده است',
-                                    data.message,
-                                    'success'
-                                ).then(
-                                    function () {
+                                Swal.fire({
+                                    title: 'موفقیت!',
+                                    text: data.message,
+                                    icon: 'success',
+                                    confirmButtonColor: 'green',
+                                    confirmButtonText: 'متوجه شدم',
+                                }).then((result) => {
+                                    if (result) {
                                         location.reload();
                                     }
-                                );
+                                });
+                            }
+                            else {
+                                Swal.fire({
+                                    title: 'خطا!',
+                                    text: data.message,
+                                    icon: 'error',
+                                    confirmButtonColor: 'red',
+                                    confirmButtonText: 'متوجه شدم',
+                                }).then((result) => {
+                                    //
+                                });
                             }
                         },
                         error: function (request, status, error) {
@@ -121,7 +134,7 @@
 
                 }
                 else {
-                    Swal.fire("NO");
+                    //Swal.fire("NO");
                 }
             }
             );
@@ -130,14 +143,14 @@
 
             Swal.fire(
                 {
-                    title: 'Register!',
-                    text: 'Do you want to DELETE this user?',
-                    icon: 'info',
+                    title: 'توجه!',
+                    text: 'آیا از حذف این کاربر مطمئن هستید؟',
+                    icon: 'question',
                     showCancelButton: true,
-                    confirmButtonColor: '#000222',
-                    cancelButtonColor: '#000222',
-                    confirmButtonText: 'Yes, Do It',
-                    cancelButtonText: 'No'
+                    confirmButtonColor: 'green',
+                    cancelButtonColor: 'red',
+                    confirmButtonText: 'بلی',
+                    cancelButtonText: 'خیر'
                 }
             ).then((result) => {
                 if (result.value) {
@@ -154,9 +167,30 @@
                             if (data.isSuccess) {
                                 var i = e.parentNode.parentNode.parentNode.parentNode.rowIndex;
                                 document.getElementById("btn-editable").deleteRow(i);
+                                Swal.fire({
+                                    title: 'موفقیت!',
+                                    text: data.message,
+                                    icon: 'success',
+                                    confirmButtonColor: 'green',
+                                    confirmButtonText: 'متوجه شدم',
+                                }).then((result) => {
+                                    if (result) {
+                                        location.reload();
+                                    }
+                                });
                             }
-                            else
-                                Swal.fire('wrong');
+                            else {
+                                Swal.fire({
+                                    title: 'خطا!',
+                                    text: data.message,
+                                    icon: 'error',
+                                    confirmButtonColor: 'red',
+                                    confirmButtonText: 'متوجه شدم',
+                                }).then((result) => {
+                                    //
+                                });
+                            }
+
                         },
                         error: function (request, status, error) {
                             alert(request.responseText);
@@ -164,7 +198,7 @@
                     });
                 }
                 else {
-                    Swal.fire("No");
+                    //Swal.fire("No");
                 }
             });
         }
@@ -211,12 +245,27 @@
                     url: '/Admin/Users/UpdateUser',
                     success: function (data) {
                         if (data.isSuccess) {
-                            Swal.fire(
-                                'موفق!',
-                                data.message,
-                                'success'
-                            ).then(function () {
-                                location.reload();
+                            Swal.fire({
+                                title: 'موفقیت!',
+                                text: data.message,
+                                icon: 'success',
+                                confirmButtonColor: 'green',
+                                confirmButtonText: 'متوجه شدم',
+                            }).then((result) => {
+                                if (result) {
+                                    location.reload();
+                                }
+                            });
+                        }
+                        else {
+                            Swal.fire({
+                                title: 'خطا!',
+                                text: data.message,
+                                icon: 'error',
+                                confirmButtonColor: 'red',
+                                confirmButtonText: 'متوجه شدم',
+                            }).then((result) => {
+                                //
                             });
                         }
                     },

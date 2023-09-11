@@ -20,8 +20,7 @@ namespace Endpoint.site.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index(string ReturnUrl = "/")
         {
-            if(User.Identity.IsAuthenticated) return RedirectToAction("Index", "Users", new { Areas = "admin" });
-            ViewBag.url = ReturnUrl;
+            if(User.Identity.IsAuthenticated) return RedirectToAction("Index", "Users", new { Areas = "admin" });            
             return View();
         }
 

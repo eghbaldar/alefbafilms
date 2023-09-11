@@ -31,7 +31,7 @@ namespace alefbafilm6.Application.Services.Newsletter.Commands.DeleteNewsletter
                 return new ResultDto
                 {
                     IsSuccess = true,
-                    Message = "ایمیل با موفقیت حدف شد"
+                    Message = "این اشتراک با موفقیت حدف شد"
                 };
             }
             catch (Exception ex)

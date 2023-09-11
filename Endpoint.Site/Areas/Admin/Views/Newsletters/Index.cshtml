@@ -57,33 +57,49 @@
         function Delete(Id) {
             var postData = { 'id': Id };
             Swal.fire({
-                title: 'Register!',
+                title: 'حذف!',
                 text: 'آیا از حذف این ایمیل مطمئن هستی؟',
                 icon: 'error',
                 showCancelButton: true,
-                confirmButtonColor: '#000222',
-                cancelButtonColor: '#000222',
+                confirmButtonColor: 'green',
+                cancelButtonColor: 'red',
                 confirmButtonText: 'بلی',
                 cancelButtonText: 'خیر'
             }).then((result) => {
                 if (result.value) {
                     $.ajax({
-                        contentType:'application/x-www-form-urlencoded',
-                        dataType:'json',
-                        type:'POST',
-                        data:postData,
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: 'POST',
+                        data: postData,
                         url: 'Delete',
-                        success:function(data){
-                            if(data.isSuccess){
-                                Swal.fire(data.message);
-                                location.reload();
+                        success: function (data) {
+                            if (data.isSuccess) {
+                                Swal.fire({
+                                    title: 'موفقیت!',
+                                    text: data.message,
+                                    icon: 'success',
+                                    confirmButtonColor: 'green',
+                                    confirmButtonText: 'متوجه شدم',
+                                }).then((result) => {
+                                    if (result) {
+                                        location.reload();
+                                    }
+                                });
                             }
-                            else
-                            {
-                                Swal.fire(data.message);
+                            else {
+                                Swal.fire({
+                                    title: 'خطا!',
+                                    text: data.message,
+                                    icon: 'error',
+                                    confirmButtonColor: 'red',
+                                    confirmButtonText: 'متوجه شدم',
+                                }).then((result) => {
+                                    //
+                                });
                             }
                         },
-                        error:function(request,status,error){
+                        error: function (request, status, error) {
                             alert(request.responseText);
                         }
                     });

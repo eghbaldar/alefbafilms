@@ -19,7 +19,6 @@ namespace alefbafilms.domian.Entities.Users
 
         [Required(ErrorMessage ="کلمه عبور اجباری است")]
         [MinLength(5,ErrorMessage ="تعداد کارکتر باید بیش از 5 کارکتر باشد")]
-        [MaxLength(20,ErrorMessage = "تعداد کارکتر باید کمتر از 20 کارکتر باشد")]
         public string password { get; set; }
 
         public bool IsActive { get; set; } = true;

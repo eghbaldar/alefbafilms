@@ -5,18 +5,33 @@
 }
 <html>
 <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="علیمحمد اقبالدار - Alimohammad Eghbaldar" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <!-- Plugin css -->
+    <!-- App css -->
     <link href="~/admintemplate/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/admintemplate/css/bootstrap.css" rel="stylesheet" />
     <link href="~/admintemplate/css/icons.min.css" rel="stylesheet" />
     <link href="~/admintemplate/css/icons.css" rel="stylesheet" />
     <link href="~/admintemplate/css/app-rtl.min.css" rel="stylesheet" />
     <link href="~/admintemplate/css/app-rtl.css" rel="stylesheet" />
-    <link href="~/admintemplate/css/fontiran.css" rel="stylesheet" type="text/css" />
+    <link href="~/admintemplate/css/fontiran_auth.css" rel="stylesheet" type="text/css" />
     <title>ورود به سیستم مدیریتی الفبا</title>
+    <style>
+        .swal2-title {
+            font-family: IRANSans;
+        }
+        .swal2-modal{
+            font-family: IRANSans;
+        }
+    </style>
 </head>
 
 <body class="authentication-bg">
-
     <div class="home-btn d-none d-sm-block">
         <a href="/"><i class="fas fa-home h2 text-dark"></i></a>
     </div>
@@ -27,7 +42,7 @@
                 <div class="col-md-8 col-lg-6 col-xl-5">
                     <div class="text-center">
                         @*<a href="index.html">
-                            <span><img src="assets/images/logo-dark.png" alt="تصویر" height="22"></span>
+                        <span><img src="assets/images/logo-dark.png" alt="تصویر" height="22"></span>
                         </a>*@
                         @*<p class="text-muted mt-2 mb-4">Content Management System</p>*@
                     </div>
@@ -45,23 +60,23 @@
                                 <div class="form-group mb-3">
                                     @*<label for="emailaddress">ایمیل</label>*@
                                     <input class="form-control"
-                                    style="direction:ltr;text-align:center;"
-                                    type="email" id="txtEmail" required="" placeholder="Email">
+                                       style="direction:ltr;text-align:center;"
+                                       type="email" id="txtEmail" required="" placeholder="Email">
                                 </div>
 
                                 <div class="form-group mb-3">
-                                   @* <label for="password">رمز عبور</label>*@
+                                    @* <label for="password">رمز عبور</label>*@
                                     <input class="form-control"
                                        style="direction:ltr;text-align:center;"
-                                    type="password" required="" id="txtPass" placeholder="Password">
+                                       type="password" required="" id="txtPass" placeholder="Password">
                                 </div>
 
-                               @* <div class="form-group mb-3">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="checkbox-signin" checked="">
-                                        <label class="custom-control-label" for="checkbox-signin">من را به خاطر بسپار</label>
-                                    </div>
-                                </div>*@
+                                @* <div class="form-group mb-3">
+                            <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkbox-signin" checked="">
+                            <label class="custom-control-label" for="checkbox-signin">من را به خاطر بسپار</label>
+                            </div>
+                            </div>*@
 
                                 <div class="form-group mb-0 text-center">
                                     <button class="btn btn-primary btn-block" onclick="SignIn()"> LOGIN </button>
@@ -81,8 +96,8 @@
                                 <div class="form-group">
                                     <label for="fullname">نام و نام خانوادگی</label>
                                     <input class="form-control"
-                                    type="text" id="fullname"
-                                    placeholder="نام خود را وارد کنید" required="">
+                                       type="text" id="fullname"
+                                       placeholder="نام خود را وارد کنید" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="emailaddress">ایمیل</label>
@@ -152,14 +167,18 @@
                 type: 'POST',
                 url: '/Admin/Auth/SignIn',
                 data: Data,
-                success: function (data) { 
-                    if(data.isSuccess){
-                        Swal.fire(data.message);
+                success: function (data) {
+                    if (data.isSuccess) {
                         location.replace('/admin/users/index');
                     }
-                    else
-                    {
-                        Swal.fire(data.message);
+                    else {
+                        Swal.fire({
+                            title: 'خطا!',
+                            text: data.message,
+                            icon: 'error',
+                            confirmButtonColor: 'red',
+                            confirmButtonText: 'متوجه شدم',
+                        })
                     }
                 },
                 error: function (request, status, error) {

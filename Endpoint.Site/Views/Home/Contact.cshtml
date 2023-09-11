@@ -1,5 +1,8 @@
-﻿@*
-    Delevloper: Alimohammad Eghbaldar
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@using alefbafilm6.Application.Services.Contact.Commands.PostContact
+@model RequestPostContactDto
+@*
+    DelevlopeR: Alimohammad Eghbaldar
 *@
 @{
     ViewData["Title"] = "تماس با الفبا";
@@ -65,117 +68,107 @@
 
                         </div>
                     </div>
-
-                    <div class="col-lg-8">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input class="form-control" id="txtFullname" type="text" value="" placeholder="نام خود را وارد کنید">
+                    
+                        <div class="col-lg-8">
+                            <form id="frmContact" asp-action="Contact" method="post">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input asp-for="FullName"
+                                               class="form-control"
+                                               id="txtFullname"
+                                               type="text"
+                                               value=""
+                                               placeholder="نام و نام خانوادگی">
+                                        <span asp-validation-for="FullName"
+                                              data-valmsg-for="FullName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input class="form-control"
+                                        id="txtOrganization" type="text" value="" placeholder="موسسه یا سازمان (اختیاری)">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input asp-for="Email"
+                                            class="form-control"
+                                        id="txtEmail" type="text" value="" placeholder="ایمیل شما">
+                                        <span asp-validation-for="Email"
+                                              data-valmsg-for="Email" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input class="form-control"
+                                               asp-for="Phone"
+                                        id="txtPhone" type="text" value="" placeholder="شماره تلفن">
+                                        <span asp-validation-for="Phone"
+                                              data-valmsg-for="Phone" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <textarea asp-for="Message"
+                                            class="form-control" id="txtMessage" placeholder="پیام شما ..."></textarea>
+                                        <span asp-validation-for="Message"
+                                              data-valmsg-for="Message" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mt-15">
+                                    <button type="button"
+                                        class="btn btn-black icon-arrow-right-white mr-40 mb-20"
+                                            onclick="Add()">
+                                        ارسال
+                                    </button><br class="d-lg-none d-block">
+                                    <span class="text-body-text-md color-gray-500 mb-20">
+                                    </span>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input class="form-control" id="txtOrganization" type="text" value="" placeholder="موسسه یا سازمان (اختیاری)">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input class="form-control" id="txtEmail" type="text" value="" placeholder="ایمیل شما">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input class="form-control" id="txtPhone" type="text" value="" placeholder="شماره تلفن">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <textarea class="form-control" id="txtMessage" placeholder="پیام شما ..."></textarea>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 mt-15">
-                                <button class="btn btn-black icon-arrow-right-white mr-40 mb-20"
-                                        onclick="Add()">
-                                    ارسال
-                                </button><br class="d-lg-none d-block">
-                                <span class="text-body-text-md color-gray-500 mb-20">
-                                </span>
-                            </div>
+                        </form>
                         </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
     </section>
-    @*<section class="section-box mt-100">
-    <div class="container">
-    <div class="row">
-    <div class="col-lg-12 col-sm-10 col-12 text-center mt-40">
-    <h2 class="text-heading-1 color-gray-900 mb-20">مکان ما</h2>
-    <p class="text-body-lead-large color-gray-600 mt-20">در یک زمینه حرفه ای اغلب اتفاق می افتد که مشتریان خصوصی یا<br class="d-lg-block d-none"> شرکتی سفارش می دهند نشریه ای برای انتشار اخبار.</p>
-    </div>
-    </div>
-    </div>
-    <div class="container mt-100">
-    <div class="row">
-    <div class="col-lg-4 col-md-12 col-sm-12">
-    <div class="list-icons hover-up">
-    <div class="item-icon">
-    <span class="icon-left"><img src="assets/imgs/page/homepage2/icon-acquis.svg" alt="alefbafilm"></span>
-    <h4 class="text-heading-4">دفتر</h4>
-    <p class="text-body-text color-gray-1100 mt-15">خیابان میشیگان شمالی 205، سوئیت 810<br> شیکاگو, ایالات متحده آمریکا<br> تلفن: (123) 456-7890<br> ایمیل : contact@alefbafilm.com</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-4 col-md-12 col-sm-12">
-    <div class="list-icons hover-up">
-    <div class="item-icon">
-    <span class="icon-left"><img src="assets/imgs/page/homepage2/icon-active.svg" alt="alefbafilm"></span>
-    <h4 class="text-heading-4">استودیو</h4>
-    <p class="text-body-text color-gray-1100 mt-15">خیابان میشیگان شمالی 205، سوئیت 810<br> شیکاگو, ایالات متحده آمریکا<br> تلفن: (123) 456-7890<br> ایمیل : contact@alefbafilm.com</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-4 col-md-12 col-sm-12">
-    <div class="list-icons hover-up">
-    <div class="item-icon">
-    <span class="icon-left"><img src="assets/imgs/page/homepage2/icon-retent.svg" alt="alefbafilm"></span>
-    <h4 class="text-heading-4">کارخانه</h4>
-    <p class="text-body-text color-gray-1100 mt-15">خیابان میشیگان شمالی 205، سوئیت 810<br>  شیکاگو, ایالات متحده آمریکا<br> تلفن: (123) 456-7890<br> ایمیل : contact@alefbafilm.com</p>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
-    *@
 </main>
 @section Scripts{
+    <!-- These validation libraries need to be included for unobtrusive validation -->
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <!-- End -->
     <script>
         function Add() {
-            var postData = {
-                'FullName': $("#txtFullname").val(),
-                'Organization': $("#txtOrganization").val(),
-                'Email': $("#txtEmail").val(),
-                'Phone': $("#txtPhone").val(),
-                'Message': $("#txtMessage").val(),
-            };
-            $.ajax({
-                contentType: 'application/x-www-form-urlencoded',
-                dataType: 'json',
-                type: 'POST',
-                data: postData,
-                url: 'Contact',
-                success: function (data) {
-                    if (data.isSuccess) {
-                        //document.getElementById("MainBoxContact").style.display = "none";
-                        Swal.fire(data.message);
+            if ($("#frmContact").valid()) {
+                var postData = {
+                    'FullName': $("#txtFullname").val(),
+                    'Organization': $("#txtOrganization").val(),
+                    'Email': $("#txtEmail").val(),
+                    'Phone': $("#txtPhone").val(),
+                    'Message': $("#txtMessage").val(),
+                };
+                $.ajax({
+                    contentType: 'application/x-www-form-urlencoded',
+                    dataType: 'json',
+                    type: 'POST',
+                    data: postData,
+                    url: 'Contact',
+                    success: function (data) {
+                        if (data.isSuccess) {
+                            Swal.fire(data.message);
+                        }
+                        else
+                        {
+                            Swal.fire(data.message);
+                        }
+                    },
+                    error: function (request, status, error) {
+                        alert('err:' + request.responseText)
                     }
-                },
-                error:function(request,status,error){
-                    alert('err:' + request.responseText)
-                }
-            });
+                });
+            } //else { alert(''); }
         }
     </script>
 }
