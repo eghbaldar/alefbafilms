@@ -1,4 +1,5 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
+using alefbafilm6.Application.Services.Contact.Commands.DeleteContact;
 using alefbafilm6.Application.Services.Contact.Commands.UpdateContact;
 using alefbafilms.Common.Constants;
 using Microsoft.AspNetCore.Authorization;
@@ -24,6 +25,11 @@ namespace Endpoint.Site.Areas.Admin.Controllers
         public IActionResult Index(RequestUpdateContactServiceDto req)
         {
             return Json(_contactFacade.UpdateContactService.Execute(req));
+        }
+        [HttpPost]
+        public IActionResult Delete(RequestDeleteContactServiceDto req)
+        {
+            return Json(_contactFacade.DeleteContactService.Execute(req));
         }
     }
 }

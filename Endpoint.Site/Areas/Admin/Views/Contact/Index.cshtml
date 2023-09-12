@@ -40,12 +40,12 @@
                                             <div class="btn-group btn-group-sm" style="float: none;">
                                                 <button type="button"
                                                     onclick="ShowAndUpdate('@item.Id')"
-                                                    class="tabledit-edit-button btn btn-success" 
+                                                    class="tabledit-edit-button btn btn-success"
                                                     style="float: none;">
                                                     <span class=" fas fa-envelope-open-text">
                                                     </span>
                                                 </button>
-                                                <button onclick="DeleteUser('@item.Id')"
+                                                <button onclick="DeleteContact('@item.Id')"
                                                     class="btn btn-icon waves-effect waves-light btn-danger">
                                                     <i class="fas fa-times"></i>
                                                 </button>
@@ -73,6 +73,7 @@
         </div> <!-- end card -->
     </div> <!-- end col -->
 </div>
+
 @section Scripts{
     <script>
         function ShowAndUpdate(id) {
@@ -92,17 +93,71 @@
                             icon: 'info',
                             confirmButtonColor: 'green',
                             confirmButtonText: 'خواندم',
-                        }).then((result)=>{
-                            if(result.value){
+                        }).then((result) => {
+                            if (result.value) {
                                 location.reload();
                             }
-                        });                       
+                        });
                     } else {
                         Swal.fire(data.message);
                     }
                 },
                 error: function (request, status, error) {
                     alert('err: ' + request.responseText);
+                }
+            });
+        }
+        function DeleteContact(id) {
+
+            var dataPost = { 'Id': id };
+
+            Swal.fire({
+                title: 'حذف این کورد!',
+                text: 'پس از حذف این رکورد غیر قابل بازیابی است، مطمئن هستید؟',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: 'green',
+                cancelButtonColor: 'red',
+                confirmButtonText: 'بله',
+                cancelButtonText: 'خیر'
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: 'POST',
+                        url: 'Delete',
+                        data: dataPost,
+                        success: function (data) {
+                            if (data.isSuccess) {
+                                Swal.fire({
+                                    title: 'موفقیت!',
+                                    text: data.message,
+                                    icon: 'success',
+                                    confirmButtonColor: 'green',
+                                    confirmButtonText: 'متوجه شدم',
+                                }).then((result) => {
+                                    if (result) {
+                                        location.reload();
+                                    }
+                                });
+                            }
+                            else {
+                                Swal.fire({
+                                    title: 'خطا!',
+                                    text: data.message,
+                                    icon: 'error',
+                                    confirmButtonColor: 'red',
+                                    confirmButtonText: 'متوجه شدم',
+                                }).then((result) => {
+                                    //
+                                });
+                            }
+                        },
+                        error: function (request, error, status) {
+                            alert(request.responseText);
+                        }
+                    });
                 }
             });
         }

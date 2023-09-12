@@ -1,4 +1,5 @@
-﻿using alefbafilm6.Application.Services.Contact.Commands.PostContact;
+﻿using alefbafilm6.Application.Services.Contact.Commands.DeleteContact;
+using alefbafilm6.Application.Services.Contact.Commands.PostContact;
 using alefbafilm6.Application.Services.Contact.Commands.UpdateContact;
 using alefbafilm6.Application.Services.Contact.Queries.GetContact;
 using System;
@@ -14,5 +15,6 @@ namespace alefbafilm6.Application.Interfaces.FacadePattern
         PostContactService PostContactService { get; }
         GetContactService GetContactService { get; }
         UpdateContactService UpdateContactService { get; }
+        DeleteContactService DeleteContactService { get; }
     }
 }

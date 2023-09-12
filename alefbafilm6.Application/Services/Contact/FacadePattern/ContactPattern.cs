@@ -1,4 +1,5 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
+using alefbafilm6.Application.Services.Contact.Commands.DeleteContact;
 using alefbafilm6.Application.Services.Contact.Commands.PostContact;
 using alefbafilm6.Application.Services.Contact.Commands.UpdateContact;
 using alefbafilm6.Application.Services.Contact.Queries.GetContact;
@@ -37,6 +38,12 @@ namespace alefbafilm6.Application.Services.Contact.FacadePattern
         public UpdateContactService UpdateContactService
         {
             get { return _updateContactService = _updateContactService ?? new UpdateContactService(_context); }
+        }
+        //////////////////////////////////////////////////// Delete Contact
+        private DeleteContactService _deleteContactService;
+        public DeleteContactService DeleteContactService
+        {
+            get { return _deleteContactService = _deleteContactService ?? new DeleteContactService(_context); }
         }
         ////////////////////////////////////////////////////
     }
