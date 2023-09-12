@@ -1,3 +1,8 @@
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\obj\Debug\net6.0\alefbafilm6.Persistence.csproj.AssemblyReference.cache
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\obj\Debug\net6.0\alefbafilm6.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\obj\Debug\net6.0\alefbafilm6.Persistence.AssemblyInfoInputs.cache
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\obj\Debug\net6.0\alefbafilm6.Persistence.AssemblyInfo.cs
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\obj\Debug\net6.0\alefbafilm6.Persistence.csproj.CoreCompileInputs.cache
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\bin\Debug\net6.0\alefbafilm6.Persistence.deps.json
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\bin\Debug\net6.0\alefbafilm6.Persistence.runtimeconfig.json
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\bin\Debug\net6.0\alefbafilm6.Persistence.dll
@@ -8,11 +13,6 @@ D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\bin\Debug
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\bin\Debug\net6.0\alefbafilm6.Application.pdb
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\bin\Debug\net6.0\alefbafilm6.Domain.pdb
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\bin\Debug\net6.0\alefbafilm6.Common.pdb
-D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\obj\Debug\net6.0\alefbafilm6.Persistence.csproj.AssemblyReference.cache
-D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\obj\Debug\net6.0\alefbafilm6.Persistence.GeneratedMSBuildEditorConfig.editorconfig
-D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\obj\Debug\net6.0\alefbafilm6.Persistence.AssemblyInfoInputs.cache
-D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\obj\Debug\net6.0\alefbafilm6.Persistence.AssemblyInfo.cs
-D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\obj\Debug\net6.0\alefbafilm6.Persistence.csproj.CoreCompileInputs.cache
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\obj\Debug\net6.0\alefbafilm6.Persistence.csproj.CopyComplete
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\obj\Debug\net6.0\alefbafilm6.Persistence.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Persistence\obj\Debug\net6.0\refint\alefbafilm6.Persistence.dll

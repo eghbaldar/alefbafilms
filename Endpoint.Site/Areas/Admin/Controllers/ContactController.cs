@@ -34,7 +34,10 @@ namespace Endpoint.Site.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Delete(RequestDeleteContactServiceDto req)
         {
-            return Json(_contactFacade.DeleteContactService.Execute(req));
+            return Json(_contactFacade.DeleteContactService.Execute(new RequestDeleteContactServiceDto
+            {
+                Id=req.Id,
+            }));
         }
     }
 }

@@ -16,8 +16,8 @@
             <div class="card-body">
                 <h4 class="mt-0 header-title">پیام های ارسال از طریق سایت</h4>
                 <p class="sub-header">جهت مشاهده پیام روی دکمه ی سبز کلیک کنید</p>
-                <div class="table-responsive">
-                    <table class="table table-centered mb-0" id="btn-editable">
+                <div class="table-responsive" id="contentRefresh">
+                    <table class="table table-centered mb-0" id="btneditable">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -29,7 +29,7 @@
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody id="bindTableDataWithoutReloading">
                             @foreach (var item in Model._ResultGetContactServiceDto)
                             {
                                 <tr id="1">
@@ -89,7 +89,10 @@
 </div>
 
 @section Scripts{
+
+ 
     <script>
+
         function ShowAndUpdate(id) {
             var postData = { 'Id': id };
             $.ajax({
@@ -152,7 +155,7 @@
                                     confirmButtonText: 'متوجه شدم',
                                 }).then((result) => {
                                     if (result) {
-                                        location.reload();
+                                        $("#btneditable").load("index #btneditable"); //update table automatically!
                                     }
                                 });
                             }

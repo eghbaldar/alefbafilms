@@ -1,9 +1,13 @@
-﻿using alefbafilms.application.Interfaces.Contexts;
+﻿using alefbafilm6.Application.Services.Contact.Queries.GetContact;
+using alefbafilms.application.Interfaces.Contexts;
+using alefbafilms.Common;
 using alefbafilms.Common.Dtos;
+using ServiceStack;
+using System.ComponentModel.DataAnnotations;
 
 namespace alefbafilm6.Application.Services.Contact.Commands.DeleteContact
 {
-    public class DeleteContactService: IDeleteContactService
+    public class DeleteContactService : IDeleteContactService
     {
         private readonly IDataBaseContext _context;
         public DeleteContactService(IDataBaseContext context)
@@ -23,6 +27,7 @@ namespace alefbafilm6.Application.Services.Contact.Commands.DeleteContact
             }
             _context.Contacts.Remove(contant);
             _context.SaveChanges();
+
             return new ResultDto
             {
                 IsSuccess = true,
