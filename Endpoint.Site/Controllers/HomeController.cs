@@ -94,7 +94,13 @@ namespace Endpoint.Site.Controllers
         [HttpPost]
         public IActionResult Newsletter(RequestNewsletterServiceDto req)
         {
-            return Json(_newsletterFacade.PostNewsletterService.Execute(req));
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }else
+            {
+                return Json(_newsletterFacade.PostNewsletterService.Execute(req));
+            }
         }
     }
 }
