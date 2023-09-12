@@ -9,6 +9,7 @@
       "Endpoint.Site/1.0.0": {
         "dependencies": {
           "FluentValidation": "11.7.1",
+          "LazZiya.TagHelpers": "6.0.2",
           "Microsoft.EntityFrameworkCore": "6.0.0",
           "Microsoft.EntityFrameworkCore.Design": "6.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
@@ -598,6 +599,14 @@
       "jQuery.Validation/1.19.5": {
         "dependencies": {
           "jQuery": "1.4.4"
+        }
+      },
+      "LazZiya.TagHelpers/6.0.2": {
+        "runtime": {
+          "lib/net6.0/LazZiya.TagHelpers.dll": {
+            "assemblyVersion": "6.0.2.0",
+            "fileVersion": "6.0.2.0"
+          }
         }
       },
       "MessagePack/2.1.152": {
@@ -3006,6 +3015,13 @@
       "sha512": "sha512-lBHoaszLpKYxiVCWwIoxdqSCrlqnW9jeVMinMQ0uNMFcl3rmY8XyeaerfGLRbkVRUzh/fM3APaKepEezrR5AcA==",
       "path": "jquery.validation/1.19.5",
       "hashPath": "jquery.validation.1.19.5.nupkg.sha512"
+    },
+    "LazZiya.TagHelpers/6.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qYWVS9Mx61jmYrI+iNhw6vyH5u4W/VsAy0aTeKplNDU63K2WVSI7RdvWKSXuti0kZn+iQGkwpHz820ukCTTpPQ==",
+      "path": "lazziya.taghelpers/6.0.2",
+      "hashPath": "lazziya.taghelpers.6.0.2.nupkg.sha512"
     },
     "MessagePack/2.1.152": {
       "type": "package",

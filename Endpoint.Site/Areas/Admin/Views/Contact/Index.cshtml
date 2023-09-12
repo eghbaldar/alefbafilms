@@ -1,4 +1,5 @@
-﻿@using alefbafilm6.Application.Services.Contact.Queries.GetContact
+﻿@addTagHelper *,LazZiya.TagHelpers
+@using alefbafilm6.Application.Services.Contact.Queries.GetContact
 @model ResultGetContactServiceDto
 @*
     Developer: Alimohamamd Eghbaldar
@@ -6,6 +7,8 @@
 @{
     ViewData["Title"] = "مدیریت پیام های دریافتی";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int currentPage = 1;
+    int.TryParse(Context.Request.Query["p"], out currentPage);
 }
 <div class="row">
     <div class="col-12">
@@ -72,6 +75,17 @@
             </div> <!-- end card-body -->
         </div> <!-- end card -->
     </div> <!-- end col -->
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-7">
+        <div class="dataTables_paginate paging_simple_numbers"
+             id="datatable-buttons_paginate">
+            <paging page-no="@currentPage==0?1:currentPage"
+                    page-size="5"
+                    total-records="@Model.RowCount">
+            </paging>
+        </div>
+    </div>
 </div>
 
 @section Scripts{

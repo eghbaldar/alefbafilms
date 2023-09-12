@@ -1,6 +1,7 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
 using alefbafilm6.Application.Services.Contact.Commands.DeleteContact;
 using alefbafilm6.Application.Services.Contact.Commands.UpdateContact;
+using alefbafilm6.Application.Services.Contact.Queries.GetContact;
 using alefbafilms.Common.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,9 +18,13 @@ namespace Endpoint.Site.Areas.Admin.Controllers
             _contactFacade = contactFacade;
         }
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(int p=1)
         {
-            return View(_contactFacade.GetContactService.Execute());
+            return View(_contactFacade.GetContactService.Execute(new RequestGetContactServiceDto
+            {
+                CurrenetPage= p,
+                HowManyRecord=5,
+            }));
         }
         [HttpPost]
         public IActionResult Index(RequestUpdateContactServiceDto req)

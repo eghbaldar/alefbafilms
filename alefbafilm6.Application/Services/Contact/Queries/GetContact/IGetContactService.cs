@@ -9,6 +9,6 @@ namespace alefbafilm6.Application.Services.Contact.Queries.GetContact
 {
     public interface IGetContactService
     {
-        ResultGetContactServiceDto Execute();
+        ResultGetContactServiceDto Execute(RequestGetContactServiceDto req);
     }
 }

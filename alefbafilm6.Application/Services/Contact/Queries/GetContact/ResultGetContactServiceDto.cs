@@ -3,5 +3,6 @@
     public class ResultGetContactServiceDto
     {
         public List<GetContactServiceDto> _ResultGetContactServiceDto  { get; set; }
+        public int RowCount { get; set; }
     }
 }

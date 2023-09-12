@@ -353,6 +353,10 @@
               "target": "Package",
               "version": "[11.7.1, )"
             },
+            "LazZiya.TagHelpers": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.0, )"
