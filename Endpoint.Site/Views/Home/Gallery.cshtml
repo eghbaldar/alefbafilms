@@ -8,8 +8,6 @@
 }
 ٌ<main class="main">
 
-
-
     <div class="container">
                     <div class="row">
                 <div class="col-lg-2 col-sm-1 col-12"></div>
@@ -47,12 +45,8 @@
                 <div class="portfolioContainer">
                     @foreach (var photo in Model._resultGetGalleryPhotosServiceDto.GetGalleryPhotosServiceDto)
                     {
-                        <div class="col-lg-3 @photo.IdCategory" style="
-
-position: absolute; left: 0px; top: 0px;">
-                            <div class="gal-detail thumb" style="padding:15px;
-
-">
+                        <div class="col-lg-3 @photo.IdCategory" style="position: absolute; left: 0px; top: 0px;">
+                            <div class="gal-detail thumb" style="padding:15px;">
                                 <a href="~/images/gallery/@photo.Filename" class="image-popup" title="@photo.Name">
                                     <img src="~/images/gallery/@photo.Filename"
                                      style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius:5px;"

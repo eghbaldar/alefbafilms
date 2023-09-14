@@ -12,5 +12,6 @@ namespace alefbafilm6.Application.Services.Staff._Commons.DTOs
     {
         public RequestUpdateStaffServiceDto RequestUpdateStaffServiceDto { get; set; }
         public List<GetStaffServiceDto> GetStaffServiceDto { get; set; }
+        public GetStaffServiceDto StaffValidation { get; set; }
     }
 }

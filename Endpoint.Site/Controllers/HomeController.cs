@@ -2,6 +2,7 @@
 using alefbafilm6.Application.Services.Contact.Commands.PostContact;
 using alefbafilm6.Application.Services.Gallery.Queries.Common;
 using alefbafilm6.Application.Services.Newsletter.Commands.PostNewsletter;
+using alefbafilm6.Application.Services.Newsletter.FacadePattern;
 using Endpoint.Site.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -15,18 +16,19 @@ namespace Endpoint.Site.Controllers
         private readonly IPagesFacade _pagesFacade;
         private readonly IContactFacade _contactFacade;
         private readonly INewsletterFacade _newsletterFacade;
+
         public HomeController(
             IGalleryFacade galleryFacade,
             IStaffFacade staffFacade,
             IPagesFacade pagesFacade,
             IContactFacade contactFacade,
-            INewsletterFacade newsletterfacade)
+            INewsletterFacade newsletterFacade)
         {
             _galleryFacade = galleryFacade;
             _staffFacade = staffFacade;
             _pagesFacade = pagesFacade;
             _contactFacade = contactFacade;
-            _newsletterFacade = newsletterfacade;
+            _newsletterFacade = newsletterFacade;
         }
         public IActionResult Index()
         {
@@ -60,7 +62,6 @@ namespace Endpoint.Site.Controllers
                 }));
             }
         }
-
         public IActionResult Production()
         {
             return View();
@@ -94,10 +95,11 @@ namespace Endpoint.Site.Controllers
         [HttpPost]
         public IActionResult Newsletter(RequestNewsletterServiceDto req)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }else
+            }
+            else
             {
                 return Json(_newsletterFacade.PostNewsletterService.Execute(req));
             }

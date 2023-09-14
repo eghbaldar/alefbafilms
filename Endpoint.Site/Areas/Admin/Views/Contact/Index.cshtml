@@ -17,7 +17,7 @@
                 <h4 class="mt-0 header-title">پیام های ارسال از طریق سایت</h4>
                 <p class="sub-header">جهت مشاهده پیام روی دکمه ی سبز کلیک کنید</p>
                 <div class="table-responsive" id="contentRefresh">
-                    <table class="table table-centered mb-0" id="btneditable">
+                    <table class="table table-centered mb-0" id="tblContact">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -155,7 +155,7 @@
                                     confirmButtonText: 'متوجه شدم',
                                 }).then((result) => {
                                     if (result) {
-                                        $("#btneditable").load("index #btneditable"); //update table automatically!
+                                        $("#tblContact").load("index #tblContact"); //update table automatically!
                                     }
                                 });
                             }

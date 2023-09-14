@@ -1,8 +1,4 @@
-﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelper
-@using alefbafilm6.Application.Services.Newsletter.Commands.PostNewsletter
-@model RequestNewsletterServiceDto
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fa-IR" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -236,16 +232,7 @@
                                 <h4 class="text-heading-2 mb-10 mt-10">در خبرنامه الفبا مشترک شوید</h4>
                                 <div class="box-form-newsletter mt-30" style="direction:ltr;">
                                     <div class="form-newsletter">
-                                        <form id="frmPostNewsletter" asp-action="/home/Newsletter" method="post">
-                                            <button type="button"
-                                                    onclick="RegisterNewsletter()" class="btn btn-send"></button>
-                                            <input class="input-newsletter"
-                                                   asp-for="Email"
-                                                   style="border:0;width:250px;"
-                                                   id="txtEmailNewsletter" type="text" value=""
-                                                   placeholder="Email Address (پست الکترونیکی) ...">
-                                            <span asp-validation-for="Email" class="text-danger" />
-                                        </form>
+                                        @await Component.InvokeAsync("Newsletter");
                                     </div>
                                 </div>
                             </div>
@@ -387,29 +374,6 @@
     @RenderSection("Scripts",required:false)
 
     <!--  -->
-    <script>
-        function RegisterNewsletter() {
-            if ($("#frmPostNewsletter").valid()) {
-                var postData = { 'Email': $("#txtEmailNewsletter").val() };
 
-                $.ajax({
-                    contentType: 'application/x-www-form-urlencoded',
-                    dataType: 'json',
-                    type: 'POST',
-                    url: '/home/Newsletter',
-                    data: postData,
-                    success: function (data) {
-                        if (data.isSuccess) {
-                            document.getElementById("succeededNewsletter").style.display = "inline";
-                            document.getElementById("Newsletter").style.display = "none";
-                        }
-                    },
-                    error: function (request, status, error) {
-                        alert(request.responseText);
-                    }
-                });
-            }
-        }
-    </script>
 </body>
 </html>

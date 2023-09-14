@@ -11,10 +11,22 @@ namespace alefbafilm6.Application.Services.Pages.Queries.GetAboutPage
         }
         public GetAboutPageDto Execute()
         {
-            return _context.Pages.Select(x => new GetAboutPageDto
+            GetAboutPageDto about;
+            var count = _context.Pages.Count();
+            if(count > 0) {
+                about = _context.Pages.Select(x => new GetAboutPageDto
+                {
+                    AboutPage = x.AboutPage,
+                }).First();
+            }
+            else
             {
-                AboutPage = x.AboutPage,
-            }).First();                    
+                return new GetAboutPageDto
+                {
+                    AboutPage = "اطلاعاتی برای نمایش وجود ندارد",
+                };
+            }
+            return about;
         }
     }
 }

@@ -23,12 +23,16 @@ namespace Endpoint.Site.Areas.Admin.Controllers
         public IActionResult Index()
         {
             var _getStaffService = _staffFacade.GetStaffService.Execute();
-            return View(new AdminStaffDto
+            if (_getStaffService != null)
             {
-                GetStaffServiceDto = _getStaffService._resultGetStaffServiceDto,
-                RequestUpdateStaffServiceDto = null,
+                return View(new AdminStaffDto
+                {
+                    GetStaffServiceDto = _getStaffService._resultGetStaffServiceDto,
+                    RequestUpdateStaffServiceDto = null,
 
-            });
+                });
+            }
+            return View();
         }
         [HttpPost]
         public IActionResult Index(RequestPostStaffServiceDto req)

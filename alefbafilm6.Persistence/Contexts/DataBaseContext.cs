@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -59,12 +60,12 @@ namespace alefbafilms.Persistence.Contexts
             modelBuilder.Entity<Role>().HasData(new Role { id = 2, name = nameof(RoleConsts.Operator) });
             modelBuilder.Entity<Role>().HasData(new Role { id = 3, name = nameof(RoleConsts.User) });
             modelBuilder.Entity<Role>().HasData(new Role { id = 4, name = nameof(RoleConsts.Guest) });
-
             //===================================== End of Data-Seeding
 
             // Make the email field unique!
             // Why? because the end-user will not be allowed to register by two the same email address
             modelBuilder.Entity<User>().HasIndex(x => x.email).IsUnique();
+            //END
 
             //Let show only records that their [DeleteTime] field equal with NULL, why?
             // because if this field wasn't NULL, it would mean that this record had been deleted
@@ -72,11 +73,28 @@ namespace alefbafilms.Persistence.Contexts
             modelBuilder.Entity<Staff>().HasQueryFilter(x => x.DeleteTime == null);
             modelBuilder.Entity<Gallery>().HasQueryFilter(x=> x.DeleteTime == null);
             modelBuilder.Entity<Newsletter>().HasQueryFilter(x => x.DeleteTime== null);
+            //END
 
-            //
+            // set default value for "IsCheck" property of "Contacts" entity with every insert into the databse
             modelBuilder.Entity<Contact>().Property(x => x.IsCheck).HasDefaultValue(false);
+            //END
+
+            //Change "Scheme" of table to "optional value"
+            // if you did not change it, you would have the default scheme, such us: "alefbaUserEghbaldar.Contact,..."
+            // why? because during creating table, EF is going to use "username" of the database the scheme.
+            modelBuilder.Entity<User>().ToTable("Users", "dbo");
+            modelBuilder.Entity<Role>().ToTable("Roles", "dbo");
+            modelBuilder.Entity<UserInRole>().ToTable("UserInRoles", "dbo");
+            modelBuilder.Entity<Gallery>().ToTable("Gallery", "dbo");
+            modelBuilder.Entity<GalleryCategory>().ToTable("GalleryCategory", "dbo");
+            modelBuilder.Entity<GalleryInCategory>().ToTable("GalleryInCategory", "dbo");
+            modelBuilder.Entity<Page>().ToTable("Pages", "dbo");
+            modelBuilder.Entity<Staff>().ToTable("Staff", "dbo");
+            modelBuilder.Entity<Contact>().ToTable("Contacts", "dbo");
+            modelBuilder.Entity<Newsletter>().ToTable("Newsletters", "dbo");
+            //END
         }
-        // End of Data-Seeding
+        
 
     }
 }

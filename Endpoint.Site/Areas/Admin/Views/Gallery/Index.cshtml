@@ -25,13 +25,13 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2  col-form-label" for="simpleinput">نام دسته :</label>
                                         <div class="col-sm-10">
-                                            <input asp-for="GalleryCategory[0].Name"
-                                                   name="GalleryCategory[0].Name"
+                                            <input asp-for="GalleryCategoryValidationDto.Name"
+                                                   name="GalleryCategoryValidationDto.Name"
                                                    value=""
                                                    type="text"
                                                    id="txtname"
                                                    class="form-control">
-                                            <span asp-validation-for="GalleryCategory[0].Name"
+                                            <span asp-validation-for="GalleryCategoryValidationDto.Name"
                                                   class="text-danger" />
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                     <h4 class="mt-0 header-title">مشاهده و ویرایش دسته‌های گالری</h4>
                     <p class="sub-header">جهت حذف روی دکمه قرمز و ویرایش دکمه سبز کلیک کنید</p>
                     <div class="table-responsive">
-                        <table class="table table-centered mb-0" id="btn-editable">
+                        <table class="table table-centered mb-0" id="tblGallery">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -187,7 +187,7 @@
                                     confirmButtonText: 'متوجه شدم',
                                 }).then((result) => {
                                     if (result) {
-                                        document.location.reload();
+                                        $("#tblGallery").load("index #tblGallery"); //update table automatically!
                                     }
                                 });
                             }
@@ -246,7 +246,8 @@
                                 confirmButtonText: 'متوجه شدم',
                             }).then((result) => {
                                 if (result) {
-                                    document.location.reload();
+                                    $("#tblGallery").load("index #tblGallery"); //update table automatically!
+                                    $('#myModal').modal('hide');
                                 }
                             });
                         }
@@ -283,12 +284,12 @@
                     </div>
                     <div class="modal-body">
                         <input type="hidden" id="txtEditIdGalleryCategory" />
-                        <input asp-for="GalleryCategory[0].Name"
-                           name="GalleryCategory[0].Name"
+                        <input asp-for="GalleryCategoryValidationDto.Name"
+                           name="GalleryCategoryValidationDto.Name"
                            value=""
                            class="form-control"
                            id="txtEditNameGalleryCategory" />
-                        <span asp-validation-for="GalleryCategory[0].Name" class="text-danger" />
+                        <span asp-validation-for="GalleryCategoryValidationDto.Name" class="text-danger" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>

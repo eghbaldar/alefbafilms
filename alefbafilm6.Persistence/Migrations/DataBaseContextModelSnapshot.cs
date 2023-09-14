@@ -58,7 +58,7 @@ namespace alefbafilm6.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts");
+                    b.ToTable("Contacts", "dbo");
                 });
 
             modelBuilder.Entity("alefbafilm6.Domain.Entities.Gallery.Gallery", b =>
@@ -92,7 +92,7 @@ namespace alefbafilm6.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Gallery");
+                    b.ToTable("Gallery", "dbo");
                 });
 
             modelBuilder.Entity("alefbafilm6.Domain.Entities.Gallery.GalleryCategory", b =>
@@ -109,7 +109,7 @@ namespace alefbafilm6.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GalleryCategory");
+                    b.ToTable("GalleryCategory", "dbo");
                 });
 
             modelBuilder.Entity("alefbafilm6.Domain.Entities.Gallery.GalleryInCategory", b =>
@@ -132,7 +132,7 @@ namespace alefbafilm6.Persistence.Migrations
 
                     b.HasIndex("GalleryId");
 
-                    b.ToTable("GalleryInCategory");
+                    b.ToTable("GalleryInCategory", "dbo");
                 });
 
             modelBuilder.Entity("alefbafilm6.Domain.Entities.Newsletter.Newsletter", b =>
@@ -158,7 +158,7 @@ namespace alefbafilm6.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Newsletters");
+                    b.ToTable("Newsletters", "dbo");
                 });
 
             modelBuilder.Entity("alefbafilm6.Domain.Entities.Pages.Page", b =>
@@ -175,7 +175,7 @@ namespace alefbafilm6.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Pages");
+                    b.ToTable("Pages", "dbo");
                 });
 
             modelBuilder.Entity("alefbafilm6.Domain.Entities.Staffs.Staff", b =>
@@ -212,7 +212,7 @@ namespace alefbafilm6.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Staff");
+                    b.ToTable("Staff", "dbo");
                 });
 
             modelBuilder.Entity("alefbafilms.domian.Entities.Users.Role", b =>
@@ -238,31 +238,31 @@ namespace alefbafilm6.Persistence.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", "dbo");
 
                     b.HasData(
                         new
                         {
                             id = 1L,
-                            InsertTime = new DateTime(2023, 9, 11, 15, 14, 0, 997, DateTimeKind.Local).AddTicks(6092),
+                            InsertTime = new DateTime(2023, 9, 14, 13, 30, 22, 284, DateTimeKind.Local).AddTicks(3099),
                             name = "Admin"
                         },
                         new
                         {
                             id = 2L,
-                            InsertTime = new DateTime(2023, 9, 11, 15, 14, 0, 997, DateTimeKind.Local).AddTicks(6153),
+                            InsertTime = new DateTime(2023, 9, 14, 13, 30, 22, 284, DateTimeKind.Local).AddTicks(3134),
                             name = "Operator"
                         },
                         new
                         {
                             id = 3L,
-                            InsertTime = new DateTime(2023, 9, 11, 15, 14, 0, 997, DateTimeKind.Local).AddTicks(6164),
+                            InsertTime = new DateTime(2023, 9, 14, 13, 30, 22, 284, DateTimeKind.Local).AddTicks(3144),
                             name = "User"
                         },
                         new
                         {
                             id = 4L,
-                            InsertTime = new DateTime(2023, 9, 11, 15, 14, 0, 997, DateTimeKind.Local).AddTicks(6171),
+                            InsertTime = new DateTime(2023, 9, 14, 13, 30, 22, 284, DateTimeKind.Local).AddTicks(3153),
                             name = "Guest"
                         });
                 });
@@ -304,7 +304,7 @@ namespace alefbafilm6.Persistence.Migrations
                     b.HasIndex("email")
                         .IsUnique();
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", "dbo");
                 });
 
             modelBuilder.Entity("alefbafilms.domian.Entities.Users.UserInRole", b =>
@@ -327,7 +327,7 @@ namespace alefbafilm6.Persistence.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserInRoles");
+                    b.ToTable("UserInRoles", "dbo");
                 });
 
             modelBuilder.Entity("alefbafilm6.Domain.Entities.Gallery.GalleryInCategory", b =>

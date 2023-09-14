@@ -1,0 +1,42 @@
+﻿@using alefbafilm6.Application.Services.Newsletter.Commands.PostNewsletter
+@model RequestNewsletterServiceDto
+
+ <form id="frmPostNewsletter" asp-action="/home/Newsletter" method="post">
+    <button type="button"
+            onclick="RegisterNewsletter()" class="btn btn-send"></button>
+    <input class="input-newsletter"
+            asp-for="Email"
+            style="border:0;width:250px;"
+            id="txtEmailNewsletter" type="text" value=""
+            placeholder="Email Address (پست الکترونیکی) ...">
+    <span asp-validation-for="Email" class="text-danger" />
+</form>
+
+
+    <script>
+        function RegisterNewsletter() {
+            if ($("#frmPostNewsletter").valid()) {
+                var postData = { 'Email': $("#txtEmailNewsletter").val() };
+
+                $.ajax({
+                    contentType: 'application/x-www-form-urlencoded',
+                    dataType: 'json',
+                    type: 'POST',
+                    url: '/home/Newsletter',
+                    data: postData,
+                    success: function (data) {
+                        if (data.isSuccess) {
+                            document.getElementById("succeededNewsletter").style.display = "inline";
+                            document.getElementById("Newsletter").style.display = "none";
+                        }else
+                        {
+                            alert(data.message);
+                        }
+                    },
+                    error: function (request, status, error) {
+                        alert("err:"+request.responseText);
+                    }
+                });
+            }
+        }
+    </script>

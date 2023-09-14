@@ -60,42 +60,42 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2  col-form-label" for="simpleinput">نام کارمند:</label>
                                     <div class="col-sm-10">
-                                        <input asp-for="GetStaffServiceDto[0].Name"
-                                               name="GetStaffServiceDto[0].Name"
+                                        <input asp-for="StaffValidation.Name"
+                                               name="StaffValidation.Name"
                                                type="text"
                                                value=""
                                                placeholder="نام کامل کارمند"
                                                id="txtFullname"
                                                class="form-control">
-                                        <span asp-validation-for="GetStaffServiceDto[0].Name"
+                                        <span asp-validation-for="StaffValidation.Name"
                                               class="text-danger" />
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2  col-form-label" for="example-email">سمت:</label>
                                     <div class="col-sm-10">
-                                        <input asp-for="GetStaffServiceDto[0].Title"
-                                               name="GetStaffServiceDto[0].Title"
+                                        <input asp-for="StaffValidation.Title"
+                                               name="StaffValidation.Title"
                                                type="text"
                                                value=""
                                                id="txtPosition"
                                                class="form-control"
                                                placeholder="سمت کارمند">
-                                        <span asp-validation-for="GetStaffServiceDto[0].Title"
+                                        <span asp-validation-for="StaffValidation.Title"
                                               class="text-danger" />
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2  col-form-label" for="example-email">توضیحات:</label>
                                     <div class="col-sm-10">
-                                        <input asp-for="GetStaffServiceDto[0].Detail"
-                                               name="GetStaffServiceDto[0].Detail"
+                                        <input asp-for="StaffValidation.Detail"
+                                               name="StaffValidation.Detail"
                                                value=""
                                                type="text"
                                                id="txtDetail"
                                                class="form-control"
                                                placeholder="توضیحات">
-                                        <span asp-validation-for="GetStaffServiceDto[0].Detail"
+                                        <span asp-validation-for="StaffValidation.Detail"
                                               class="text-danger" />
                                     </div>
                                 </div>
@@ -107,13 +107,13 @@
                                     <ul></ul>
                                 </div>
 
-                                <input asp-for="GetStaffServiceDto[0].File"
-                                       name="GetStaffServiceDto[0].File"
+                                <input asp-for="StaffValidation.File"
+                                       name="StaffValidation.File"
                                        type="file"
                                        id="inputFile"
                                        class="dropify"
                                        data-height="300">
-                                <span asp-validation-for="GetStaffServiceDto[0].File"
+                                <span asp-validation-for="StaffValidation.File"
                                       class="text-danger" />
                                 <div class="dropify-preview">
                                     <span class="dropify-render"></span>

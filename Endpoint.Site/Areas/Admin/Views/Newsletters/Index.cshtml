@@ -15,7 +15,7 @@
                 <h4 class="mt-0 header-title">اشتراکی ها</h4>
                 <p class="sub-header">لیست ایمیل هایی را خواهید دید که جهت دریافت اخبار جدید وب سایت، اشتراک شده اند</p>
                 <div class="table-responsive">
-                    <table class="table table-centered mb-0" id="btn-editable">
+                    <table class="table table-centered mb-0" id="tblNews">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -83,7 +83,7 @@
                                     confirmButtonText: 'متوجه شدم',
                                 }).then((result) => {
                                     if (result) {
-                                        location.reload();
+                                         $("#tblNews").load("index #tblNews"); //update table automatically!
                                     }
                                 });
                             }
