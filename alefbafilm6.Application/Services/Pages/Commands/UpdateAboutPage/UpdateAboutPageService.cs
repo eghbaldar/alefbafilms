@@ -1,6 +1,9 @@
 ﻿using alefbafilm6.Domain.Entities.Pages;
 using alefbafilms.application.Interfaces.Contexts;
 using alefbafilms.Common.Dtos;
+using alefbafilms.domian.Entities.Users;
+using Microsoft.EntityFrameworkCore;
+using ServiceStack;
 
 namespace alefbafilm6.Application.Services.Pages.Commands.PostAboutPage
 {
@@ -15,22 +18,20 @@ namespace alefbafilm6.Application.Services.Pages.Commands.PostAboutPage
         {
             try
             {
-                Page aboutPage = new Page();
-                aboutPage = _context.Pages.First();
-
-                if (aboutPage == null)
+                var page = _context.Pages.FirstOrDefault();
+                if (page == null)
                 {
-                    return new ResultDto
-                    {
-                        IsSuccess = false,
-                        Message = "اطلاعاتی جهت ویرایش یافت نشد",
-                    };
+                    Page aboutPage = new Page();
+                    aboutPage.AboutPage = req.AboutPage;
+                    _context.Pages.Add(aboutPage);
                 }
-                aboutPage.AboutPage = req.AboutPage;
+                else
+                    page.AboutPage = req.AboutPage;
+
                 _context.SaveChanges();
                 return new ResultDto
                 {
-                    IsSuccess = false,
+                    IsSuccess = true,
                     Message = "صفحه درباره ی ما ویرایش شد"
                 };
             }
@@ -39,7 +40,7 @@ namespace alefbafilm6.Application.Services.Pages.Commands.PostAboutPage
                 return new ResultDto
                 {
                     IsSuccess = false,
-                    Message = "خطایی رخ داده است",
+                    Message = "خطایی رخ داده است" + ex.Message,
                 };
             }
         }

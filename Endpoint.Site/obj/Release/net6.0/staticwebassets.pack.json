@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\AdminTemplate\\css\\fontiran.css"
     },
     {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\css\\fontiran_auth.css",
+      "PackagePath": "staticwebassets\\AdminTemplate\\css\\fontiran_auth.css"
+    },
+    {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\css\\icons.css",
       "PackagePath": "staticwebassets\\AdminTemplate\\css\\icons.css"
     },
@@ -269,6 +273,134 @@
       "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\feather.woff"
     },
     {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanwebblack.eot",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanwebblack.eot"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanwebbold.eot",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanwebbold.eot"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanwebextrablack.eot",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanwebextrablack.eot"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanwebextrabold.eot",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanwebextrabold.eot"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanweblight.eot",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanweblight.eot"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanwebmedium.eot",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanwebmedium.eot"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanwebregular.eot",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanwebregular.eot"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanwebthin.eot",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\eot\\iranyekanwebthin.eot"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanwebblack.svg",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanwebblack.svg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanwebbold.svg",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanwebbold.svg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanwebextrablack.svg",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanwebextrablack.svg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanwebextrabold.svg",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanwebextrabold.svg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanweblight.svg",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanweblight.svg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanwebmedium.svg",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanwebmedium.svg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanwebregular.svg",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanwebregular.svg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanwebthin.svg",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\svg\\iranyekanwebthin.svg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanwebblack.ttf",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanwebblack.ttf"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanwebbold.ttf",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanwebbold.ttf"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanwebextrablack.ttf",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanwebextrablack.ttf"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanwebextrabold.ttf",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanwebextrabold.ttf"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanweblight.ttf",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanweblight.ttf"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanwebmedium.ttf",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanwebmedium.ttf"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanwebregular.ttf",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanwebregular.ttf"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanwebthin.ttf",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\ttf\\iranyekanwebthin.ttf"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanwebblack.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanwebblack.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanwebbold.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanwebbold.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanwebextrablack.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanwebextrablack.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanwebextrabold.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanwebextrabold.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanweblight.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanweblight.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanwebmedium.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanwebmedium.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanwebregular.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanwebregular.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanwebthin.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\iran-yekan\\woff\\iranyekanwebthin.woff"
+    },
+    {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\materialdesignicons-webfont.eot",
       "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\materialdesignicons-webfont.eot"
     },
@@ -335,6 +467,38 @@
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\weathericons-regular-webfont.woff2",
       "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\weathericons-regular-webfont.woff2"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-Black.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-Black.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-Bold.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-Bold.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-ExtraBlack.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-ExtraBlack.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-ExtraBold.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-ExtraBold.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-Light.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-Light.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-Regular.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-Regular.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-SemiBold.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-SemiBold.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-Thin.woff",
+      "PackagePath": "staticwebassets\\AdminTemplate\\fonts\\woff\\YekanBakhFaNum-Thin.woff"
     },
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\AdminTemplate\\images\\attached-files\\img-1.jpg",
@@ -2293,6 +2457,38 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\gallery\\638275735385338390ماهی کوچولو.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\638275735385338390ماهی کوچولو.jpg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\gallery\\638275735699742873شهر خوب بچه ها.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\638275735699742873شهر خوب بچه ها.jpg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\gallery\\638275735926581159زیر درخت توت.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\638275735926581159زیر درخت توت.jpg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638275731654726923user-4.png",
+      "PackagePath": "staticwebassets\\images\\staff\\638275731654726923user-4.png"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638275732399236065user-1.png",
+      "PackagePath": "staticwebassets\\images\\staff\\638275732399236065user-1.png"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638298699055126356user-1.png",
+      "PackagePath": "staticwebassets\\images\\staff\\638298699055126356user-1.png"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638298742181396729user-2.png",
+      "PackagePath": "staticwebassets\\images\\staff\\638298742181396729user-2.png"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638300456662840335user-3.png",
+      "PackagePath": "staticwebassets\\images\\staff\\638300456662840335user-3.png"
+    },
+    {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
@@ -2523,6 +2719,34 @@
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\summernote\\summernote-init.js",
+      "PackagePath": "staticwebassets\\summernote\\summernote-init.js"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\summernote\\summernote.css",
+      "PackagePath": "staticwebassets\\summernote\\summernote.css"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\summernote\\summernote\\font\\summernote.eot",
+      "PackagePath": "staticwebassets\\summernote\\summernote\\font\\summernote.eot"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\summernote\\summernote\\font\\summernote.ttf",
+      "PackagePath": "staticwebassets\\summernote\\summernote\\font\\summernote.ttf"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\summernote\\summernote\\font\\summernote.woff",
+      "PackagePath": "staticwebassets\\summernote\\summernote\\font\\summernote.woff"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\summernote\\summernote\\js\\summernote.min.js",
+      "PackagePath": "staticwebassets\\summernote\\summernote\\js\\summernote.min.js"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\summernote\\summernote\\summernote.css",
+      "PackagePath": "staticwebassets\\summernote\\summernote\\summernote.css"
     },
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\sweetalert\\sweetalert2.all.min.js",

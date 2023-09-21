@@ -16,8 +16,36 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Areas/Admin/Views/About/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWJvdXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Areas/Admin/Views/Auth/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXV0aFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Areas/Admin/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Areas/Admin/Views/Gallery/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2FsbGVyeVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Areas/Admin/Views/Gallery/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2FsbGVyeVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Areas/Admin/Views/Gallery/photos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2FsbGVyeVxwaG90b3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Areas/Admin/Views/Newsletters/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmV3c2xldHRlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Areas/Admin/Views/Shared/Components/TopLeftMenu/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcVG9wTGVmdE1lbnVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
@@ -26,6 +54,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Areas/Admin/Views/Shared/_MainInfoUserPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9NYWluSW5mb1VzZXJQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Areas/Admin/Views/Staff/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU3RhZmZcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Areas/Admin/Views/Users/Create.cshtml]
@@ -52,6 +84,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb29wZXJhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Views/Home/Gallery.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHYWxsZXJ5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -70,6 +106,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Views/Home/staff.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxzdGFmZi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Views/Shared/Components/Newsletter/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmV3c2xldHRlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/_Developing_/Alefbafilm/Project/alefbafilm6/Endpoint.Site/Views/Shared/Error.cshtml]

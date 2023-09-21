@@ -534,7 +534,7 @@ a {
 }
 
 .color-orange-100 {
-  color: #FAEDE3;
+    color: #e3f7fa;
 }
 
 .color-orange-500 {
@@ -602,7 +602,7 @@ a {
 }
 
 .bg-2 {
-  background-color: #FFF3EA !important;
+    background-color: #e3f7fa !important;
 }
 
 .bg-2-opacity-80 {
@@ -3021,9 +3021,9 @@ label {
   padding: 60px 0px 20px 0px;
   position: relative;
 }
-.banner-hero.banner-1 {
-  background-color: #FAEDE3;
-}
+    .banner-hero.banner-1 {
+        background-color: #e3f7fa;
+    }
 .banner-hero.banner-1 .container {
   z-index: 2;
   position: relative;
@@ -3287,10 +3287,10 @@ label {
   background: url(../imgs/page/faqs/1/bg-banner.png) no-repeat center top;
   background-size: auto;
 }
-.banner-hero.banner-breadcrums {
-  background-color: #FFF3EA;
-  padding: 48px 0px;
-}
+    .banner-hero.banner-breadcrums {
+        background-color: #e3f7fa;
+        padding: 48px 0px;
+    }
 .banner-hero.banner-head-image {
   background-size: cover !important;
   background-repeat: top center !important;
@@ -6261,7 +6261,7 @@ label {
 }
 
 .bg-orange-100 {
-  background-color: #FAEDE3;
+    background-color: #e3f7fa;
 }
 
 .accordion-item .accordion-button {
