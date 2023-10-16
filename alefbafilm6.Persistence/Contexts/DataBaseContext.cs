@@ -2,6 +2,7 @@
 using alefbafilm6.Domain.Entities.Gallery;
 using alefbafilm6.Domain.Entities.Newsletter;
 using alefbafilm6.Domain.Entities.Pages;
+using alefbafilm6.Domain.Entities.Productions;
 using alefbafilm6.Domain.Entities.Staffs;
 using alefbafilms.application.Interfaces.Contexts;
 using alefbafilms.Common.Constants;
@@ -45,6 +46,9 @@ namespace alefbafilms.Persistence.Contexts
 
         // Newsletter
         public DbSet<Newsletter> Newsletters { get; set; }
+
+        // Productions
+        public DbSet<Products> Products { get; set; }
         //===================================== End of TABELS of Database
 
 

@@ -178,6 +178,58 @@ namespace alefbafilm6.Persistence.Migrations
                     b.ToTable("Pages", "dbo");
                 });
 
+            modelBuilder.Entity("alefbafilm6.Domain.Entities.Productions.Products", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Genre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PhotoBig")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhotoSmall")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ProductionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Time")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Products");
+                });
+
             modelBuilder.Entity("alefbafilm6.Domain.Entities.Staffs.Staff", b =>
                 {
                     b.Property<long>("Id")
@@ -244,25 +296,25 @@ namespace alefbafilm6.Persistence.Migrations
                         new
                         {
                             id = 1L,
-                            InsertTime = new DateTime(2023, 9, 14, 13, 30, 22, 284, DateTimeKind.Local).AddTicks(3099),
+                            InsertTime = new DateTime(2023, 10, 16, 17, 8, 40, 281, DateTimeKind.Local).AddTicks(3823),
                             name = "Admin"
                         },
                         new
                         {
                             id = 2L,
-                            InsertTime = new DateTime(2023, 9, 14, 13, 30, 22, 284, DateTimeKind.Local).AddTicks(3134),
+                            InsertTime = new DateTime(2023, 10, 16, 17, 8, 40, 281, DateTimeKind.Local).AddTicks(3894),
                             name = "Operator"
                         },
                         new
                         {
                             id = 3L,
-                            InsertTime = new DateTime(2023, 9, 14, 13, 30, 22, 284, DateTimeKind.Local).AddTicks(3144),
+                            InsertTime = new DateTime(2023, 10, 16, 17, 8, 40, 281, DateTimeKind.Local).AddTicks(3915),
                             name = "User"
                         },
                         new
                         {
                             id = 4L,
-                            InsertTime = new DateTime(2023, 9, 14, 13, 30, 22, 284, DateTimeKind.Local).AddTicks(3153),
+                            InsertTime = new DateTime(2023, 10, 16, 17, 8, 40, 281, DateTimeKind.Local).AddTicks(3931),
                             name = "Guest"
                         });
                 });

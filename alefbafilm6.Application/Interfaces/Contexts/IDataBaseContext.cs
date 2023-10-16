@@ -2,6 +2,7 @@
 using alefbafilm6.Domain.Entities.Gallery;
 using alefbafilm6.Domain.Entities.Newsletter;
 using alefbafilm6.Domain.Entities.Pages;
+using alefbafilm6.Domain.Entities.Productions;
 using alefbafilm6.Domain.Entities.Staffs;
 using alefbafilms.domian.Entities.Users;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +38,9 @@ namespace alefbafilms.application.Interfaces.Contexts
 
         // Newsletter
         DbSet<Newsletter> Newsletters { get; set; }
+
+        // Poroductions
+        DbSet<Products> Products { get; set; }
 
         ///////////////////////////////////////////////////////////////////////////////////////// Methods
         //SaveChanges

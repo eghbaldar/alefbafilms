@@ -1,0 +1,47 @@
+﻿@*
+    DevelopeR: Alimohammad Eghbaldar: https://eghbaldar.ir
+*@
+@{
+    ViewData["Title"] = "مشاهده تولیدات";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="mt-0 header-title">تولیدات الفبا</h4>
+                <p class="sub-header">لیست تولیدات الفبا در زیر قابل مشاهده است</p>
+                <div class="table-responsive">
+                    <table class="table table-centered mb-0" id="tblProductions">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>ایمیل</th>
+                                <th class="tabledit-toolbar-column"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                                <tr id="1">
+                                    <td><span class="tabledit-span tabledit-identifier">1</span><input class="tabledit-input tabledit-identifier" type="hidden" name="id" value="1" disabled=""></td>
+                                    <td class="tabledit-view-mode"><span class="tabledit-span">2</span><input class="tabledit-input form-control form-control-sm" type="text" name="col2" value="" style="display: none;" disabled=""></td>
+                                    <td style="white-space: nowrap; width: 1%;">
+                                        <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
+                                            <div class="btn-group btn-group-sm" style="float: none;">
+                                                <button
+                                                    class="btn btn-icon waves-effect waves-light btn-danger">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            
+                        </tbody>
+                    </table>
+                </div> <!-- end .table-responsive-->
+            </div> <!-- end card-body -->
+        </div> <!-- end card -->
+    </div> <!-- end col -->
+</div>
