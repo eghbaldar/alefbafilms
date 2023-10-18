@@ -1,4 +1,6 @@
-﻿using alefbafilms.Common.Constants;
+﻿using alefbafilm6.Application.Interfaces.FacadePattern;
+using alefbafilm6.Application.Services.Productions.Commands.PostProduct;
+using alefbafilms.Common.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,10 +11,16 @@ namespace Endpoint.Site.Areas.Admin.Controllers
     [Authorize(RoleConsts.Admin)]
     public class ProductionsController : Controller
     {
+        private readonly IProductionFacade _productionFacade;
+        public ProductionsController(IProductionFacade productionFacade)
+        {
+            _productionFacade = productionFacade;
+        }
         public IActionResult Index()
         {
             return View();
         }
+        [HttpGet]
         public IActionResult Create()
         {
             var Category = new[]
@@ -35,6 +43,27 @@ namespace Endpoint.Site.Areas.Admin.Controllers
             ViewBag.Category = new SelectList(Category, "Id", "Name");
             ViewBag.Genre = new SelectList(Genre, "Id", "Name");
             return View();
+        }
+        [HttpPost]
+        public IActionResult Create(RequestPostProductServiceDto req)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            IFormFile BigPhoto = req.PhotoBig;
+            IFormFile SmallPhoto = req.PhotoSmall;
+            return Json(_productionFacade.PostProductService.Execute(new RequestPostProductServiceDto
+            {
+                Title = req.Title,
+                Description = req.Description,
+                CategoryName = req.CategoryName,
+                Genre = req.Genre,
+                ProductionDate = req.ProductionDate,
+                Time = req.Time,
+                PhotoBig = BigPhoto,
+                PhotoSmall= SmallPhoto
+            })) ;
         }
     }
 }
