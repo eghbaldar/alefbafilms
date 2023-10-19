@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\alefbafilm6.Application\alefbafilm6.Application.csproj" />
+    <ProjectReference Include="..\alefbafilm6.Domain\alefbafilm6.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

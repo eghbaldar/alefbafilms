@@ -10,3 +10,10 @@ D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Infrastructure\obj\De
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Infrastructure\obj\Debug\net6.0\refint\alefbafilm6.Infrastructure.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Infrastructure\obj\Debug\net6.0\alefbafilm6.Infrastructure.pdb
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Infrastructure\obj\Debug\net6.0\ref\alefbafilm6.Infrastructure.dll
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Infrastructure\bin\Debug\net6.0\alefbafilm6.Application.dll
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Infrastructure\bin\Debug\net6.0\alefbafilm6.Common.dll
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Infrastructure\bin\Debug\net6.0\alefbafilm6.Domain.dll
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Infrastructure\bin\Debug\net6.0\alefbafilm6.Application.pdb
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Infrastructure\bin\Debug\net6.0\alefbafilm6.Domain.pdb
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Infrastructure\bin\Debug\net6.0\alefbafilm6.Common.pdb
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\alefbafilm6.Infrastructure\obj\Debug\net6.0\alefbafilm6.Infrastructure.csproj.CopyComplete

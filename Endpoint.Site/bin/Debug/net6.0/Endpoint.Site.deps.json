@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Endpoint.Site/1.0.0": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "FluentValidation": "11.7.1",
           "LazZiya.TagHelpers": "6.0.2",
           "Microsoft.EntityFrameworkCore": "6.0.0",
@@ -16,11 +17,35 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16",
           "alefbafilm6.Application": "1.0.0",
           "alefbafilm6.Common": "1.0.0",
+          "alefbafilm6.Infrastructure": "1.0.0",
           "alefbafilm6.Persistence": "1.0.0",
           "jQuery.Validation": "1.19.5"
         },
         "runtime": {
           "Endpoint.Site.dll": {}
+        }
+      },
+      "AutoMapper/12.0.1": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.1.0"
+          }
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.1.0"
+          }
         }
       },
       "FluentValidation/11.7.1": {
@@ -2584,6 +2609,7 @@
       },
       "alefbafilm6.Application/1.0.0": {
         "dependencies": {
+          "AutoMapper": "12.0.1",
           "Microsoft.AspNetCore.Http.Features": "6.0.0-preview.4.21253.5",
           "Microsoft.EntityFrameworkCore": "6.0.0",
           "alefbafilm6.Common": "1.0.0",
@@ -2611,6 +2637,15 @@
           "alefbafilm6.Domain.dll": {}
         }
       },
+      "alefbafilm6.Infrastructure/1.0.0": {
+        "dependencies": {
+          "alefbafilm6.Application": "1.0.0",
+          "alefbafilm6.Domain": "1.0.0"
+        },
+        "runtime": {
+          "alefbafilm6.Infrastructure.dll": {}
+        }
+      },
       "alefbafilm6.Persistence/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.0",
@@ -2630,6 +2665,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AutoMapper/12.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hvV62vl6Hp/WfQ24yzo3Co9+OPl8wH8hApwVtgWpiAynVJkUcs7xvehnSftawL8Pe8FrPffBRM3hwzLQqWDNjA==",
+      "path": "automapper/12.0.1",
+      "hashPath": "automapper.12.0.1.nupkg.sha512"
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+g/K+Vpe3gGMKGzjslMOdqNlkikScDjWfVvmWTayrDHaG/n2pPmFBMa+jKX1r/h6BDGFdkyRjAuhFE3ykW+r1g==",
+      "path": "automapper.extensions.microsoft.dependencyinjection/12.0.1",
+      "hashPath": "automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512"
     },
     "FluentValidation/11.7.1": {
       "type": "package",
@@ -4252,6 +4301,11 @@
       "sha512": ""
     },
     "alefbafilm6.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "alefbafilm6.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

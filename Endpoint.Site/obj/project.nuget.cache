@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "y90xR5Y0YcOwuAaEYshU5jkUkQtPf1B0JznRolOo4TPMEgIounU8L60hNAa92rLsHwZH2JoG2rnEE2G5uVZzOg==",
+  "dgSpecHash": "pHSMhXfTd0FoSKgUkRrsEvHYsg0fx2f2SQmZ8i31UL0S6CvhQT+5BJE2iIY8S5TTuzw91Ma/YGKQr3HsdxqNFw==",
   "success": true,
   "projectFilePath": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\Endpoint.Site.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",

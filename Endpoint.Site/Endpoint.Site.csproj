@@ -61,6 +61,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="FluentValidation" Version="11.7.1" />
     <PackageReference Include="jQuery.Validation" Version="1.19.5" />
     <PackageReference Include="LazZiya.TagHelpers" Version="6.0.2" />
@@ -76,6 +77,7 @@
   <ItemGroup>
     <ProjectReference Include="..\alefbafilm6.Application\alefbafilm6.Application.csproj" />
     <ProjectReference Include="..\alefbafilm6.Common\alefbafilm6.Common.csproj" />
+    <ProjectReference Include="..\alefbafilm6.Infrastructure\alefbafilm6.Infrastructure.csproj" />
     <ProjectReference Include="..\alefbafilm6.Persistence\alefbafilm6.Persistence.csproj" />
   </ItemGroup>
 

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nThR611JYPmzaWrXVaWpRuM0N11XLrwbWyHi7l8F1TqBRQqGQZlHLTMF1aQxDztyeTJuX4wNdYjhw9owcUVPvA==",
+  "dgSpecHash": "I/XLDJFX4Mwgrvon6kHSdihNUFZpruOTdC2bYt83jdWnClpYqI6ktbD5bNlv5gSiPBuszTXzyqzQnOHtcPme8g==",
   "success": true,
   "projectFilePath": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\alefbafilm6.Persistence\\alefbafilm6.Persistence.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\IRANFILMPORT\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",

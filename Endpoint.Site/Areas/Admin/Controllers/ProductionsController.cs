@@ -1,5 +1,6 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
 using alefbafilm6.Application.Services.Productions.Commands.PostProduct;
+using alefbafilm6.Common.Constants;
 using alefbafilms.Common.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,30 +19,26 @@ namespace Endpoint.Site.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(_productionFacade.GetProductionsService.Execute());
         }
         [HttpGet]
         public IActionResult Create()
         {
-            var Category = new[]
+
+            ProductionsConstants productionsConstants = new ProductionsConstants();
+            List<SelectListItem> listCat = productionsConstants.Category().Select(u => new SelectListItem
             {
-            new { Id = 1, Name = "فیلم کوتاه" },
-            new { Id = 2, Name = "فیلم بلند" },
-            new { Id = 3, Name = "تبلیغاتی" },
-            new { Id = 4, Name = "جُنگ" }
-            }.ToList();
+                Value = u.Id.ToString(),
+                Text= u.Name,                
+            }).ToList();            
+            List<SelectListItem> listGenre = productionsConstants.Genre().Select(u => new SelectListItem
+            {
+                Value = u.Id.ToString(),
+                Text= u.Name,                
+            }).ToList();
 
-            var Genre = new[]
-{
-            new { Id = 2, Name = "موزیک ویدیو" },
-            new { Id = 3, Name = "انیمیشن" },
-            new { Id = 4, Name = "مستند" },
-            new { Id = 5, Name = "داستانی" },
-            new { Id = 6, Name = "تجربی" }
-            }.ToList();
-
-            ViewBag.Category = new SelectList(Category, "Id", "Name");
-            ViewBag.Genre = new SelectList(Genre, "Id", "Name");
+            ViewBag.Category = listCat;
+            ViewBag.Genre = listGenre;
             return View();
         }
         [HttpPost]
@@ -62,8 +59,8 @@ namespace Endpoint.Site.Areas.Admin.Controllers
                 ProductionDate = req.ProductionDate,
                 Time = req.Time,
                 PhotoBig = BigPhoto,
-                PhotoSmall= SmallPhoto
-            })) ;
+                PhotoSmall = SmallPhoto
+            }));
         }
     }
 }

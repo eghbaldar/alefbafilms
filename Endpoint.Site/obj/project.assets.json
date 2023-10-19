@@ -2,6 +2,35 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "AutoMapper/12.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "[12.0.1]",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "FluentValidation/11.7.1": {
         "type": "package",
         "compile": {
@@ -3956,6 +3985,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "AutoMapper": "12.0.1",
           "Microsoft.AspNetCore.Http.Features": "6.0.0-preview.4.21253.5",
           "Microsoft.EntityFrameworkCore": "6.0.0",
           "alefbafilm6.Common": "1.0.0",
@@ -3996,6 +4026,20 @@
           "bin/placeholder/alefbafilm6.Domain.dll": {}
         }
       },
+      "alefbafilm6.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "alefbafilm6.Application": "1.0.0",
+          "alefbafilm6.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/alefbafilm6.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/alefbafilm6.Infrastructure.dll": {}
+        }
+      },
       "alefbafilm6.Persistence/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -4016,6 +4060,35 @@
     }
   },
   "libraries": {
+    "AutoMapper/12.0.1": {
+      "sha512": "hvV62vl6Hp/WfQ24yzo3Co9+OPl8wH8hApwVtgWpiAynVJkUcs7xvehnSftawL8Pe8FrPffBRM3hwzLQqWDNjA==",
+      "type": "package",
+      "path": "automapper/12.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.12.0.1.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.dll",
+        "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
+      "sha512": "+g/K+Vpe3gGMKGzjslMOdqNlkikScDjWfVvmWTayrDHaG/n2pPmFBMa+jKX1r/h6BDGFdkyRjAuhFE3ykW+r1g==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/12.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
     "FluentValidation/11.7.1": {
       "sha512": "w9Al4gls6iVGFbTd/NPOPlwzqDTghH+ntL4c4FYUatc+LeybpIwhYArLykZJP/VjF2n3ihj3ws+1yd7KR5lQlg==",
       "type": "package",
@@ -11242,6 +11315,11 @@
       "path": "../alefbafilm6.Domain/alefbafilm6.Domain.csproj",
       "msbuildProject": "../alefbafilm6.Domain/alefbafilm6.Domain.csproj"
     },
+    "alefbafilm6.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../alefbafilm6.Infrastructure/alefbafilm6.Infrastructure.csproj",
+      "msbuildProject": "../alefbafilm6.Infrastructure/alefbafilm6.Infrastructure.csproj"
+    },
     "alefbafilm6.Persistence/1.0.0": {
       "type": "project",
       "path": "../alefbafilm6.Persistence/alefbafilm6.Persistence.csproj",
@@ -11250,6 +11328,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "FluentValidation >= 11.7.1",
       "LazZiya.TagHelpers >= 6.0.2",
       "Microsoft.EntityFrameworkCore >= 6.0.0",
@@ -11258,6 +11337,7 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16",
       "alefbafilm6.Application >= 1.0.0",
       "alefbafilm6.Common >= 1.0.0",
+      "alefbafilm6.Infrastructure >= 1.0.0",
       "alefbafilm6.Persistence >= 1.0.0",
       "jQuery.Validation >= 1.19.5"
     ]
@@ -11299,6 +11379,9 @@
             "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\alefbafilm6.Common\\alefbafilm6.Common.csproj": {
               "projectPath": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\alefbafilm6.Common\\alefbafilm6.Common.csproj"
             },
+            "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\alefbafilm6.Infrastructure\\alefbafilm6.Infrastructure.csproj": {
+              "projectPath": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\alefbafilm6.Infrastructure\\alefbafilm6.Infrastructure.csproj"
+            },
             "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\alefbafilm6.Persistence\\alefbafilm6.Persistence.csproj": {
               "projectPath": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\alefbafilm6.Persistence\\alefbafilm6.Persistence.csproj"
             }
@@ -11315,6 +11398,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[12.0.1, )"
+          },
           "FluentValidation": {
             "target": "Package",
             "version": "[11.7.1, )"

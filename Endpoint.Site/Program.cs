@@ -7,6 +7,7 @@ using alefbafilm6.Application.Services.Productions.FacadePattern;
 using alefbafilm6.Application.Services.Staff.FacadePattern;
 using alefbafilm6.Application.Services.Users.FacadePattern;
 using alefbafilm6.Domain.Entities;
+using alefbafilm6.Infrastructure.MappingProfiles.Productions;
 using alefbafilms.application.Interfaces.Contexts;
 using alefbafilms.application.Services.Users.Commands.ActiveUsers;
 using alefbafilms.application.Services.Users.Commands.DeleteUsers;
@@ -38,6 +39,9 @@ builder.Services.AddScoped<IStaffFacade,StaffFacade>();
 builder.Services.AddScoped<IContactFacade, ContactPattern>();
 builder.Services.AddScoped<INewsletterFacade,NewsletterFacade>();
 builder.Services.AddScoped<IProductionFacade,ProductionFacade>();
+
+// Mapping
+builder.Services.AddAutoMapper(typeof(ProductionsMappingProfile));
 
 // ASN // Add SQL SERVICE Provider services
 var connStr = builder.Configuration.GetConnectionString("LocalServer"); // Get connectionstring value directly from "appsetting.json" file

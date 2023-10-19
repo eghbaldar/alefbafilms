@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mrGR3GerWeQ4Uguxaoc1hDsYZf+7CfEWcuy0qGwcQCA=",
+  "Hash": "+XlUXZEVWfjKcscUMsagUOdG5LXLLPqIcZnqkYovfYk=",
   "Source": "Endpoint.Site",
   "BasePath": "_content/Endpoint.Site",
   "Mode": "Default",
@@ -5457,12 +5457,12 @@
       "OriginalItemSpec": "wwwroot\\images\\gallery\\638275735926581159زیر درخت توت.jpg"
     },
     {
-      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638332304421682145_DSC00601.jpg",
+      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638332358079098134_DSC0060.JPG",
       "SourceId": "Endpoint.Site",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
       "BasePath": "_content/Endpoint.Site",
-      "RelativePath": "images/production/638332304421682145_DSC00601.jpg",
+      "RelativePath": "images/production/638332358079098134_DSC0060.JPG",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -5471,15 +5471,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\production\\638332304421682145_DSC00601.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\production\\638332358079098134_DSC0060.JPG"
     },
     {
-      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638332304421715619_DSC00602.jpg",
+      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638332358079124687_DSC00602.jpg",
       "SourceId": "Endpoint.Site",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
       "BasePath": "_content/Endpoint.Site",
-      "RelativePath": "images/production/638332304421715619_DSC00602.jpg",
+      "RelativePath": "images/production/638332358079124687_DSC00602.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -5488,15 +5488,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\production\\638332304421715619_DSC00602.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\production\\638332358079124687_DSC00602.jpg"
     },
     {
-      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638332311759841612_DSC006023.jpg",
+      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638332358853861881_DSC0060.JPG",
       "SourceId": "Endpoint.Site",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
       "BasePath": "_content/Endpoint.Site",
-      "RelativePath": "images/production/638332311759841612_DSC006023.jpg",
+      "RelativePath": "images/production/638332358853861881_DSC0060.JPG",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -5505,15 +5505,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\production\\638332311759841612_DSC006023.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\production\\638332358853861881_DSC0060.JPG"
     },
     {
-      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638332311759849749_DSC00602.jpg",
+      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638332358853871506_DSC00602.jpg",
       "SourceId": "Endpoint.Site",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
       "BasePath": "_content/Endpoint.Site",
-      "RelativePath": "images/production/638332311759849749_DSC00602.jpg",
+      "RelativePath": "images/production/638332358853871506_DSC00602.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -5522,15 +5522,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\production\\638332311759849749_DSC00602.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\production\\638332358853871506_DSC00602.jpg"
     },
     {
-      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638332312226166306_DSC006023.jpg",
+      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638332358941318566_DSC0060.JPG",
       "SourceId": "Endpoint.Site",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
       "BasePath": "_content/Endpoint.Site",
-      "RelativePath": "images/production/638332312226166306_DSC006023.jpg",
+      "RelativePath": "images/production/638332358941318566_DSC0060.JPG",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -5539,15 +5539,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\production\\638332312226166306_DSC006023.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\production\\638332358941318566_DSC0060.JPG"
     },
     {
-      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638332312226191302_DSC00602.jpg",
+      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638332358941329963_DSC00602.jpg",
       "SourceId": "Endpoint.Site",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
       "BasePath": "_content/Endpoint.Site",
-      "RelativePath": "images/production/638332312226191302_DSC00602.jpg",
+      "RelativePath": "images/production/638332358941329963_DSC00602.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -5556,7 +5556,41 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\production\\638332312226191302_DSC00602.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\production\\638332358941329963_DSC00602.jpg"
+    },
+    {
+      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638332435339380325_DSC006024.jpg",
+      "SourceId": "Endpoint.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
+      "BasePath": "_content/Endpoint.Site",
+      "RelativePath": "images/production/638332435339380325_DSC006024.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\production\\638332435339380325_DSC006024.jpg"
+    },
+    {
+      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638332435339413539_DSC006023.jpg",
+      "SourceId": "Endpoint.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
+      "BasePath": "_content/Endpoint.Site",
+      "RelativePath": "images/production/638332435339413539_DSC006023.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\production\\638332435339413539_DSC006023.jpg"
     },
     {
       "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638275731654726923user-4.png",
