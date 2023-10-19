@@ -1,6 +1,5 @@
-﻿@*
-    DevelopeR: Alimohammad Eghbaldar: https://eghbaldar.ir
-*@
+﻿@* DevelopeR: Alimohammad Eghbaldar: https://eghbaldar.ir *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @using alefbafilm6.Application.Services.Productions.Queries.GetProductions
 @model ResultGetProductionsServiceDto;
 @{
@@ -42,7 +41,7 @@
                                         <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
                                             <div class="btn-group btn-group-sm" style="float: none;">
                                                 <button onclick="ModalShow('@item.Description',
-'@item.Time','@item.ProductionDate','@item.PhotoBig','@item.PhotoSmall')"
+'@item.Time','@item.ProductionDate_Persian','@item.PhotoBig','@item.PhotoSmall')"
                                                     class="btn btn-icon waves-effect btn-secondary">
                                                     <i class="ti-receipt"></i>
                                                 </button>
@@ -52,7 +51,7 @@
                                     <td style="white-space: nowrap; width: 1%;">
                                         <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
                                             <div class="btn-group btn-group-sm" style="float: none;">
-                                                <button onclick="PreUpdate()"
+                                                <button onclick="PreUpdate('@item.Id','@item.Title','@item.Description','@item.CategoryName','@item.Genre','@item.Time','@item.ProductionDate')"
                                                     class="btn btn-icon waves-effect waves-light btn-success">
                                                     <i class="ti-pencil"></i>
                                                 </button>
@@ -81,7 +80,13 @@
 </div>
 
 @section Scripts{
-    <script>
+
+    @*Validation Js*@
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @*End*@
+
+    <script>    
         function ModalShow(description, time, productionDate, pBig, pSmall) {
             var ROOT = '@Url.Content("~/images/production/")';
             $('#IdModalShowPhotoBig').attr("src", ROOT + pBig);
@@ -93,9 +98,69 @@
             $('#IdModalShowTime').text(time);
             $('#myModalShow').modal('show');
         }
-        function PreUpdate() {
+        function PreUpdate(id, title, description, cat, genre, time, date) {
+
+            $('#txtEditIdProduct').val(id);
+            $('#txtEditName').val(title);
+            $('#txtEditDescription').val(description);
+            $('#txtEditTime').val(time);
+            $('#txtEditDate').val(moment(date.split(' ')[0]).format('YYYY-MM-DD'));
+
+            jQuery('[id^=EditCategorySelector] > option').each(function () { if (this.value.toLowerCase() == cat.toLowerCase()) { jQuery('[id^=EditCategorySelector]').val(this.value); } });
+            jQuery('[id^=EditGenreSelector] > option').each(function () { if (this.value.toLowerCase() == genre.toLowerCase()) { jQuery('[id^=EditGenreSelector]').val(this.value); } });
 
             $('#myModalUpdate').modal('show');
+        }
+        function UpdateProduct() {
+            if ($("#frmDataUpdate").valid()) {
+
+                var postData = {
+                    'Id': $('#txtEditIdProduct').val(),
+                    'Title': $('#txtEditName').val(),
+                    'Description': $('#txtEditDescription').val(),
+                    'CategoryName': $('#EditCategorySelector').val(),
+                    'Genre': $('#EditGenreSelector').val(),
+                    'Time': $('#txtEditTime').val(),
+                    'ProductionDate': $('#txtEditDate').val(),
+                };
+                
+                $.ajax({
+                    contentType: 'application/x-www-form-urlencoded',
+                    dataType: 'json',
+                    type: 'POST',
+                    data: postData,
+                    url: 'Update',
+                    success: function (data) {
+                        if (data.isSuccess) {
+                            Swal.fire({
+                                title: 'موفقیت!',
+                                text: data.message,
+                                icon: 'success',
+                                confirmButtonColor: 'green',
+                                confirmButtonText: 'متوجه شدم',
+                            }).then((result) => {
+                                if (result) {
+                                    location.reload();
+                                }
+                            });
+                        }
+                        else {
+                            Swal.fire({
+                                title: 'خطا!',
+                                text: data.message,
+                                icon: 'error',
+                                confirmButtonColor: 'red',
+                                confirmButtonText: 'متوجه شدم',
+                            }).then((result) => {
+                                //
+                            });
+                        }
+                    },
+                    error: function (request, status, error) {
+                        alert('err: ' + request.responseText);
+                    }
+                });
+            }
         }
     </script>
 }
@@ -132,7 +197,7 @@
                                         </div>
                                         <a id="IdModalShowPhotoBigLink" target="_blank" class="image-popup" title="اسکرین شات 1">
                                             <img id="IdModalShowPhotoBig"
-                                                class="thumb-img img-fluid" alt="تصویر ندارد">
+                                             class="thumb-img img-fluid" alt="تصویر ندارد">
                                         </a>
                                     </div>
                                 </div>
@@ -143,7 +208,7 @@
                                         </div>
                                         <a id="IdModalShowPhotoSmallLink" target="_blank" class="image-popup" title="اسکرین شات 2">
                                             <img id="IdModalShowPhotoSmall"
-                                                class="thumb-img img-fluid"
+                                             class="thumb-img img-fluid"
                                              alt="تصویر ندارد">
                                         </a>
 
@@ -155,9 +220,8 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
                         <button type="button"
-                            onclick="UpdateUser()"
                             class="btn btn-primary waves-effect waves-light">
-                            ذخیره تغییرات
+                            متوجه شدم
                         </button>
                     </div>
                 </div><!-- /.modal-content -->
@@ -167,62 +231,93 @@
     <!-- Modal - Update-->
     <div id="myModalUpdate" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form id="formdataUpdate" asp-action="UpdateUser" method="post">
+            <form id="frmDataUpdate" asp-action="UpdateUser" method="post">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">ویرایش کاربر</h4>
+                        <h4 class="modal-title" id="myModalLabel">ویرایش اثر</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <input type="hidden" id="txtEditIdUser" />
+                        <input type="hidden" id="txtEditIdProduct" />
 
                         <br />
-                        <input asp-for="Users[0].fullname"
-                           type="text"
+                        <input type="text"
+                           asp-for="updateProductionsServiceValidation.Title"
                            class="form-control"
-                           id="txtEditFullname" />
-                        <span asp-validation-for="Users[0].fullname"
-                          class="text-danger"
-                          data-valmsg-for="Users[0].fullname">
+                           id="txtEditName" />
+                        <span class="text-danger"
+                          asp-validation-for="updateProductionsServiceValidation.Title">
                         </span>
 
                         <br />
 
-                        <input name="Users[0].email"
-                           asp-for="Users[0].email"
-                           type="text"
-                           style="direction:ltr;"
+                        <input type="text"
                            class="form-control"
-                           placeholder="پست الکترونیکی معتبر"
-                           id="txtEditEmail" />
-                        <span asp-validation-for="Users[0].email"
-                          class="text-danger"
-                          data-valmsg-for="Users[0].email">
+                           asp-for="updateProductionsServiceValidation.Description"
+                           placeholder="توضیحات الزامی است"
+                           id="txtEditDescription" />
+                        <span class="text-danger"
+                          asp-validation-for="updateProductionsServiceValidation.Description">
                         </span>
-
-
 
                         <br />
-                        <input type="checkbox" onchange="changeCheckbox(this)" id="chkPassword" name="chkPassword">
-                        <label for="chkPassword"> پسورد نیز تغییر کند</label><br>
 
-                        <input name="Users[0].password"
-                           asp-for="Users[0].password"
-                           type="text"
-                           disabled="disabled"
-                           style="direction:ltr;"
-                           class="form-control"
-                           id="txtEditPassword" />
-                        <span asp-validation-for="Users[0].password"
-                          class="text-danger"
-                          data-valmsg-for="Users[0].password">
-                        </span>
+                        <div class="form-group row">
+                            <label class="col-sm-2  col-form-label">دسته:</label>
+                            <div class="col-sm-10">
+                                <select class="custom-select" id="EditCategorySelector" name="Name"
+                                    asp-items="@ViewBag.Category">
+                                </select>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group row">
+                            <label class="col-sm-2  col-form-label">
+                                ژانر:
+                            </label>
+
+                            <div class="col-sm-10">
+                                <select class="custom-select" id="EditGenreSelector" name="Name"
+                                    asp-items="@ViewBag.Genre">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2  col-form-label">
+                                زمان:
+                            </label>
+
+                            <div class="col-sm-10">
+                                <input class="form-control" type="time"
+                                   asp-for="updateProductionsServiceValidation.Time"
+                                   id="txtEditTime">
+                                <span class="text-danger"
+                                  asp-validation-for="updateProductionsServiceValidation.Time">
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2  col-form-label">
+                                تاریخ تولید:
+                            </label>
+
+                            <div class="col-sm-10">
+                                <input class="form-control" id="txtEditDate"
+                                   asp-for="updateProductionsServiceValidation.ProductionDate"
+                                   type="date">
+                                <span class="text-danger"
+                                  asp-validation-for="updateProductionsServiceValidation.ProductionDate">
+                                </span>
+                            </div>
+                        </div>
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
                         <button type="button"
-                            onclick="UpdateUser()"
+                            onclick="UpdateProduct()"
                             class="btn btn-primary waves-effect waves-light">
                             ذخیره تغییرات
                         </button>

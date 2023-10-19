@@ -1,5 +1,6 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
 using alefbafilm6.Application.Services.Productions.Commands.PostProduct;
+using alefbafilm6.Application.Services.Productions.Commands.UpdateProduct;
 using alefbafilm6.Application.Services.Productions.Queries.GetProductions;
 using alefbafilms.application.Interfaces.Contexts;
 using AutoMapper;
@@ -26,6 +27,12 @@ namespace alefbafilm6.Application.Services.Productions.FacadePattern
         public GetProductionsService GetProductionsService
         {
             get { return _getProductionsService = _getProductionsService ?? new GetProductionsService(_context, _mapper); }
+        }
+        ////////////////////// Update Productions
+        private UpdateProductService _updateProductService;
+        public UpdateProductService UpdateProductService
+        {
+            get { return _updateProductService = _updateProductService ?? new UpdateProductService(_context); }
         }
     }
 }

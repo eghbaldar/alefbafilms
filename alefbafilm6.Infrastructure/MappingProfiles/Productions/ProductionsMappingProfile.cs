@@ -16,7 +16,7 @@ namespace alefbafilm6.Infrastructure.MappingProfiles.Productions
         {
             CreateMap<Products, GetProductionsServiceDto>()
                 .ForMember(dest => dest.InsertTime, act => act.MapFrom(y => Convert(y.InsertTime.Date.ToString())))
-                .ForMember(dest => dest.ProductionDate, act => act.MapFrom(y => Convert(y.ProductionDate.Date.ToString())))
+                .ForMember(dest => dest.ProductionDate_Persian, act => act.MapFrom(y => Convert(y.ProductionDate.Date.ToString())))
                 .ReverseMap(); //this line must not be before "ForMember" at all.
         }
         private string Convert(string GregorianDate)

@@ -3,5 +3,7 @@
     public class ResultGetProductionsServiceDto
     {
         public List<GetProductionsServiceDto> resultGetProductionsServiceDto { get; set; }
+        public GetProductionsServiceDto updateProductionsServiceValidation { get; set; }
+
     }
 }

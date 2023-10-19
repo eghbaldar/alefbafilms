@@ -11,7 +11,9 @@ namespace alefbafilm6.Application.Services.Productions.Commands.PostProduct
         public string Description { get; set; }
         public string CategoryName { get; set; }
         public string Genre { get; set; }
-        public string? Time { get; set; }
+        [Required(ErrorMessage = "زمان اثر الزامی است")]
+        public string Time { get; set; }
+        [Required(ErrorMessage = "تاریخ تولید اثر الزامی است")]
         public DateTime ProductionDate { get; set; }
         [Required(ErrorMessage = "عکس بزرگ الزامی است")]
         public IFormFile PhotoBig { get; set; }

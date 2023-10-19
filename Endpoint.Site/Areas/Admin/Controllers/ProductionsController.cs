@@ -1,5 +1,6 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
 using alefbafilm6.Application.Services.Productions.Commands.PostProduct;
+using alefbafilm6.Application.Services.Productions.Commands.UpdateProduct;
 using alefbafilm6.Common.Constants;
 using alefbafilms.Common.Constants;
 using Microsoft.AspNetCore.Authorization;
@@ -19,6 +20,20 @@ namespace Endpoint.Site.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
+            ProductionsConstants productionsConstants = new ProductionsConstants();
+            List<SelectListItem> listCat = productionsConstants.Category().Select(u => new SelectListItem
+            {
+                Value = u.Id.ToString(),
+                Text = u.Name,
+            }).ToList();
+            List<SelectListItem> listGenre = productionsConstants.Genre().Select(u => new SelectListItem
+            {
+                Value = u.Id.ToString(),
+                Text = u.Name,
+            }).ToList();
+
+            ViewBag.Category = listCat;
+            ViewBag.Genre = listGenre;
             return View(_productionFacade.GetProductionsService.Execute());
         }
         [HttpGet]
@@ -61,6 +76,15 @@ namespace Endpoint.Site.Areas.Admin.Controllers
                 PhotoBig = BigPhoto,
                 PhotoSmall = SmallPhoto
             }));
+        }
+        [HttpPost]
+        public IActionResult Update(RequestUpdateProductServiceDto req)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return Json(_productionFacade.UpdateProductService.Execute(req));
         }
     }
 }
