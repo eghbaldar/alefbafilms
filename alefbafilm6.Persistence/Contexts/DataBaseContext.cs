@@ -77,6 +77,7 @@ namespace alefbafilms.Persistence.Contexts
             modelBuilder.Entity<Staff>().HasQueryFilter(x => x.DeleteTime == null);
             modelBuilder.Entity<Gallery>().HasQueryFilter(x=> x.DeleteTime == null);
             modelBuilder.Entity<Newsletter>().HasQueryFilter(x => x.DeleteTime== null);
+            modelBuilder.Entity<Products>().HasQueryFilter(x=>x.DeleteTime== null);
             //END
 
             // set default value for "IsCheck" property of "Contacts" entity with every insert into the databse

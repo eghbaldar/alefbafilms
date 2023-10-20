@@ -1,4 +1,5 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
+using alefbafilm6.Application.Services.Productions.Commands.DeleteProduct;
 using alefbafilm6.Application.Services.Productions.Commands.PostProduct;
 using alefbafilm6.Application.Services.Productions.Commands.UpdateProduct;
 using alefbafilm6.Application.Services.Productions.Queries.GetProductions;
@@ -34,5 +35,12 @@ namespace alefbafilm6.Application.Services.Productions.FacadePattern
         {
             get { return _updateProductService = _updateProductService ?? new UpdateProductService(_context); }
         }
+        ///////////////////// Delete Productions
+        private DeleteProductService _deleteProductService;
+        public DeleteProductService DeleteProductService
+        {
+            get { return _deleteProductService = _deleteProductService ?? new DeleteProductService(_context); }
+        }
+        /////////////////////
     }
 }

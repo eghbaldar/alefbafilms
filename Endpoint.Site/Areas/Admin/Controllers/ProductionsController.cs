@@ -1,4 +1,5 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
+using alefbafilm6.Application.Services.Productions.Commands.DeleteProduct;
 using alefbafilm6.Application.Services.Productions.Commands.PostProduct;
 using alefbafilm6.Application.Services.Productions.Commands.UpdateProduct;
 using alefbafilm6.Common.Constants;
@@ -85,6 +86,15 @@ namespace Endpoint.Site.Areas.Admin.Controllers
                 return BadRequest(ModelState);
             }
             return Json(_productionFacade.UpdateProductService.Execute(req));
+        }
+        [HttpPost]
+        public IActionResult Delete(RequestDeleteProductServiceDto req)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return Json(_productionFacade.DeleteProductService.Execute(req));
         }
     }
 }

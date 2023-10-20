@@ -63,7 +63,8 @@
                                     <td style="white-space: nowrap; width: 1%;">
                                         <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
                                             <div class="btn-group btn-group-sm" style="float: none;">
-                                                <button class="btn btn-icon waves-effect waves-light btn-danger">
+                                                <button onclick="DeleteProduct('@item.Id');"
+                                                    class="btn btn-icon waves-effect waves-light btn-danger">
                                                     <i class="ti-trash"></i>
                                                 </button>
                                             </div>
@@ -86,7 +87,7 @@
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     @*End*@
 
-    <script>    
+    <script>
         function ModalShow(description, time, productionDate, pBig, pSmall) {
             var ROOT = '@Url.Content("~/images/production/")';
             $('#IdModalShowPhotoBig').attr("src", ROOT + pBig);
@@ -123,7 +124,7 @@
                     'Time': $('#txtEditTime').val(),
                     'ProductionDate': $('#txtEditDate').val(),
                 };
-                
+
                 $.ajax({
                     contentType: 'application/x-www-form-urlencoded',
                     dataType: 'json',
@@ -161,6 +162,61 @@
                     }
                 });
             }
+        }
+        function DeleteProduct(id) {
+            Swal.fire({
+                title: 'حذف!',
+                text: 'آیا از حذف این اثر مطمئن هستید؟',    
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#000222',
+                cancelButtonColor: '#000222',
+                confirmButtonText: 'بله انجام شود',
+                cancelButtonText: 'خیر'
+            }).then((result) => {
+                if (result.value) {
+                    var postData = { 'Id': id };
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: 'POST',
+                        data: postData,
+                        url: 'Delete',
+                        success: function (data) {
+                            if (data.isSuccess) {
+                                Swal.fire({
+                                    title: 'موفقیت!',
+                                    text: data.message,
+                                    icon: 'success',
+                                    confirmButtonColor: 'green',
+                                    confirmButtonText: 'متوجه شدم',
+                                }).then((result) => {
+                                    if (result) {
+                                        location.reload();
+                                    }
+                                });
+                            }
+                            else {
+                                Swal.fire({
+                                    title: 'خطا!',
+                                    text: data.message,
+                                    icon: 'error',
+                                    confirmButtonColor: 'red',
+                                    confirmButtonText: 'متوجه شدم',
+                                }).then((result) => {
+                                    //
+                                });
+                            }
+                        },
+                        error: function (request, status, error) {
+                            alert('err: ' + request.responseText);
+                        }
+                    });
+                }
+                else {
+                    //
+                }
+            });
         }
     </script>
 }
