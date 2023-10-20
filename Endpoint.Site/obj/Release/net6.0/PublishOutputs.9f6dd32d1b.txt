@@ -4,6 +4,8 @@ D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\Endpoint.Site.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\Endpoint.Site.runtimeconfig.json
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\Endpoint.Site.pdb
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\AutoMapper.dll
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\FluentValidation.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\FluentValidation.AspNetCore.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\FluentValidation.DependencyInjectionExtensions.dll
@@ -229,9 +231,11 @@ D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\alefbafilm6.Application.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\alefbafilm6.Common.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\alefbafilm6.Domain.dll
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\alefbafilm6.Infrastructure.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\alefbafilm6.Persistence.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\alefbafilm6.Application.pdb
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\alefbafilm6.Common.pdb
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\alefbafilm6.Infrastructure.pdb
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\alefbafilm6.Persistence.pdb
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\alefbafilm6.Domain.pdb
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Release\net6.0\PubTmp\Out\Endpoint.Site.deps.json

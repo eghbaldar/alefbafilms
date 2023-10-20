@@ -2149,6 +2149,10 @@
       "PackagePath": "staticwebassets\\SiteTemplate\\imgs\\template\\404.png"
     },
     {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\SiteTemplate\\imgs\\template\\alefbaLogo.png",
+      "PackagePath": "staticwebassets\\SiteTemplate\\imgs\\template\\alefbaLogo.png"
+    },
+    {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\SiteTemplate\\imgs\\template\\chart.png",
       "PackagePath": "staticwebassets\\SiteTemplate\\imgs\\template\\chart.png"
     },
@@ -2159,6 +2163,10 @@
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\SiteTemplate\\imgs\\template\\favicon.svg",
       "PackagePath": "staticwebassets\\SiteTemplate\\imgs\\template\\favicon.svg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\SiteTemplate\\imgs\\template\\icon.ico",
+      "PackagePath": "staticwebassets\\SiteTemplate\\imgs\\template\\icon.ico"
     },
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\SiteTemplate\\imgs\\template\\icons\\Icon-gg-login.svg",
@@ -2467,6 +2475,14 @@
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\gallery\\638275735926581159زیر درخت توت.jpg",
       "PackagePath": "staticwebassets\\images\\gallery\\638275735926581159زیر درخت توت.jpg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638334024426545266_DSC006026.jpg",
+      "PackagePath": "staticwebassets\\images\\production\\638334024426545266_DSC006026.jpg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638334024426587550user-1.png",
+      "PackagePath": "staticwebassets\\images\\production\\638334024426587550user-1.png"
     },
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638275731654726923user-4.png",

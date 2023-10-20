@@ -227,7 +227,7 @@ namespace alefbafilm6.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", "dbo");
                 });
 
             modelBuilder.Entity("alefbafilm6.Domain.Entities.Staffs.Staff", b =>
@@ -296,25 +296,25 @@ namespace alefbafilm6.Persistence.Migrations
                         new
                         {
                             id = 1L,
-                            InsertTime = new DateTime(2023, 10, 16, 17, 8, 40, 281, DateTimeKind.Local).AddTicks(3823),
+                            InsertTime = new DateTime(2023, 10, 20, 19, 54, 18, 940, DateTimeKind.Local).AddTicks(4846),
                             name = "Admin"
                         },
                         new
                         {
                             id = 2L,
-                            InsertTime = new DateTime(2023, 10, 16, 17, 8, 40, 281, DateTimeKind.Local).AddTicks(3894),
+                            InsertTime = new DateTime(2023, 10, 20, 19, 54, 18, 940, DateTimeKind.Local).AddTicks(4878),
                             name = "Operator"
                         },
                         new
                         {
                             id = 3L,
-                            InsertTime = new DateTime(2023, 10, 16, 17, 8, 40, 281, DateTimeKind.Local).AddTicks(3915),
+                            InsertTime = new DateTime(2023, 10, 20, 19, 54, 18, 940, DateTimeKind.Local).AddTicks(4886),
                             name = "User"
                         },
                         new
                         {
                             id = 4L,
-                            InsertTime = new DateTime(2023, 10, 16, 17, 8, 40, 281, DateTimeKind.Local).AddTicks(3931),
+                            InsertTime = new DateTime(2023, 10, 20, 19, 54, 18, 940, DateTimeKind.Local).AddTicks(4893),
                             name = "Guest"
                         });
                 });

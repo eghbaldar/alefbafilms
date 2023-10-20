@@ -97,6 +97,7 @@ namespace alefbafilms.Persistence.Contexts
             modelBuilder.Entity<Staff>().ToTable("Staff", "dbo");
             modelBuilder.Entity<Contact>().ToTable("Contacts", "dbo");
             modelBuilder.Entity<Newsletter>().ToTable("Newsletters", "dbo");
+            modelBuilder.Entity<Products>().ToTable("Products", "dbo");
             //END
         }
         

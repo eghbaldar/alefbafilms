@@ -2149,6 +2149,10 @@
       "PackagePath": "staticwebassets\\SiteTemplate\\imgs\\template\\404.png"
     },
     {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\SiteTemplate\\imgs\\template\\alefbaLogo.png",
+      "PackagePath": "staticwebassets\\SiteTemplate\\imgs\\template\\alefbaLogo.png"
+    },
+    {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\SiteTemplate\\imgs\\template\\chart.png",
       "PackagePath": "staticwebassets\\SiteTemplate\\imgs\\template\\chart.png"
     },
@@ -2159,6 +2163,10 @@
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\SiteTemplate\\imgs\\template\\favicon.svg",
       "PackagePath": "staticwebassets\\SiteTemplate\\imgs\\template\\favicon.svg"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\SiteTemplate\\imgs\\template\\icon.ico",
+      "PackagePath": "staticwebassets\\SiteTemplate\\imgs\\template\\icon.ico"
     },
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\SiteTemplate\\imgs\\template\\icons\\Icon-gg-login.svg",
@@ -2485,16 +2493,16 @@
       "PackagePath": "staticwebassets\\images\\staff\\638275732399236065user-1.png"
     },
     {
-      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638298699055126356user-1.png",
-      "PackagePath": "staticwebassets\\images\\staff\\638298699055126356user-1.png"
-    },
-    {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638298742181396729user-2.png",
       "PackagePath": "staticwebassets\\images\\staff\\638298742181396729user-2.png"
     },
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638300456662840335user-3.png",
       "PackagePath": "staticwebassets\\images\\staff\\638300456662840335user-3.png"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638334356869424949photo_2023-10-20_21-42-02.jpg",
+      "PackagePath": "staticwebassets\\images\\staff\\638334356869424949photo_2023-10-20_21-42-02.jpg"
     },
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\js\\site.js",
