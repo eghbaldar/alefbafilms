@@ -16,23 +16,26 @@ namespace Endpoint.Site.Controllers
         private readonly IPagesFacade _pagesFacade;
         private readonly IContactFacade _contactFacade;
         private readonly INewsletterFacade _newsletterFacade;
+        private readonly IProductionFacade _productionFacade;
 
         public HomeController(
             IGalleryFacade galleryFacade,
             IStaffFacade staffFacade,
             IPagesFacade pagesFacade,
             IContactFacade contactFacade,
-            INewsletterFacade newsletterFacade)
+            INewsletterFacade newsletterFacade,
+            IProductionFacade productionFacade)
         {
             _galleryFacade = galleryFacade;
             _staffFacade = staffFacade;
             _pagesFacade = pagesFacade;
             _contactFacade = contactFacade;
             _newsletterFacade = newsletterFacade;
+            _productionFacade = productionFacade;
         }
         public IActionResult Index()
         {
-            return View();
+            return View(_productionFacade.GetProductionsService.Execute());
         }
         public IActionResult AboutUs()
         {
@@ -64,7 +67,7 @@ namespace Endpoint.Site.Controllers
         }
         public IActionResult Production()
         {
-            return View();
+            return View(_productionFacade.GetProductionsService.Execute());
         }
         public IActionResult Resume()
         {
