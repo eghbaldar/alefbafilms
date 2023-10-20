@@ -4,21 +4,43 @@
 @{
     ViewData["Title"] = "وب سایت رسمی شرکت فیلمسازی الفبا";
 }
+<script>
 
+</script>
+<style>
+    .wrapper {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,#F17C58, red, yellow , #27DBB1,#FFDC18, #FF3706);
+    background-size: 600% 100%;
+    animation: gradient 16s linear infinite;
+    animation-direction: alternate;
+}
+@@keyframes gradient {
+    0% {background-position: 0%}
+    100% {background-position: 100%}
+}
+</style>
 <main class="main">
-    <section class="section-box">
-        <div class="banner-hero banner-1">
+
+    <div class="wrapper"></div>
+
+
+    <section class="section-box bg ">
+        <div class="banner-hero banner-1 wrapper">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
-                        <h1 class="text-display-2">
-                            الفبا تولید کننده <span class="color-green-900">محتوای آموزشی</span> موزیکال کودکان
+                        <h1 class="text-display-2" style="color:white;">
+                            الفبا تولید کننده <span style="color:yellow;" >محتوای آموزشی</span> موزیکال کودکان
                         </h1>
                         <p class="text-body-lead-large color-gray-500 mt-40 pr-40">
                             تولید فیلم های کوتاه، استاپ موشن، کمیک موشن، انیمیشن و ...
                         </p>
                         <div class="mt-40">
-                            <a class="btn btn-black icon-arrow-right-white" href="~/home/aboutus">
+                            <a class="btn btn-black icon-arrow-right-black"
+                               style="background-color:yellow;color:black;"
+                            href="~/home/aboutus">
                                 درباره‌ی الفبا ...
                             </a><a class=" btn btn-link icon-arrow-right color-gray-900 text-heading-6"
                             href="~/home/production">تولیدات</a>
