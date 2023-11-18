@@ -156,8 +156,11 @@
         }
 
         function DeleteGalleryCategory(Id) {
+            var dataPost = {
+                'Id': Id,
+            };
             Swal.fire({
-                title: 'حذف ذسته!',
+                title: 'حذف دسته!',
                 text: 'از حذف این دسته مطمئن هستید؟',
                 icon: 'question',
                 showCancelButton: true,
@@ -167,16 +170,12 @@
                 cancelButtonText: 'خیر'
             }).then((result) => {
                 if (result.value) {
-                    var id = Id;
-                    var dataPost = {
-                        'Id': id,
-                    };
                     $.ajax({
                         contentType: 'application/x-www-form-urlencoded',
                         dataType: 'json',
-                        type: 'DELETE',
+                        type: 'POST',
                         data: dataPost,
-                        url: 'Delete',
+                        url: 'DeleteCat',
                         success: function (data) {
                             if (data.isSuccess) {
                                 Swal.fire({

@@ -10,11 +10,11 @@ namespace alefbafilm6.Application.Services.Gallery.Commands.DeleteGalleryCategor
         {
             _context = context;
         }
-        public ResultDto Execute(int Id)
+        public ResultDto Execute(RequestDeleteGalleryCategoryServiceDto req)
         {
             try
             {
-                var galleryCategory = _context.GalleryCategory.Find(Id);
+                var galleryCategory = _context.GalleryCategory.Find(req.Id);
                 if (galleryCategory == null)
                 {
                     return new ResultDto()

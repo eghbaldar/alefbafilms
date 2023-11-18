@@ -1,5 +1,6 @@
 ﻿using alefbafilm6.Application.Interfaces.FacadePattern;
 using alefbafilm6.Application.Services.Gallery;
+using alefbafilm6.Application.Services.Gallery.Commands.DeleteGalleryCategory;
 using alefbafilm6.Application.Services.Gallery.Commands.DeleteGalleryPhotos;
 using alefbafilm6.Application.Services.Gallery.Commands.PostGallery;
 using alefbafilm6.Application.Services.Gallery.Commands.PostGalleryCategory;
@@ -44,10 +45,13 @@ namespace Endpoint.Site.Areas.Admin.Controllers
                 }));
             }
         }
-        [HttpDelete]
-        public IActionResult Delete(int Id)
+        [HttpPost]
+        public IActionResult DeleteCat(RequestDeleteGalleryCategoryServiceDto req)
         {
-            return Json(_galleryFacade.DeleteGalleryCategoryService.Execute(Id));
+            return Json(_galleryFacade.DeleteGalleryCategoryService.Execute(new RequestDeleteGalleryCategoryServiceDto
+            {
+                Id= req.Id,
+            }));
         }
         [HttpPost]
         public IActionResult Update(int Id, string Name)

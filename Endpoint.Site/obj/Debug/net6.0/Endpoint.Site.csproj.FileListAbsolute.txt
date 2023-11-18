@@ -6,6 +6,8 @@ D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\En
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\Endpoint.Site.runtimeconfig.json
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\Endpoint.Site.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\Endpoint.Site.pdb
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\AutoMapper.dll
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\FluentValidation.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
@@ -232,9 +234,11 @@ D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\ru
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\alefbafilm6.Application.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\alefbafilm6.Common.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\alefbafilm6.Domain.dll
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\alefbafilm6.Infrastructure.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\alefbafilm6.Persistence.dll
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\alefbafilm6.Application.pdb
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\alefbafilm6.Common.pdb
+D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\alefbafilm6.Infrastructure.pdb
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\alefbafilm6.Persistence.pdb
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\alefbafilm6.Domain.pdb
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Debug\net6.0\Endpoint.Site.csproj.AssemblyReference.cache
@@ -262,7 +266,3 @@ D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Debug\net6.0\re
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Debug\net6.0\Endpoint.Site.pdb
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Debug\net6.0\Endpoint.Site.genruntimeconfig.cache
 D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\obj\Debug\net6.0\ref\Endpoint.Site.dll
-D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\AutoMapper.dll
-D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\alefbafilm6.Infrastructure.dll
-D:\_Developing_\Alefbafilm\Project\alefbafilm6\Endpoint.Site\bin\Debug\net6.0\alefbafilm6.Infrastructure.pdb

@@ -9,6 +9,6 @@ namespace alefbafilm6.Application.Services.Gallery.Commands.DeleteGalleryCategor
 {
     public interface IDeleteGalleryCategoryService
     {
-        ResultDto Execute(int Id);
+        ResultDto Execute(RequestDeleteGalleryCategoryServiceDto req);
     }
 }

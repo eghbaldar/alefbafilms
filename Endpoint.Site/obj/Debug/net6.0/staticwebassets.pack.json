@@ -2345,6 +2345,10 @@
       "PackagePath": "staticwebassets\\SiteTemplate\\imgs\\template\\img-newsletter.png"
     },
     {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\SiteTemplate\\imgs\\template\\img-newsletter2.png",
+      "PackagePath": "staticwebassets\\SiteTemplate\\imgs\\template\\img-newsletter2.png"
+    },
+    {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\SiteTemplate\\imgs\\template\\logo-white.svg",
       "PackagePath": "staticwebassets\\SiteTemplate\\imgs\\template\\logo-white.svg"
     },
@@ -2469,10 +2473,6 @@
       "PackagePath": "staticwebassets\\images\\gallery\\638275735385338390ماهی کوچولو.jpg"
     },
     {
-      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\gallery\\638275735699742873شهر خوب بچه ها.jpg",
-      "PackagePath": "staticwebassets\\images\\gallery\\638275735699742873شهر خوب بچه ها.jpg"
-    },
-    {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\gallery\\638275735926581159زیر درخت توت.jpg",
       "PackagePath": "staticwebassets\\images\\gallery\\638275735926581159زیر درخت توت.jpg"
     },
@@ -2483,6 +2483,14 @@
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638334024426587550user-1.png",
       "PackagePath": "staticwebassets\\images\\production\\638334024426587550user-1.png"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638359036340607830_DSC0060.JPG",
+      "PackagePath": "staticwebassets\\images\\production\\638359036340607830_DSC0060.JPG"
+    },
+    {
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638359037218406607_DSC0060.JPG",
+      "PackagePath": "staticwebassets\\images\\production\\638359037218406607_DSC0060.JPG"
     },
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638275731654726923user-4.png",
@@ -2501,8 +2509,8 @@
       "PackagePath": "staticwebassets\\images\\staff\\638300456662840335user-3.png"
     },
     {
-      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638334356869424949photo_2023-10-20_21-42-02.jpg",
-      "PackagePath": "staticwebassets\\images\\staff\\638334356869424949photo_2023-10-20_21-42-02.jpg"
+      "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638334368898772779photo_2023-10-20_21-41-59.jpg",
+      "PackagePath": "staticwebassets\\images\\staff\\638334368898772779photo_2023-10-20_21-41-59.jpg"
     },
     {
       "Id": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\js\\site.js",

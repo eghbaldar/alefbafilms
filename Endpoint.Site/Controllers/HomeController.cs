@@ -69,10 +69,6 @@ namespace Endpoint.Site.Controllers
         {
             return View(_productionFacade.GetProductionsService.Execute());
         }
-        public IActionResult Resume()
-        {
-            return View();
-        }
         public IActionResult Staff()
         {
             return View(_staffFacade.GetStaffService.Execute());

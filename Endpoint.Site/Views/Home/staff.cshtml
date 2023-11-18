@@ -23,28 +23,29 @@
                 <div class="swiper-container swiper-group-4 swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events swiper-container-rtl">
                     <div class="swiper-wrapper pb-70 pt-5" id="swiper-wrapper-d04cf94d637d3e73" aria-live="off" style="transform: translate3d(2632px, 0px, 0px); transition-duration: 0ms;">
 
-                        @foreach (var photo in Model._resultGetStaffServiceDto){
-                        <div class="swiper-slide"  
-                        data-swiper-slide-index="2"
+                        @foreach (var photo in Model._resultGetStaffServiceDto)
+                        {
+                            <div class="swiper-slide"
+                             data-swiper-slide-index="2"
                              role="group" aria-label="7 / 12" style="width: 250px; margin-left: 20px;">
                                 <div class="card-grid-style-3 bd-bg-10 hover-up"
-                                 style="border:0;width: 250px;
+                                 style="border:0;width: 100%;
 box-shadow: 1px 4px 26px -14px rgba(0,0,0,0.41);
 -webkit-box-shadow: 1px 4px 26px -14px rgba(0,0,0,0.41);
 -moz-box-shadow: 1px 4px 26px -14px rgba(0,0,0,0.41);
 -moz-border-radius: 15px; -webkit-border-radius: 15px; border-radius:15px;">
-                                <div class="grid-3-img">
+                                    <div class="grid-3-img">
                                         <img src="~/images/staff/@photo.File" alt="alefbafilm">
-                                </div>
-                                <h3 class="text-heading-6 mb-5 mt-20">@photo.Name</h3>
+                                    </div>
+                                    <h3 class="text-heading-6 mb-5 mt-20">@photo.Name</h3>
                                     <span class="text-body-small d-block">@photo.Title</span>
-                                <p class="text-body-text text-desc color-gray-500 mt-20">
+                                    <p class="text-body-text text-desc color-gray-500 mt-20">
                                         @photo.Detail
-                                </p>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
                         }
-                       
+
                     </div>
                     <div class="swiper-pagination swiper-pagination3"></div>
                     <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>

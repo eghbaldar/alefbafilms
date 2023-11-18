@@ -65,7 +65,7 @@ namespace Endpoint.Site.Areas.Admin.Controllers
                 return BadRequest(ModelState);
             }
             IFormFile BigPhoto = req.PhotoBig;
-            IFormFile SmallPhoto = req.PhotoSmall;
+            //IFormFile SmallPhoto = req.PhotoSmall;
             return Json(_productionFacade.PostProductService.Execute(new RequestPostProductServiceDto
             {
                 Title = req.Title,
@@ -75,7 +75,7 @@ namespace Endpoint.Site.Areas.Admin.Controllers
                 ProductionDate = req.ProductionDate,
                 Time = req.Time,
                 PhotoBig = BigPhoto,
-                PhotoSmall = SmallPhoto
+                //PhotoSmall = SmallPhoto
             }));
         }
         [HttpPost]

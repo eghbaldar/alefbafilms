@@ -27,7 +27,7 @@ namespace alefbafilm6.Application.Services.Productions.Commands.PostProduct
                 Time= req.Time,                
                 ProductionDate= req.ProductionDate,
                 PhotoBig= UploadFile(req.PhotoBig).FileName,
-                PhotoSmall= UploadFile(req.PhotoSmall).FileName
+                PhotoSmall="" //UploadFile(req.PhotoSmall).FileName
             };
             _context.Products.Add(products);
             _context.SaveChanges();

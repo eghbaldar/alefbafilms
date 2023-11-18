@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oGd5xT/OLGsIONgJTq1yN6dmaoWAchjLXwtknlKc4QY=",
+  "Hash": "TBJyJep6xjPbNIR2SM5/5HIl/Epj1PJrIg0OkgUX1dU=",
   "Source": "Endpoint.Site",
   "BasePath": "_content/Endpoint.Site",
   "Mode": "Default",
@@ -5423,23 +5423,6 @@
       "OriginalItemSpec": "wwwroot\\images\\gallery\\638275735385338390ماهی کوچولو.jpg"
     },
     {
-      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\gallery\\638275735699742873شهر خوب بچه ها.jpg",
-      "SourceId": "Endpoint.Site",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
-      "BasePath": "_content/Endpoint.Site",
-      "RelativePath": "images/gallery/638275735699742873شهر خوب بچه ها.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\gallery\\638275735699742873شهر خوب بچه ها.jpg"
-    },
-    {
       "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\gallery\\638275735926581159زیر درخت توت.jpg",
       "SourceId": "Endpoint.Site",
       "SourceType": "Discovered",
@@ -5491,6 +5474,40 @@
       "OriginalItemSpec": "wwwroot\\images\\production\\638334024426587550user-1.png"
     },
     {
+      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638359036340607830_DSC0060.JPG",
+      "SourceId": "Endpoint.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
+      "BasePath": "_content/Endpoint.Site",
+      "RelativePath": "images/production/638359036340607830_DSC0060.JPG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\production\\638359036340607830_DSC0060.JPG"
+    },
+    {
+      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\production\\638359037218406607_DSC0060.JPG",
+      "SourceId": "Endpoint.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
+      "BasePath": "_content/Endpoint.Site",
+      "RelativePath": "images/production/638359037218406607_DSC0060.JPG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\production\\638359037218406607_DSC0060.JPG"
+    },
+    {
       "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638275731654726923user-4.png",
       "SourceId": "Endpoint.Site",
       "SourceType": "Discovered",
@@ -5525,23 +5542,6 @@
       "OriginalItemSpec": "wwwroot\\images\\staff\\638275732399236065user-1.png"
     },
     {
-      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638298699055126356user-1.png",
-      "SourceId": "Endpoint.Site",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
-      "BasePath": "_content/Endpoint.Site",
-      "RelativePath": "images/staff/638298699055126356user-1.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\staff\\638298699055126356user-1.png"
-    },
-    {
       "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638298742181396729user-2.png",
       "SourceId": "Endpoint.Site",
       "SourceType": "Discovered",
@@ -5574,6 +5574,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\staff\\638300456662840335user-3.png"
+    },
+    {
+      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\images\\staff\\638334368898772779photo_2023-10-20_21-41-59.jpg",
+      "SourceId": "Endpoint.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
+      "BasePath": "_content/Endpoint.Site",
+      "RelativePath": "images/staff/638334368898772779photo_2023-10-20_21-41-59.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\staff\\638334368898772779photo_2023-10-20_21-41-59.jpg"
     },
     {
       "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\js\\site.js",
@@ -11184,6 +11201,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\SiteTemplate\\imgs\\template\\img-newsletter.png"
+    },
+    {
+      "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\SiteTemplate\\imgs\\template\\img-newsletter2.png",
+      "SourceId": "Endpoint.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\",
+      "BasePath": "_content/Endpoint.Site",
+      "RelativePath": "SiteTemplate/imgs/template/img-newsletter2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\SiteTemplate\\imgs\\template\\img-newsletter2.png"
     },
     {
       "Identity": "D:\\_Developing_\\Alefbafilm\\Project\\alefbafilm6\\Endpoint.Site\\wwwroot\\SiteTemplate\\imgs\\template\\logo.svg",

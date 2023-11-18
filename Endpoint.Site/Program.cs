@@ -43,8 +43,8 @@ builder.Services.AddScoped<IProductionFacade,ProductionFacade>();
 // Mapping
 builder.Services.AddAutoMapper(typeof(ProductionsMappingProfile));
 
-// ASN // Add SQL SERVICE Provider services
-var connStr = builder.Configuration.GetConnectionString("LocalServer"); // Get connectionstring value directly from "appsetting.json" file
+// ASN // Add SQL SERVICE Provider services //RemoteServer //LocalServer
+var connStr = builder.Configuration.GetConnectionString("RemoteServer"); // Get connectionstring value directly from "appsetting.json" file
 builder.Services.AddEntityFrameworkSqlServer().AddDbContext<DataBaseContext>(option => option.UseSqlServer(connStr));
 
 // ASN // Add Authentication & Auhortization

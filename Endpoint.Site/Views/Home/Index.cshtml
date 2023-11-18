@@ -26,7 +26,8 @@
     <div class="wrapper"></div>
 
 
-    <section class="section-box bg ">
+
+    <section class="section-box bg">
         <div class="banner-hero banner-1 wrapper">
             <div class="container">
                 <div class="row">
@@ -46,15 +47,21 @@
                             href="~/home/production">تولیدات</a>
                         </div>
                     </div>
-                    <div class="col-lg-5 d-none d-lg-block">
+                    <div class="col-lg-5 d-none d-lg-block">                        
                         <div class="banner-imgs">
 @*                            <div class="video-block shape-1"><a class="popup-youtube btn-play-video" href="javascript:if(confirm('https://www.youtube.com/watch?v=oRI37cOPBQQ\n\nاین فایل بازیابی نشد زیرا توسط تنظیمات پروژه شما فیلتر شده بود.\n\nآیا می‌خواهید آن را از سرور باز کنید؟'))window.location='https://www.youtube.com/watch?v=oRI37cOPBQQ'"></a><span class="text-heading-4">تماشای ویدئو اینترو</span></div>*@
-                            <img class="img-responsive shape-2" alt="alefbafilm" src="~/SiteTemplate/imgs/page/homepage1/banner.png">
+                            <img class="img-responsive shape-2" alt="alefbafilm" src="~/SiteTemplate/imgs/page/homepage1/banner.png">                            
                         </div>
                     </div>
+                                            
                 </div>
+               
+            </div>
+            <div class="mobile">
+                <img class="img" alt="alefbafilm" src="~/SiteTemplate/imgs/page/homepage1/banner.png">
             </div>
         </div>
+
     </section>
     <section class="section-box">
         @foreach (var item in Model.resultGetProductionsServiceDto)
@@ -99,10 +106,10 @@
                         <div class="inner-image">
                             <img class="bdrd-16 img-responsive"
                              src="~/images/production/@item.PhotoBig" alt="alefbafilm">
-                            <div class="block-image-bottom">
+                           @* <div class="block-image-bottom">
                                 <img class="bdrd-16 img-responsive"
                                  src="~/images/production/@item.PhotoSmall" alt="alefbafilm">
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                 </div>
