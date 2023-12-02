@@ -9121,6 +9121,15 @@ input.qty-val {
 .mobile {
     display: none;
 }
+.IndexTitle_Alefba {
+    font-size: 100px;
+}
+.IndexTitle_Mohtava {
+    color: #26257B;
+}
+.IndexTitle_Mozikal {
+    color: #1716a6;
+}
 @media screen and (max-width: 800px) {
     .mobile {
         display: flex;
@@ -9128,10 +9137,25 @@ input.qty-val {
         height: 100%;
         bottom:0;
     }
-    .mobile img{
-        width:100%;
-        height:100%;
-        opacity:0.5;
-        border-bottom:20px dashed yellow;
+        .mobile img {
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            border-bottom: 20px dashed #26257B;
+        }
+    .IndexTitle_Alefba {
+        font-size: 80px;
+    }
+    .IndexTitles{
+        text-align:center;
+    }
+    .IndexTitles h1 {
+        line-height: 1.2 !important;
+    }
+    .IndexTitle_Mohtava {
+        font-size:45px;
+    }
+    .IndexTitle_Mozikal {
+        font-size: 45px;
     }
 }

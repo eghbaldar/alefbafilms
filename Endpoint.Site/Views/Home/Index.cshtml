@@ -7,7 +7,7 @@
 <script>
 
 </script>
-<style>
+@*<style>
     .wrapper {
     width: 100%;
     height: 100%;
@@ -20,7 +20,7 @@
     0% {background-position: 0%}
     100% {background-position: 100%}
 }
-</style>
+</style>*@
 <main class="main">
 
     <div class="wrapper"></div>
@@ -32,30 +32,36 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
-                        <h1 class="text-display-2" style="color:white;">
-                            الفبا تولید کننده <span style="color:yellow;" >محتوای آموزشی</span> موزیکال کودکان
-                        </h1>
-                        <p class="text-body-lead-large color-gray-500 mt-40 pr-40">
-                            تولید فیلم های کوتاه، استاپ موشن، کمیک موشن، انیمیشن و ...
-                        </p>
-                        <div class="mt-40">
-                            <a class="btn btn-black icon-arrow-right-black"
-                               style="background-color:yellow;color:black;"
-                            href="~/home/aboutus">
-                                درباره‌ی الفبا ...
-                            </a><a class=" btn btn-link icon-arrow-right color-gray-900 text-heading-6"
-                            href="~/home/production">تولیدات</a>
+                        <div class="IndexTitles">
+                            <h1 class="text-display-2" style="color:#32317d;font-size:52px;">
+                                <span class="IndexTitle_Alefba">
+                                    الفبا
+                                </span> تولید کننده
+                                <span class="IndexTitle_Mohtava">محتوای آموزشی</span>
+                                <span class="IndexTitle_Mozikal">موزیکال کودکان</span>
+                            </h1>
+                            <p class="text-body-lead-large color-gray-500 mt-40 pr-40">
+                                تولید فیلم های کوتاه، استاپ موشن، کمیک موشن، انیمیشن و ...
+                            </p>
+                            <div class="mt-40">
+                                <a class="btn btn-black icon-arrow-right-black"
+                                   style="background-color:#26257B;color:white;"
+                                   href="~/home/aboutus">
+                                    درباره‌ی الفبا ...
+                                </a><a class=" btn btn-link icon-arrow-right color-gray-900 text-heading-6"
+                                       href="~/home/production">تولیدات</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 d-none d-lg-block">                        
+                    <div class="col-lg-5 d-none d-lg-block">
                         <div class="banner-imgs">
-@*                            <div class="video-block shape-1"><a class="popup-youtube btn-play-video" href="javascript:if(confirm('https://www.youtube.com/watch?v=oRI37cOPBQQ\n\nاین فایل بازیابی نشد زیرا توسط تنظیمات پروژه شما فیلتر شده بود.\n\nآیا می‌خواهید آن را از سرور باز کنید؟'))window.location='https://www.youtube.com/watch?v=oRI37cOPBQQ'"></a><span class="text-heading-4">تماشای ویدئو اینترو</span></div>*@
-                            <img class="img-responsive shape-2" alt="alefbafilm" src="~/SiteTemplate/imgs/page/homepage1/banner.png">                            
+                            @*                            <div class="video-block shape-1"><a class="popup-youtube btn-play-video" href="javascript:if(confirm('https://www.youtube.com/watch?v=oRI37cOPBQQ\n\nاین فایل بازیابی نشد زیرا توسط تنظیمات پروژه شما فیلتر شده بود.\n\nآیا می‌خواهید آن را از سرور باز کنید؟'))window.location='https://www.youtube.com/watch?v=oRI37cOPBQQ'"></a><span class="text-heading-4">تماشای ویدئو اینترو</span></div>*@
+                            <img class="img-responsive shape-2" alt="alefbafilm" src="~/SiteTemplate/imgs/page/homepage1/banner.png">
                         </div>
                     </div>
-                                            
+
                 </div>
-               
+
             </div>
             <div class="mobile">
                 <img class="img" alt="alefbafilm" src="~/SiteTemplate/imgs/page/homepage1/banner.png">
@@ -63,6 +69,21 @@
         </div>
 
     </section>
+
+    <section class="section-box bg" style="text-align:center;padding:10px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <video width="100%" controls autoplay style=" border-radius: 10px;">
+                        <source src="https://alefbafilm.ir/UploadedFiles/tizer.mp4" type="video/mp4">
+                        <source src="https://alefbafilm.ir/UploadedFiles/tizer.omg" type="video/ogg">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section-box">
         @foreach (var item in Model.resultGetProductionsServiceDto)
         {
@@ -106,10 +127,10 @@
                         <div class="inner-image">
                             <img class="bdrd-16 img-responsive"
                              src="~/images/production/@item.PhotoBig" alt="alefbafilm">
-                           @* <div class="block-image-bottom">
-                                <img class="bdrd-16 img-responsive"
-                                 src="~/images/production/@item.PhotoSmall" alt="alefbafilm">
-                            </div>*@
+                            @* <div class="block-image-bottom">
+                        <img class="bdrd-16 img-responsive"
+                        src="~/images/production/@item.PhotoSmall" alt="alefbafilm">
+                        </div>*@
                         </div>
                     </div>
                 </div>
